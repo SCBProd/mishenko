@@ -3,7 +3,7 @@ const pages=['museum','exhibition','cinema'];
 for(const slug of pages){
  const h=fs.readFileSync('dist/'+slug+'.html','utf8');
  for(const m of h.matchAll(/(?:href|src)="([^"#]+)"/g)){
-  if(!m[1].startsWith('http')&&!fs.existsSync('dist/'+m[1]))throw Error('Missing '+m[1]);
+  if(!m[1].startsWith('http')&&!fs.existsSync('dist/'+m[1].split(/[?#]/)[0]))throw Error('Missing '+m[1]);
  }
  if(!h.includes('data-concept="'+slug+'"'))throw Error('Wrong concept');
  if(h.includes('\ufffd'))throw Error('Invalid encoding');
