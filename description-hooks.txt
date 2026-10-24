@@ -1,0 +1,10 @@
+
+(()=>{
+const localized=window.artworkDescriptions[document.documentElement.lang]||window.artworkDescriptions.en;
+const escapeText=value=>value.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const previousCard=card;
+card=function(work,index){const markup=previousCard(work,index);return localized[work.id]?markup.replace('</figure>','<p class="artwork-description">'+escapeText(localized[work.id])+'</p></figure>'):markup};
+const previousViewer=updateViewer;
+updateViewer=function(){previousViewer();const work=viewSet[current];const viewer=document.getElementById('viewer');let paragraph=viewer.querySelector('.painting-description');if(paragraph)paragraph.remove();if(localized[work.id]){paragraph=document.createElement('p');paragraph.className='artwork-description painting-description';paragraph.textContent=localized[work.id];viewer.append(paragraph)}if(work.category==='painting')document.getElementById('original').hidden=false};
+})();
+

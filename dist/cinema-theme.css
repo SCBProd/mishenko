@@ -1,0 +1,76 @@
+/* Neutral dark and milk palettes for the selected cinematic concept. */
+body[data-concept="cinema"]{--bg:#191919;--panel:#222222;--ink:#eeeae2;--muted:#b3afa7;--line:#44433f;--accent:#e3d8c2;color-scheme:dark}
+html[data-theme="light"] body[data-concept="cinema"]{--bg:#f2eee6;--panel:#e6e0d6;--ink:#252420;--muted:#666158;--line:#c6bfb2;--accent:#574b36;color-scheme:light}
+.cinema-intro{background:var(--bg);height:calc(100svh - 145px);min-height:530px;max-height:850px;border-bottom:1px solid var(--line)}
+.cinema-intro:after{display:none}
+.cinema-copy{top:auto;bottom:14%;right:6%}
+.cinema-copy h1{font-size:clamp(50px,8vw,128px);max-width:100%;overflow-wrap:break-word}
+.cinema-copy p{color:var(--muted)}
+.cinema-copy .outline-link{border-color:var(--line)}
+body[data-concept="cinema"] .contact{background:var(--panel);color:var(--ink)}
+body[data-concept="cinema"] .contact .eyebrow,body[data-concept="cinema"] .pending{color:var(--muted)}
+.compare{background:var(--panel);color:var(--muted);border-bottom:1px solid var(--line)}
+#show-compare{background:var(--panel);color:var(--ink);border:1px solid var(--line)}
+.preferences{display:flex;align-items:center;gap:12px;margin-left:auto;order:3}
+.site-header{gap:24px}.site-header nav{margin-left:auto}
+#theme-toggle,.language-label select{background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:0;min-height:40px;font:11px Arial,Helvetica,sans-serif}
+#theme-toggle{display:flex;align-items:center;gap:9px;padding:8px 12px;min-width:85px;justify-content:center}
+#theme-toggle>span:first-child{font-size:19px;line-height:1}
+.language-label select{cursor:pointer;padding:8px 25px 8px 10px;max-width:132px}
+select:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+html[data-theme="light"] .mark img{filter:grayscale(1);mix-blend-mode:multiply}
+.about-image>span{color:#eeeae2;background:linear-gradient(transparent,#191919eb)}
+.contact h2{font-size:clamp(42px,6.5vw,100px);padding-right:8%;overflow-wrap:break-word}
+.cinema-statement p{font-size:clamp(24px,3.35vw,53px)}
+/* Shared prose alignment also covers future collection descriptions. */
+body[data-concept="cinema"] main p:not(.eyebrow):not(.project-hint){text-align:left;text-align-last:auto;word-spacing:normal;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+@media(max-width:1100px){.site-header{flex-wrap:wrap;gap:16px}.site-header nav{order:4;width:100%;justify-content:flex-end}.preferences{margin-left:auto}.cinema-copy h1{font-size:8vw}}
+@media(max-width:650px){.site-header{gap:10px;padding:15px 5%}.identity{font-size:9px;gap:10px;letter-spacing:1px}.preferences{order:2;gap:7px}#menu-toggle{order:3;padding:8px 2px;font-size:10px}#menu-toggle span{margin-left:3px}.theme-label{display:none}#theme-toggle{min-width:36px;width:36px;padding:8px}.language-label select{max-width:102px;font-size:10px;padding-left:7px;padding-right:14px}.site-header #main-nav{order:4;justify-content:space-between;margin:0;font-size:10px}.cinema-intro{height:70svh;min-height:470px;max-height:650px}.cinema-copy{bottom:15%}.cinema-copy h1{font-size:10vw;letter-spacing:-1.5px}.cinema-statement p{font-size:clamp(21px,5.6vw,35px)}.contact h2{font-size:10vw}.compare{gap:10px}.about-links{flex-wrap:wrap;gap:12px}.filters{gap:16px}.filters button{font-size:10px}.site-footer{flex-wrap:wrap}}
+@media(max-width:380px){.identity .mark{display:block}.preferences{gap:5px}.site-header{gap:8px}.language-label select{max-width:95px}.compare>div{gap:13px}}
+/* Larger signature, with a dedicated row for mobile preferences. */
+body[data-concept="cinema"] .site-header{padding-left:6%}
+body[data-concept="cinema"] .identity{font-size:13px;gap:17px;flex-shrink:0}
+body[data-concept="cinema"] .identity .mark{display:block;width:44px;height:44px;flex-shrink:0}
+@media(max-width:650px){
+ html{scroll-padding-top:170px}
+ body[data-concept="cinema"] .site-header{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 16px;padding:16px 6%}
+ body[data-concept="cinema"] .identity{grid-column:1;grid-row:1;font-size:12px;gap:13px;letter-spacing:1.2px}
+ body[data-concept="cinema"] .identity .mark{width:36px;height:36px}
+ .site-header #menu-toggle{grid-column:2;grid-row:1;min-width:44px;min-height:44px;font-size:11px}
+ .site-header .preferences{grid-column:1/-1;grid-row:2;justify-self:end;margin:0;gap:10px}
+ .site-header #theme-toggle{width:44px;min-height:44px}
+ .site-header .language-label select{min-height:44px;max-width:140px;font-size:11px;padding:8px 26px 8px 12px}
+ .site-header #main-nav{grid-column:1/-1;grid-row:3;flex-wrap:wrap;gap:12px 18px;font-size:11px}
+}
+
+/* Mobile navigation: aligned full-width rows instead of wrapped inline links. */
+@media(max-width:650px){
+ body[data-concept="cinema"] .site-header{max-height:100dvh;overflow-y:auto;overscroll-behavior:contain}
+ .site-header #main-nav{display:none;padding:8px 0 0;gap:0;width:100%;min-width:0}
+ .site-header #main-nav.open{display:grid;grid-template-columns:minmax(0,1fr)}
+ .site-header #main-nav a{display:flex;align-items:center;min-height:48px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.4;text-align:left;letter-spacing:0}
+ .site-header #main-nav a:last-child{border-bottom:0}
+ .site-header #menu-toggle span{display:inline-block;transition:transform .2s}
+ .site-header #menu-toggle[aria-expanded="true"] span{transform:rotate(45deg)}
+ #works>.section-heading{display:flex;flex-direction:row;align-items:flex-end;gap:10px}
+ #works>.section-heading h2{font-size:clamp(22px,5.4vw,35px)}
+ #works>.section-heading>p{order:-1;max-width:none;white-space:nowrap;font-size:clamp(8px,2.1vw,10px);flex-shrink:0}
+ #works .filter-bar{display:block;min-width:0}
+ #works .filters{display:flex;flex-wrap:nowrap;gap:18px;overflow-x:auto;scrollbar-width:thin}
+ #works .filters button{flex:0 0 auto;white-space:nowrap;min-height:48px;text-align:left;font-size:10px;padding:16px 0}
+ #works .filters span{margin-left:4px}
+}
+
+body[data-concept="cinema"] .about-image img.artist-portrait{height:auto;width:100%;object-fit:contain;aspect-ratio:auto}
+
+/* Mobile headings: preserve whole words and desktop reading order. */
+@media(max-width:650px){
+ body[data-concept="cinema"] #works>.section-heading{align-items:flex-end;justify-content:space-between;gap:12px}
+ body[data-concept="cinema"] #works>.section-heading>div{min-width:0;flex:1}
+ body[data-concept="cinema"] #works>.section-heading h2{font-size:clamp(22px,5.8vw,35px);white-space:nowrap;letter-spacing:-.8px}
+ body[data-concept="cinema"] #works>.section-heading>p{order:0;flex:0 0 auto;white-space:nowrap;font-size:clamp(8px,2vw,10px);hyphens:none}
+ body[data-concept="cinema"] .tableware-section .section-heading{display:block}
+ body[data-concept="cinema"] .tableware-section .section-heading h2{font-size:clamp(24px,6.5vw,36px);overflow-wrap:normal;word-break:normal;hyphens:none;letter-spacing:-.6px;line-height:1.12}
+ body[data-concept="cinema"] .tableware-section .section-heading>p{max-width:none;margin-top:16px}
+}
