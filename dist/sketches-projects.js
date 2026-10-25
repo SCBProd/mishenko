@@ -13,7 +13,7 @@ const names={
 '019':['Вариации чайного сервиза','Варіації чайного сервізу','Tea Set Variations'],
 '023':['Орнаментальные ритмы','Орнаментальні ритми','Ornamental Rhythms'],
 '024':['Геометрия цвета','Геометрія кольору','Geometry of Colour'],
-'025':['Птицы и рыбы','Птахи й риби','Birds and Fish'],
+
 '028':['Птицы среди узоров','Птахи серед візерунків','Birds Among Patterns'],
 '029':['Птица в цветущем саду','Птах у квітучому саду','Bird in a Flowering Garden'],
 '030':['Цветение и движение','Цвітіння й рух','Bloom and Motion'],
@@ -22,32 +22,38 @@ const names={
 '032':['Листья и фактуры','Листя й фактури','Leaves and Textures'],
 '033':['Сад у воды','Сад біля води','Garden by the Water'],
 '049':['Ботанические орнаменты','Ботанічні орнаменти','Botanical Ornaments'],
-'botanical':['Венок из листьев','Вінок із листя','Wreath of Leaves'],
+
 '041':['Сад в круге','Сад у колі','Garden in a Circle'],
-'042':['Сосуды-сады','Посудини-сади','Garden Vessels']};
+'042':['Сосуды-сады','Посудини-сади','Garden Vessels'],
+'040':['Подсолнух над рекой','Соняшник над рікою','Sunflower Above the River'],
+'058':['Рогатые силуэты','Рогаті силуети','Antlered Silhouettes'],
+'059':['Лесные характеры','Лісові характери','Forest Characters'],
+'060':['Между сосудом и зверем','Між посудиною і звіром','Between Vessel and Creature']};
 const groups=[
-{title:['Линия и силуэт','Лінія й силует','Line and Silhouette'],files:['001','0065']},
-{title:['Ветви. Поиск сервиза','Гілки. Пошук сервізу','Branches. Tableware Studies'],files:['015','016','017','018','019']},
+{title:['Линия и силуэт','Лінія й силует','Line and Silhouette'],files:['0065','001']},
+{title:['Ветви. Поиск сервиза','Гілки. Пошук сервізу','Branches. Tableware Studies'],files:['018','015','016','017','019']},
 {title:['Геометрия орнамента','Геометрія орнаменту','Geometry of Ornament'],files:['023','024']},
-{title:['Птицы, цветы и движение','Птахи, квіти й рух','Birds, Flowers and Motion'],files:['025','028','029','030','031','050']},
-{title:['Листья и сады','Листя й сади','Leaves and Gardens'],files:['032','033','049','botanical']},
-{title:['Сад внутри формы','Сад усередині форми','A Garden Within a Form'],files:['041','042']}];
-const src=file=>'assets/sketches-projects/retouched/'+file+'.png';
-for(const group of groups)for(const file of group.files)works.push({id:'sketch-'+file,category:'sketches',title:names[file][l],meta:'',alt:names[file][l]});
+{title:['Птицы, цветы и движение','Птахи, квіти й рух','Birds, Flowers and Motion'],files:['030','031','029','028']},
+{title:['Листья и сады','Листя й сади','Leaves and Gardens'],files:['033','032','049']},
+{title:['Сад внутри формы','Сад усередині форми','A Garden Within a Form'],files:['042','041','040']},
+{title:['Птицы на ветвях','Птахи на гілках','Birds on Branches'],files:['050']},
+{title:['Пластика леса','Пластика лісу','Forms of the Forest'],files:['058','059','060']}];
+const src=file=>'assets/sketches-projects/paper-v3/'+file+'.png';
+for(const group of groups)for(const file of group.files)works.push({id:'sketch-'+file,category:'sketches',title:names[file][l],meta:'2017–2021',alt:names[file][l]});
 const oldImage=imageMarkup;
 imageMarkup=function(id,original=false){if(!id.startsWith('sketch-'))return oldImage(id,original);const file=id.slice(7);return '<span class="art-window sketch-window"><img src="'+src(file)+'" alt="'+names[file][l]+'" loading="lazy" decoding="async"></span>'};
 const el=(tag,cls,txt)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(txt)n.textContent=txt;return n};
 const indexes=new Map();
 function carousel(group){
  let index=indexes.get(group)||0;
- const section=el('section','sketch-series');section.setAttribute('aria-label',group.title[l]);section.append(el('h3','sketch-series-title',group.title[l]));
+ const section=el('section','sketch-series');section.setAttribute('aria-label',group.title[l]);section.append(el('h3','sketch-series-title',group.title[l]),el('p','sketch-period','2017–2021'));
  const region=el('div','project-carousel');region.setAttribute('role','region');region.setAttribute('aria-label',group.title[l]);
  const stage=el('div','project-stage');stage.tabIndex=0;
  const imageButton=el('button','project-image');imageButton.type='button';imageButton.setAttribute('aria-label',text[4]);const image=el('img');image.loading='lazy';image.decoding='async';image.draggable=false;imageButton.append(image);
  const action=(label,txt,cls,fn)=>{const b=el('button',cls,txt);b.type='button';b.setAttribute('aria-label',label);b.onclick=fn;return b};
  stage.append(imageButton,action(text[2],'←','project-arrow project-prev',()=>set(index-1)),action(text[3],'→','project-arrow project-next',()=>set(index+1)));region.append(stage);
  const caption=el('div','project-caption');const name=el('span','sketch-caption');name.setAttribute('aria-live','polite');const counter=el('span','project-counter');caption.append(name,counter);region.append(caption);
- const thumbs=el('div','project-thumbnails');thumbs.setAttribute('role','group');thumbs.setAttribute('aria-label',group.title[l]);const buttons=group.files.map((file,i)=>{const b=action(names[file][l],'','',()=>set(i));const img=el('img');img.src=src(file);img.alt='';img.loading='lazy';b.append(img);thumbs.append(b);return b});region.append(thumbs);section.append(region);
+ const thumbs=el('div','project-thumbnails');thumbs.setAttribute('role','group');thumbs.setAttribute('aria-label',group.title[l]);const buttons=group.files.map((file,i)=>{const b=action(names[file][l],'','',()=>set(i));const img=el('img');img.src=src(file);img.alt='';img.loading='lazy';b.append(img);thumbs.append(b);return b});if(group.files.length>1)region.append(thumbs);else{stage.children[1].hidden=true;stage.children[2].hidden=true;counter.hidden=true}section.append(region);
  function set(n){index=(n+group.files.length)%group.files.length;indexes.set(group,index);const file=group.files[index];image.src=src(file);image.alt=names[file][l];name.textContent=names[file][l];counter.textContent=String(index+1).padStart(2,'0')+' / '+String(group.files.length).padStart(2,'0');buttons.forEach((b,i)=>{b.setAttribute('aria-pressed',String(i===index));b.classList.toggle('selected',i===index)})}
  let start=null,swiped=false;
  stage.addEventListener('touchstart',e=>{if(e.touches.length===1){start={x:e.touches[0].clientX,y:e.touches[0].clientY};swiped=false}},{passive:true});
