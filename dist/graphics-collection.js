@@ -9,6 +9,8 @@
  const detailText=materialTranslations[lang]||materialTranslations.en;
  const peopleLabels={"ru":["Люди","В ожидании","Не довольный","Акварель, шариковая ручка"],"en":["People","Waiting","Displeased","Watercolour, ballpoint pen"],"uk":["Люди","В очікуванні","Невдоволений","Акварель, кулькова ручка"],"de":["Menschen","In Erwartung","Unzufrieden","Aquarell, Kugelschreiber"],"pl":["Ludzie","W oczekiwaniu","Niezadowolony","Akwarela, długopis"]};
  const people=peopleLabels[lang]||peopleLabels.en;
+ const bakstTitles={"ru":["Первая вакханка. Эскиз костюма к балету «Нарцисс» — копия по Льву Баксту","Одалиска. Эскиз костюма к балету «Шехеразада» — копия по Льву Баксту"],"uk":["Перша вакханка. Ескіз костюма до балету «Нарцис» — копія за Левом Бакстом","Одаліска. Ескіз костюма до балету «Шехеразада» — копія за Левом Бакстом"],"en":["First Bacchante. Costume design for “Narcisse” — copy after Léon Bakst","Odalisque. Costume design for “Schéhérazade” — copy after Léon Bakst"],"de":["Erste Bacchantin. Kostümentwurf für „Narcisse“ — Kopie nach Léon Bakst","Odaliske. Kostümentwurf für „Schéhérazade“ — Kopie nach Léon Bakst"],"pl":["Pierwsza bachantka. Projekt kostiumu do „Narcyza” — kopia według Léona Baksta","Odaliska. Projekt kostiumu do „Szeherezady” — kopia według Léona Baksta"]};
+ const bakstNotes={ru:['Оригинал: Лев Бакст, 1911. Копия Кристины Мищенко, 2020.','Оригинал: Лев Бакст, 1910. Копия Кристины Мищенко, 2020.'],uk:['Оригінал: Лев Бакст, 1911. Копія Христини Міщенко, 2020.','Оригінал: Лев Бакст, 1910. Копія Христини Міщенко, 2020.'],en:['Original: Léon Bakst, 1911. Copy by Krystyna Mishchenko, 2020.','Original: Léon Bakst, 1910. Copy by Krystyna Mishchenko, 2020.'],de:['Original: Léon Bakst, 1911. Kopie von Krystyna Mishchenko, 2020.','Original: Léon Bakst, 1910. Kopie von Krystyna Mishchenko, 2020.'],pl:['Oryginał: Léon Bakst, 1911. Kopia Krystyny Mishchenko, 2020.','Oryginał: Léon Bakst, 1910. Kopia Krystyny Mishchenko, 2020.']};
  let topic=0;
  const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n};
  function render(){
@@ -19,25 +21,26 @@
  [1,2,3,4].forEach((n,i)=>{const b=el('button',i===topic?'active':'',i===3?people[0]:t[n]);b.type='button';b.setAttribute('aria-pressed',String(i===topic));b.setAttribute('aria-controls','graphics-grid');b.onclick=()=>{topic=i;render();document.querySelectorAll('.graphics-topics button')[i].focus()};tabs.append(b)});
  wrap.append(tabs,grid);gallery.append(wrap);
  document.getElementById('category-description').textContent=topic===3?people[0]:topic===0?t[11]:t[topic+1];
- document.getElementById('work-count').textContent=topic===3?'02':topic===0?'04':topic===1?String(architectureIndices.length):'01';
- for(let i=0;i<(topic===3?2:topic===0?4:topic===1?architectureIndices.length:1);i++){
+ document.getElementById('work-count').textContent=topic===3?'04':topic===0?'04':topic===1?String(architectureIndices.length):'01';
+ for(let i=0;i<(topic===3?4:topic===0?4:topic===1?architectureIndices.length:1);i++){
  const artworkIndex=topic===0?[1,2,3,0][i]:topic===1?architectureIndices[i]:i;
- const title=topic===3?people[artworkIndex+1]:topic===0?t[artworkIndex+7]:topic===1?(architectureTitles[lang]||architectureTitles.en)[artworkIndex]:(stillLifeTitles[lang]||stillLifeTitles.en);
- const metadata=topic===0?'2017':topic===1?String(years[artworkIndex]||''):'2018';
+ const isBakst=topic===3&&artworkIndex>=2;
+ const title=topic===3?(isBakst?(bakstTitles[lang]||bakstTitles.en)[artworkIndex-2]:people[artworkIndex+1]):topic===0?t[artworkIndex+7]:topic===1?(architectureTitles[lang]||architectureTitles.en)[artworkIndex]:(stillLifeTitles[lang]||stillLifeTitles.en);
+ const metadata=isBakst?'2020':topic===0?'2017':topic===1?String(years[artworkIndex]||''):'2018';
  const mediumIndex=topic===1?({6:0,7:1,1:2,5:3,4:4,3:5,8:8,9:9,10:10,11:4})[artworkIndex]:topic===2?5:({1:6,2:7,3:6})[artworkIndex];
- const medium=topic===3?people[3]:mediumIndex===undefined?'':detailText.media[mediumIndex];
- const dimensions=topic===3?'21 × 29,7 '+detailText.unit+' (A4)':(topic===1&&[8,9,11].includes(artworkIndex)?'21 × 29,7':topic===0&&artworkIndex===0?'30 × 21':'29,7 × 42')+' '+detailText.unit;
- const makeDetails=()=>{const list=el('dl','graphic-details');if(medium)list.append(el('dt','',detailText.labels[0]),el('dd','',medium));list.append(el('dt','',detailText.labels[1]),el('dd','',dimensions));return list};
+ const medium=isBakst?'':topic===3?people[3]:mediumIndex===undefined?'':detailText.media[mediumIndex];
+ const dimensions=isBakst?'':topic===3?'21 × 29,7 '+detailText.unit+' (A4)':(topic===1&&[8,9,11].includes(artworkIndex)?'21 × 29,7':topic===0&&artworkIndex===0?'30 × 21':'29,7 × 42')+' '+detailText.unit;
+ const makeDetails=()=>{const list=el('dl','graphic-details');if(medium)list.append(el('dt','',detailText.labels[0]),el('dd','',medium));if(dimensions)list.append(el('dt','',detailText.labels[1]),el('dd','',dimensions));return list};
  const descriptionKey=(topic===3?'people':topic===0?'graphics':topic===1?'architecture':'still-life')+'-'+artworkIndex;
- const description=(window.artworkDescriptions?.[lang]||window.artworkDescriptions?.en||{})[descriptionKey];
- const makeDescription=()=>window.makeArtworkConcept(description);
+ const description=isBakst?(bakstNotes[lang]||bakstNotes.en)[artworkIndex-2]:(window.artworkDescriptions?.[lang]||window.artworkDescriptions?.en||{})[descriptionKey];
+ const makeDescription=()=>{if(!isBakst)return window.makeArtworkConcept(description);const note=el('p','bakst-attribution',description+' ');const source=el('a','',({ru:'Оригинал',uk:'Оригінал',en:'Original',de:'Original',pl:'Oryginał'})[lang]||'Original');source.href=artworkIndex===2?'https://old-digitalcollections.nypl.org/items/510d47e1-0e2d-a3d9-e040-e00a18064a99':'https://www.wikiart.org/en/leon-bakst/scheherezade-odalisque-1910';source.target='_blank';source.rel='noopener noreferrer';note.append(source);return note};
  const fig=el('figure','graphic-work');const button=el('button','graphic-image');button.type='button';button.setAttribute('aria-label',t[5]+': '+title);
- const img=el('img');img.src='assets/'+(topic===3?'people':topic===0?'graphics':topic===1?'architecture':'still-life')+'/art-'+artworkIndex+'.png';img.alt=title;img.loading='lazy';img.decoding='async';button.append(img,el('span','graphic-zoom','↗'));
+ const img=el('img');img.src='assets/'+(topic===3?'people':topic===0?'graphics':topic===1?'architecture':'still-life')+'/art-'+artworkIndex+(topic===3&&artworkIndex===3?'.jpg':'.png');img.alt=title;img.loading='lazy';img.decoding='async';button.append(img,el('span','graphic-zoom','↗'));
  const caption=el('figcaption');caption.append(el('span','',title),el('span','',metadata));fig.append(button,caption,makeDetails());if(description)fig.append(makeDescription());grid.append(fig);
  button.onclick=()=>{const dialog=el('dialog','graphic-dialog');dialog.setAttribute('aria-label',title);const close=el('button','graphic-close',t[6]+' ×');close.type='button';const full=img.cloneNode();full.loading='eager';const mat=el('div','graphic-mat');mat.append(full);dialog.append(close,mat,el('p','',title+(metadata?' · '+metadata:'')));dialog.append(makeDetails());if(description)dialog.append(makeDescription());document.body.append(dialog);close.onclick=()=>dialog.close();dialog.addEventListener('close',()=>{document.body.classList.remove('modal-open');dialog.remove();button.focus()});dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});dialog.showModal();document.body.classList.add('modal-open');close.focus()};
  }
  }
- const previousFilter=filter;filter=function(category){previousFilter(category);const total=document.querySelector('[data-filter="graphics"] span');if(total)total.textContent='17';if(category==='graphics')render()};
+ const previousFilter=filter;filter=function(category){previousFilter(category);const total=document.querySelector('[data-filter="graphics"] span');if(total)total.textContent='19';if(category==='graphics')render()};
  const count=document.querySelector('[data-filter="graphics"] span');if(count)count.textContent='17';
  const discovery=document.querySelector('[data-go="graphics"] img');if(discovery){discovery.src='assets/architecture/art-7.png';discovery.alt=(architectureTitles[lang]||architectureTitles.en)[7];}
  if(document.querySelector('[data-filter="graphics"].active'))render();
