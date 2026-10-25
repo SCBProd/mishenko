@@ -4,7 +4,6 @@ const lang=document.documentElement.lang;
 const l=lang==='ru'?0:lang==='uk'?1:2;
 const text=[['Эскизы/проекты','Ескізи/проєкти','Sketches/projects'],['Связанные эскизы объединены в серии. Листайте стрелками или свайпом.','Пов’язані ескізи об’єднано в серії. Гортайте стрілками або свайпом.','Related sketches are grouped into series. Use arrows or swipe.'],['Предыдущий эскиз','Попередній ескіз','Previous sketch'],['Следующий эскиз','Наступний ескіз','Next sketch'],['Увеличить','Збільшити','Enlarge']].map(a=>a[l]);
 const names={
-'063':['Птицы и маки','Птахи й маки','Birds and Poppies'],
 "051":["Стаканы. Природа и геометрия","Склянки. Природа й геометрія","Drinking Glasses. Nature and Geometry"],
 "053":["Стаканы. Лабиринты и листья","Склянки. Лабіринти й листя","Drinking Glasses. Labyrinths and Leaves"],
 "056":["Сервиз. Листья в движении","Сервіз. Листя в русі","Tableware. Leaves in Motion"],
@@ -64,15 +63,19 @@ const groups=[
 {title:['Рыбы. Поиск формы','Риби. Пошук форми','Fish. Studies of Form'],files:['022']},
 {title:names['bird-moon'],files:['bird-moon']},
 {title:['Стаканы. Ритмы поверхности','Склянки. Ритми поверхні','Drinking Glasses. Surface Rhythms'],files:['051','053'],materials:true},
-{title:['Листья за столом','Листя за столом','Leaves at the Table'],files:['056','055'],materials:true},
-{title:names['063'],files:['063'],materials:true}];
+{title:['Листья за столом','Листя за столом','Leaves at the Table'],files:['056','055'],materials:true}];
+
+const materialNames=[['Акварель','белая гуашь','маркер','линер','цветные карандаши','карандаш','3D-моделирование'],['Акварель','біла гуаш','маркер','лінер','кольорові олівці','олівець','3D-моделювання'],['Watercolour','white gouache','marker','fineliner','coloured pencils','pencil','3D modelling']][l];
+const specifications=[[0,1,2,3],[0,1,2,3],[3],[0,1,2,3,4],[0,1,2,3,4],[6],[0,5,2,3],[0,1,2,3],[0,2,3],[0,2,3],[0,1,5,2,3],[0,3],[0,1,4,2,3],[0,2,3],[0,2,3]];
+groups.forEach((group,i)=>{group.medium=specifications[i].map(n=>materialNames[n]).join(', ');group.medium=group.medium.charAt(0).toUpperCase()+group.medium.slice(1);group.dimensions=i===5?'':i===4?'42 × 59,4':i===12?'50 × 70':'21 × 29,7'});
+[groups[12],groups[14]]=[groups[14],groups[12]];
 const src=file=>'assets/sketches-projects/paper-v3/'+file+(['identity-render-2','identity-detail','identity-vertical'].includes(file)?'.jpg':'.png')+(['051','053','056','055','063'].includes(file)?'?v=seamless':(['moonfish','bird-moon'].includes(file)?'?v=colour2':''));
 for(const group of groups)for(const file of group.files)works.push({id:'sketch-'+file,category:'sketches',title:names[file][l],meta:group.year||'2017–2021',alt:names[file][l]});
 const oldImage=imageMarkup;
 imageMarkup=function(id,original=false){if(!id.startsWith('sketch-'))return oldImage(id,original);const file=id.slice(7);return '<span class="art-window sketch-window"><img src="'+src(file)+'" alt="'+names[file][l]+'" loading="lazy" decoding="async"></span>'};
 const el=(tag,cls,txt)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(txt)n.textContent=txt;return n};
 const indexes=new Map();
-const sketchMedium=['Акварель, маркер, линер','Акварель, маркер, лінер','Watercolour, marker, fineliner'][l];
+
 function carousel(group){
  let index=indexes.get(group)||0;
  const section=el('section','sketch-series');section.setAttribute('aria-label',group.title[l]);section.append(el('h3','sketch-series-title',group.title[l]));
@@ -83,7 +86,10 @@ function carousel(group){
  stage.append(imageButton,action(text[2],'←','project-arrow project-prev',()=>set(index-1)),action(text[3],'→','project-arrow project-next',()=>set(index+1)));region.append(stage);
  const caption=el('div','project-caption');const name=el('span','sketch-caption');name.setAttribute('aria-live','polite');const counter=el('span','project-counter');caption.append(name,counter,el('span','sketch-period',group.year||'2017–2021'));region.append(caption);
  const thumbs=el('div','project-thumbnails');thumbs.setAttribute('role','group');thumbs.setAttribute('aria-label',group.title[l]);const buttons=group.files.map((file,i)=>{const b=action(names[file][l],'','',()=>set(i));const img=el('img');img.src=src(file);img.alt='';img.loading='lazy';b.append(img);thumbs.append(b);return b});if(group.files.length>1)region.append(thumbs);else{stage.children[1].hidden=true;stage.children[2].hidden=true;counter.hidden=true}section.append(region);
- if(group.materials)section.append(el('p','sketch-project-note',sketchMedium));
+ const details=el('dl','graphic-details');
+ details.append(el('dt','',['Материалы','Матеріали','Medium'][l]),el('dd','',group.medium));
+ if(group.dimensions)details.append(el('dt','',['Размеры (В × Ш)','Розміри (В × Ш)','Dimensions (H × W)'][l]),el('dd','',group.dimensions+' '+['см','см','cm'][l]));
+ section.append(details);
  if(group.realised)section.append(el('p','sketch-project-note', ['Эскизы к реализованной керамической композиции «Встречи». Работа представлена в разделе керамики.','Ескізи до реалізованої керамічної композиції «Зустрічі». Робота представлена в розділі кераміки.','Sketches for the realised ceramic composition “Encounters”, presented in the ceramics section.'][l]));
  function set(n){index=(n+group.files.length)%group.files.length;indexes.set(group,index);const file=group.files[index];image.src=src(file);image.alt=names[file][l];name.textContent=names[file][l];counter.textContent=String(index+1).padStart(2,'0')+' / '+String(group.files.length).padStart(2,'0');buttons.forEach((b,i)=>{b.setAttribute('aria-pressed',String(i===index));b.classList.toggle('selected',i===index)})}
  let start=null,swiped=false;
