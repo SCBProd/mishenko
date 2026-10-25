@@ -4,13 +4,12 @@ const lang=document.documentElement.lang;
 const l=lang==='ru'?0:lang==='uk'?1:2;
 const text=[['Эскизы/проекты','Ескізи/проєкти','Sketches/projects'],['Связанные эскизы объединены в серии. Листайте стрелками или свайпом.','Пов’язані ескізи об’єднано в серії. Гортайте стрілками або свайпом.','Related sketches are grouped into series. Use arrows or swipe.'],['Предыдущий эскиз','Попередній ескіз','Previous sketch'],['Следующий эскиз','Наступний ескіз','Next sketch'],['Увеличить','Збільшити','Enlarge']].map(a=>a[l]);
 const names={
-"identity-perspective":["Капитал идентичности. Панно в перспективе","Капітал ідентичності. Панно в перспективі","Identity Capital. Panel in Perspective"],
+"identity-perspective":["Капитал идентичности. Трансформативная композиция в перспективе","Капітал ідентичності. Трансформативна композиція в перспективі","Identity Capital. Transformative Composition in Perspective"],
 "identity-detail":["Капитал идентичности. Форма и проём","Капітал ідентичності. Форма й отвір","Identity Capital. Form and Opening"],
 "identity-vertical":["Капитал идентичности. Вертикальная композиция","Капітал ідентичності. Вертикальна композиція","Identity Capital. Vertical Composition"],
 "identity-layout":["Капитал идентичности. Схема композиции","Капітал ідентичності. Схема композиції","Identity Capital. Composition Layout"],
 "identity-render-1":["Капитал идентичности. Визуализация I","Капітал ідентичності. Візуалізація I","Identity Capital. Visualisation I"],
 "identity-render-2":["Капитал идентичности. Визуализация II","Капітал ідентичності. Візуалізація II","Identity Capital. Visualisation II"],
-"identity-render-3":["Капитал идентичности. Визуализация III","Капітал ідентичності. Візуалізація III","Identity Capital. Visualisation III"],
 "identity-render-4":["Капитал идентичности. Визуализация IV","Капітал ідентичності. Візуалізація IV","Identity Capital. Visualisation IV"],
 "identity-render-5":["Капитал идентичности. Визуализация V","Капітал ідентичності. Візуалізація V","Identity Capital. Visualisation V"],
 "identity-colour":["Капитал идентичности. Цветовое решение","Капітал ідентичності. Кольорове рішення","Identity Capital. Colour Scheme"],
@@ -37,9 +36,6 @@ const names={
 '058':['Рогатые силуэты','Рогаті силуети','Antlered Silhouettes'],
 '059':['Лесные характеры','Лісові характери','Forest Characters'],
 '060':['Между сосудом и зверем','Між посудиною і звіром','Between Vessel and Creature'],
-'067':['Птицы в листве','Птахи в листі','Birds Among Leaves'],
-'005':['Солнце, луна и птицы','Сонце, місяць і птахи','Sun, Moon and Birds'],
-'066':['Полёт сквозь ветви','Політ крізь гілки','Flight Through Branches'],
 '022':['Рыбы. Поиск формы','Риби. Пошук форми','Fish. Studies of Form'],
 'moonfish':['Рыба, съевшая луну','Риба, що з’їла місяць','The Fish That Ate the Moon'],
 'vase-eight':['Сосуды. Цветовые пробы','Посудини. Кольорові проби','Vessels. Colour Studies'],
@@ -54,17 +50,16 @@ const groups=[
 {title:['Линия и силуэт','Лінія й силует','Line and Silhouette'],files:['0065','001']},
 {title:['Орнаментальные сосуды. Встречи','Орнаментальні посудини. Зустрічі','Ornamental Vessels. Encounters'],files:['vase-one','vase-two','vase-eight','vase-three'],realised:true},
 {title:['Рыба, съевшая луну','Риба, що з’їла місяць','The Fish That Ate the Moon'],files:['moonfish']},
-{title:['Капитал идентичности','Капітал ідентичності','Identity Capital'],files:["identity-layout","identity-render-1","identity-render-2","identity-render-3","identity-render-4","identity-render-5","identity-colour","identity-perspective","identity-detail","identity-vertical"]},
+{title:['Капитал идентичности','Капітал ідентичності','Identity Capital'],year:'2022',files:["identity-layout","identity-colour","identity-perspective","identity-render-2","identity-render-5","identity-render-1","identity-vertical","identity-detail","identity-render-4"]},
 {title:['Листья и сады','Листя й сади','Leaves and Gardens'],files:['033','botanical-plates','032','049']},
 {title:['Сад внутри формы','Сад усередині форми','A Garden Within a Form'],files:['042','041','040']},
 {title:['Переплетения ритмов','Переплетення ритмів','Interwoven Rhythms'],files:['023']},
 {title:['Птицы, цветы и движение','Птахи, квіти й рух','Birds, Flowers and Motion'],files:['030','031','029','028']},
 {title:['Ветви. Поиск сервиза','Гілки. Пошук сервізу','Branches. Tableware Studies'],files:['018','015','016','019']},
 {title:['Рыбы. Поиск формы','Риби. Пошук форми','Fish. Studies of Form'],files:['022']},
-{title:names['bird-moon'],files:['bird-moon']},
-{title:['Птицы и ветви','Птахи й гілки','Birds and Branches'],files:['067','005','066']}];
+{title:names['bird-moon'],files:['bird-moon']}];
 const src=file=>'assets/sketches-projects/paper-v3/'+file+(['identity-render-2','identity-detail','identity-vertical'].includes(file)?'.jpg':'.png')+(['moonfish','bird-moon'].includes(file)?'?v=colour2':'');
-for(const group of groups)for(const file of group.files)works.push({id:'sketch-'+file,category:'sketches',title:names[file][l],meta:'2017–2021',alt:names[file][l]});
+for(const group of groups)for(const file of group.files)works.push({id:'sketch-'+file,category:'sketches',title:names[file][l],meta:group.year||'2017–2021',alt:names[file][l]});
 const oldImage=imageMarkup;
 imageMarkup=function(id,original=false){if(!id.startsWith('sketch-'))return oldImage(id,original);const file=id.slice(7);return '<span class="art-window sketch-window"><img src="'+src(file)+'" alt="'+names[file][l]+'" loading="lazy" decoding="async"></span>'};
 const el=(tag,cls,txt)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(txt)n.textContent=txt;return n};
@@ -77,7 +72,7 @@ function carousel(group){
  const imageButton=el('button','project-image');imageButton.type='button';imageButton.setAttribute('aria-label',text[4]);const image=el('img');image.loading='lazy';image.decoding='async';image.draggable=false;imageButton.append(image);
  const action=(label,txt,cls,fn)=>{const b=el('button',cls,txt);b.type='button';b.setAttribute('aria-label',label);b.onclick=fn;return b};
  stage.append(imageButton,action(text[2],'←','project-arrow project-prev',()=>set(index-1)),action(text[3],'→','project-arrow project-next',()=>set(index+1)));region.append(stage);
- const caption=el('div','project-caption');const name=el('span','sketch-caption');name.setAttribute('aria-live','polite');const counter=el('span','project-counter');caption.append(name,counter,el('span','sketch-period','2017–2021'));region.append(caption);
+ const caption=el('div','project-caption');const name=el('span','sketch-caption');name.setAttribute('aria-live','polite');const counter=el('span','project-counter');caption.append(name,counter,el('span','sketch-period',group.year||'2017–2021'));region.append(caption);
  const thumbs=el('div','project-thumbnails');thumbs.setAttribute('role','group');thumbs.setAttribute('aria-label',group.title[l]);const buttons=group.files.map((file,i)=>{const b=action(names[file][l],'','',()=>set(i));const img=el('img');img.src=src(file);img.alt='';img.loading='lazy';b.append(img);thumbs.append(b);return b});if(group.files.length>1)region.append(thumbs);else{stage.children[1].hidden=true;stage.children[2].hidden=true;counter.hidden=true}section.append(region);
  if(group.realised)section.append(el('p','sketch-project-note', ['Эскизы к реализованной керамической композиции «Встречи». Работа представлена в разделе керамики.','Ескізи до реалізованої керамічної композиції «Зустрічі». Робота представлена в розділі кераміки.','Sketches for the realised ceramic composition “Encounters”, presented in the ceramics section.'][l]));
  function set(n){index=(n+group.files.length)%group.files.length;indexes.set(group,index);const file=group.files[index];image.src=src(file);image.alt=names[file][l];name.textContent=names[file][l];counter.textContent=String(index+1).padStart(2,'0')+' / '+String(group.files.length).padStart(2,'0');buttons.forEach((b,i)=>{b.setAttribute('aria-pressed',String(i===index));b.classList.toggle('selected',i===index)})}
