@@ -11,17 +11,13 @@ const names={
 "identity-render-4":["Капитал идентичности. Визуализация IV","Капітал ідентичності. Візуалізація IV","Identity Capital. Visualisation IV"],
 "identity-render-5":["Капитал идентичности. Визуализация V","Капітал ідентичності. Візуалізація V","Identity Capital. Visualisation V"],
 "identity-colour":["Капитал идентичности. Цветовое решение","Капітал ідентичності. Кольорове рішення","Identity Capital. Colour Scheme"],
-'identity-010':['Капитал идентичности. Форма и фактура','Капітал ідентичності. Форма й фактура','Identity Capital. Form and Texture'],
-'identity-1':['Капитал идентичности. Поиск силуэта','Капітал ідентичності. Пошук силуету','Identity Capital. Silhouette Studies'],
-'identity-2':['Капитал идентичности. Вариации композиции','Капітал ідентичності. Варіації композиції','Identity Capital. Composition Variations'],
 '001':['Ритм линий','Ритм ліній','Rhythm of Lines'],
 '0065':['Птицы в круге','Птахи в колі','Birds in a Circle'],
 '015':['Сервиз «Ветви»','Сервіз «Гілки»','Branches — Tableware Study'],
 '016':['Ветвление цвета','Розгалуження кольору','Branching Colour'],
-'017':['Течение формы','Плин форми','Flow of Form'],
 '018':['Диалог силуэтов','Діалог силуетів','Dialogue of Silhouettes'],
 '019':['Вариации чайного сервиза','Варіації чайного сервізу','Tea Set Variations'],
-'023':['Орнаментальные ритмы','Орнаментальні ритми','Ornamental Rhythms'],
+'023':['Переплетения ритмов','Переплетення ритмів','Interwoven Rhythms'],
 
 '028':['Птицы среди узоров','Птахи серед візерунків','Birds Among Patterns'],
 '029':['Птица в цветущем саду','Птах у квітучому саду','Bird in a Flowering Garden'],
@@ -52,17 +48,20 @@ const names={
 const groups=[
 {title:['Птицы на ветвях','Птахи на гілках','Birds on Branches'],files:['050']},
 {title:['Пластика леса','Пластика лісу','Forms of the Forest'],files:['060','059','058']},
-{title:['Линия и силуэт','Лінія й силует','Line and Silhouette'],files:['0065','001','067','005','066']},
-{title:['Орнаментальные сосуды','Орнаментальні посудини','Ornamental Vessels'],files:['vase-one','vase-eight','vase-two','vase-three'],realised:true},
+{title:['Линия и силуэт','Лінія й силует','Line and Silhouette'],files:['0065','001']},
+{title:['Встречи. Орнаментальные сосуды','Зустрічі. Орнаментальні посудини','Encounters. Ornamental Vessels'],files:['vase-one','vase-two','vase-eight','vase-three'],realised:true},
 {title:['Рыба, съевшая луну','Риба, що з’їла місяць','The Fish That Ate the Moon'],files:['moonfish']},
-{title:['Капитал идентичности','Капітал ідентичності','Identity Capital'],files:['identity-010','identity-1','identity-2',"identity-layout","identity-render-1","identity-render-2","identity-render-3","identity-render-4","identity-render-5","identity-colour"]},
+{title:['Капитал идентичности','Капітал ідентичності','Identity Capital'],files:["identity-layout","identity-render-1","identity-render-2","identity-render-3","identity-render-4","identity-render-5","identity-colour"]},
 {title:['Листья и сады','Листя й сади','Leaves and Gardens'],files:['033','botanical-plates','032','049']},
 {title:['Сад внутри формы','Сад усередині форми','A Garden Within a Form'],files:['042','041','040']},
-{title:['Геометрия орнамента','Геометрія орнаменту','Geometry of Ornament'],files:['023']},
+{title:['Переплетения ритмов','Переплетення ритмів','Interwoven Rhythms'],files:['023']},
 {title:['Птицы, цветы и движение','Птахи, квіти й рух','Birds, Flowers and Motion'],files:['030','031','029','028']},
-{title:['Ветви. Поиск сервиза','Гілки. Пошук сервізу','Branches. Tableware Studies'],files:['018','015','016','017','019']},
+{title:['Ветви. Поиск сервиза','Гілки. Пошук сервізу','Branches. Tableware Studies'],files:['018','015','016','019']},
 {title:['Рыбы. Поиск формы','Риби. Пошук форми','Fish. Studies of Form'],files:['022']},
-{title:names['bird-moon'],files:['bird-moon']}];
+{title:names['bird-moon'],files:['bird-moon']},
+{title:names['067'],files:['067']},
+{title:names['005'],files:['005']},
+{title:names['066'],files:['066']}];
 const src=file=>'assets/sketches-projects/paper-v3/'+file+(file==='identity-render-2'?'.jpg':'.png')+(['moonfish','bird-moon'].includes(file)?'?v=colour2':'');
 for(const group of groups)for(const file of group.files)works.push({id:'sketch-'+file,category:'sketches',title:names[file][l],meta:'2017–2021',alt:names[file][l]});
 const oldImage=imageMarkup;
