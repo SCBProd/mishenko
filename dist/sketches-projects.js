@@ -4,6 +4,7 @@ const lang=document.documentElement.lang;
 const l=lang==='ru'?0:lang==='uk'?1:2;
 const text=[['Эскизы/проекты','Ескізи/проєкти','Sketches/projects'],['Связанные эскизы объединены в серии. Листайте стрелками или свайпом.','Пов’язані ескізи об’єднано в серії. Гортайте стрілками або свайпом.','Related sketches are grouped into series. Use arrows or swipe.'],['Предыдущий эскиз','Попередній ескіз','Previous sketch'],['Следующий эскиз','Наступний ескіз','Next sketch'],['Увеличить','Збільшити','Enlarge']].map(a=>a[l]);
 const names={
+'063':['Птицы и маки','Птахи й маки','Birds and Poppies'],
 "051":["Стаканы. Природа и геометрия","Склянки. Природа й геометрія","Drinking Glasses. Nature and Geometry"],
 "053":["Стаканы. Лабиринты и листья","Склянки. Лабіринти й листя","Drinking Glasses. Labyrinths and Leaves"],
 "056":["Сервиз. Листья в движении","Сервіз. Листя в русі","Tableware. Leaves in Motion"],
@@ -63,8 +64,9 @@ const groups=[
 {title:['Рыбы. Поиск формы','Риби. Пошук форми','Fish. Studies of Form'],files:['022']},
 {title:names['bird-moon'],files:['bird-moon']},
 {title:['Стаканы. Ритмы поверхности','Склянки. Ритми поверхні','Drinking Glasses. Surface Rhythms'],files:['051','053'],materials:true},
-{title:['Листья за столом','Листя за столом','Leaves at the Table'],files:['056','055'],materials:true}];
-const src=file=>'assets/sketches-projects/paper-v3/'+file+(['identity-render-2','identity-detail','identity-vertical'].includes(file)?'.jpg':'.png')+(['moonfish','bird-moon'].includes(file)?'?v=colour2':'');
+{title:['Листья за столом','Листя за столом','Leaves at the Table'],files:['056','055'],materials:true},
+{title:names['063'],files:['063'],materials:true}];
+const src=file=>'assets/sketches-projects/paper-v3/'+file+(['identity-render-2','identity-detail','identity-vertical'].includes(file)?'.jpg':'.png')+(['051','053','056','055','063'].includes(file)?'?v=seamless':(['moonfish','bird-moon'].includes(file)?'?v=colour2':''));
 for(const group of groups)for(const file of group.files)works.push({id:'sketch-'+file,category:'sketches',title:names[file][l],meta:group.year||'2017–2021',alt:names[file][l]});
 const oldImage=imageMarkup;
 imageMarkup=function(id,original=false){if(!id.startsWith('sketch-'))return oldImage(id,original);const file=id.slice(7);return '<span class="art-window sketch-window"><img src="'+src(file)+'" alt="'+names[file][l]+'" loading="lazy" decoding="async"></span>'};
