@@ -12,7 +12,6 @@ const names={
 '018':['Диалог силуэтов','Діалог силуетів','Dialogue of Silhouettes'],
 '019':['Вариации чайного сервиза','Варіації чайного сервізу','Tea Set Variations'],
 '023':['Орнаментальные ритмы','Орнаментальні ритми','Ornamental Rhythms'],
-'024':['Геометрия цвета','Геометрія кольору','Geometry of Colour'],
 
 '028':['Птицы среди узоров','Птахи серед візерунків','Birds Among Patterns'],
 '029':['Птица в цветущем саду','Птах у квітучому саду','Bird in a Flowering Garden'],
@@ -38,24 +37,22 @@ const names={
 'vase-one':['Конструкция и линия','Конструкція й лінія','Structure and Line'],
 'vase-two':['Ритмы орнамента','Ритми орнаменту','Rhythms of Ornament'],
 'vase-three':['Цветовые сочетания','Кольорові поєднання','Colour Combinations'],
-'vase-four':['Сосуды. Уточнение орнамента','Посудини. Уточнення орнаменту','Vessels. Refining the Ornament'],
-'ecology':['Экология. Проект панно','Екологія. Проєкт панно','Ecology. Panel Design'],
 'botanical-plates':['Листья и цветы. Проект тарелок','Листя й квіти. Проєкт тарілок','Leaves and Flowers. Plate Designs'],
-'bird-moon':['Птица и луна','Птах і місяць','Bird and Moon']};
+'bird-moon':['Эскиз к керамическому панно «Солнцестояние» — правая часть триптиха','Ескіз до керамічного панно «Сонцестояння» — права частина триптиха','Sketch for “Solstice” ceramic panel — right part of the triptych']};
 const groups=[
 {title:['Линия и силуэт','Лінія й силует','Line and Silhouette'],files:['0065','001','067','005','066']},
 {title:['Ветви. Поиск сервиза','Гілки. Пошук сервізу','Branches. Tableware Studies'],files:['018','015','016','017','019']},
-{title:['Геометрия орнамента','Геометрія орнаменту','Geometry of Ornament'],files:['023','024']},
+{title:['Геометрия орнамента','Геометрія орнаменту','Geometry of Ornament'],files:['023']},
 {title:['Птицы, цветы и движение','Птахи, квіти й рух','Birds, Flowers and Motion'],files:['030','031','029','028']},
 {title:['Листья и сады','Листя й сади','Leaves and Gardens'],files:['033','032','049','botanical-plates']},
 {title:['Сад внутри формы','Сад усередині форми','A Garden Within a Form'],files:['042','041','040']},
 {title:['Птицы на ветвях','Птахи на гілках','Birds on Branches'],files:['050']},
-{title:['Пластика леса','Пластика лісу','Forms of the Forest'],files:['058','059','060']},
+{title:['Пластика леса','Пластика лісу','Forms of the Forest'],files:['060','058','059']},
 {title:['Рыбы. Поиск формы','Риби. Пошук форми','Fish. Studies of Form'],files:['022']},
 {title:['Рыба, съевшая луну','Риба, що з’їла місяць','The Fish That Ate the Moon'],files:['moonfish']},
-{title:['Орнаментальные сосуды','Орнаментальні посудини','Ornamental Vessels'],files:['vase-eight','vase-one','vase-two','vase-three','vase-four']},
-{title:['Птица и ландшафт','Птах і ландшафт','Bird and Landscape'],files:['ecology','bird-moon']}];
-const src=file=>'assets/sketches-projects/paper-v3/'+file+'.png';
+{title:['Орнаментальные сосуды','Орнаментальні посудини','Ornamental Vessels'],files:['vase-one','vase-eight','vase-two','vase-three'],realised:true},
+{title:names['bird-moon'],files:['bird-moon']}];
+const src=file=>'assets/sketches-projects/paper-v3/'+file+'.png'+(['moonfish','bird-moon'].includes(file)?'?v=colour2':'');
 for(const group of groups)for(const file of group.files)works.push({id:'sketch-'+file,category:'sketches',title:names[file][l],meta:'2017–2021',alt:names[file][l]});
 const oldImage=imageMarkup;
 imageMarkup=function(id,original=false){if(!id.startsWith('sketch-'))return oldImage(id,original);const file=id.slice(7);return '<span class="art-window sketch-window"><img src="'+src(file)+'" alt="'+names[file][l]+'" loading="lazy" decoding="async"></span>'};
@@ -71,6 +68,7 @@ function carousel(group){
  stage.append(imageButton,action(text[2],'←','project-arrow project-prev',()=>set(index-1)),action(text[3],'→','project-arrow project-next',()=>set(index+1)));region.append(stage);
  const caption=el('div','project-caption');const name=el('span','sketch-caption');name.setAttribute('aria-live','polite');const counter=el('span','project-counter');caption.append(name,counter);region.append(caption);
  const thumbs=el('div','project-thumbnails');thumbs.setAttribute('role','group');thumbs.setAttribute('aria-label',group.title[l]);const buttons=group.files.map((file,i)=>{const b=action(names[file][l],'','',()=>set(i));const img=el('img');img.src=src(file);img.alt='';img.loading='lazy';b.append(img);thumbs.append(b);return b});if(group.files.length>1)region.append(thumbs);else{stage.children[1].hidden=true;stage.children[2].hidden=true;counter.hidden=true}section.append(region);
+ if(group.realised)section.append(el('p','sketch-project-note', ['Эскизы к реализованной керамической композиции «Встречи». Работа представлена в разделе керамики.','Ескізи до реалізованої керамічної композиції «Зустрічі». Робота представлена в розділі кераміки.','Sketches for the realised ceramic composition “Encounters”, presented in the ceramics section.'][l]));
  function set(n){index=(n+group.files.length)%group.files.length;indexes.set(group,index);const file=group.files[index];image.src=src(file);image.alt=names[file][l];name.textContent=names[file][l];counter.textContent=String(index+1).padStart(2,'0')+' / '+String(group.files.length).padStart(2,'0');buttons.forEach((b,i)=>{b.setAttribute('aria-pressed',String(i===index));b.classList.toggle('selected',i===index)})}
  let start=null,swiped=false;
  stage.addEventListener('touchstart',e=>{if(e.touches.length===1){start={x:e.touches[0].clientX,y:e.touches[0].clientY};swiped=false}},{passive:true});
