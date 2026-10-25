@@ -4,6 +4,9 @@ const lang=document.documentElement.lang;
 const l=lang==='ru'?0:lang==='uk'?1:2;
 const text=[['Эскизы/проекты','Ескізи/проєкти','Sketches/projects'],['Связанные эскизы объединены в серии. Листайте стрелками или свайпом.','Пов’язані ескізи об’єднано в серії. Гортайте стрілками або свайпом.','Related sketches are grouped into series. Use arrows or swipe.'],['Предыдущий эскиз','Попередній ескіз','Previous sketch'],['Следующий эскиз','Наступний ескіз','Next sketch'],['Увеличить','Збільшити','Enlarge']].map(a=>a[l]);
 const names={
+'identity-010':['Капитал идентичности. Форма и фактура','Капітал ідентичності. Форма й фактура','Identity Capital. Form and Texture'],
+'identity-1':['Капитал идентичности. Поиск силуэта','Капітал ідентичності. Пошук силуету','Identity Capital. Silhouette Studies'],
+'identity-2':['Капитал идентичности. Вариации композиции','Капітал ідентичності. Варіації композиції','Identity Capital. Composition Variations'],
 '001':['Ритм линий','Ритм ліній','Rhythm of Lines'],
 '0065':['Птицы в круге','Птахи в колі','Birds in a Circle'],
 '015':['Сервиз «Ветви»','Сервіз «Гілки»','Branches — Tableware Study'],
@@ -40,17 +43,18 @@ const names={
 'botanical-plates':['Листья и цветы. Проект тарелок','Листя й квіти. Проєкт тарілок','Leaves and Flowers. Plate Designs'],
 'bird-moon':['Эскиз к керамическому панно «Солнцестояние» — правая часть триптиха','Ескіз до керамічного панно «Сонцестояння» — права частина триптиха','Sketch for “Solstice” ceramic panel — right part of the triptych']};
 const groups=[
+{title:['Птицы на ветвях','Птахи на гілках','Birds on Branches'],files:['050']},
+{title:['Пластика леса','Пластика лісу','Forms of the Forest'],files:['060','059','058']},
 {title:['Линия и силуэт','Лінія й силует','Line and Silhouette'],files:['0065','001','067','005','066']},
-{title:['Ветви. Поиск сервиза','Гілки. Пошук сервізу','Branches. Tableware Studies'],files:['018','015','016','017','019']},
+{title:['Орнаментальные сосуды','Орнаментальні посудини','Ornamental Vessels'],files:['vase-one','vase-eight','vase-two','vase-three'],realised:true},
+{title:['Рыба, съевшая луну','Риба, що з’їла місяць','The Fish That Ate the Moon'],files:['moonfish']},
+{title:['Капитал идентичности','Капітал ідентичності','Identity Capital'],files:['identity-010','identity-1','identity-2']},
+{title:['Листья и сады','Листя й сади','Leaves and Gardens'],files:['033','botanical-plates','032','049']},
+{title:['Сад внутри формы','Сад усередині форми','A Garden Within a Form'],files:['042','041','040']},
 {title:['Геометрия орнамента','Геометрія орнаменту','Geometry of Ornament'],files:['023']},
 {title:['Птицы, цветы и движение','Птахи, квіти й рух','Birds, Flowers and Motion'],files:['030','031','029','028']},
-{title:['Листья и сады','Листя й сади','Leaves and Gardens'],files:['033','032','049','botanical-plates']},
-{title:['Сад внутри формы','Сад усередині форми','A Garden Within a Form'],files:['042','041','040']},
-{title:['Птицы на ветвях','Птахи на гілках','Birds on Branches'],files:['050']},
-{title:['Пластика леса','Пластика лісу','Forms of the Forest'],files:['060','058','059']},
+{title:['Ветви. Поиск сервиза','Гілки. Пошук сервізу','Branches. Tableware Studies'],files:['018','015','016','017','019']},
 {title:['Рыбы. Поиск формы','Риби. Пошук форми','Fish. Studies of Form'],files:['022']},
-{title:['Рыба, съевшая луну','Риба, що з’їла місяць','The Fish That Ate the Moon'],files:['moonfish']},
-{title:['Орнаментальные сосуды','Орнаментальні посудини','Ornamental Vessels'],files:['vase-one','vase-eight','vase-two','vase-three'],realised:true},
 {title:names['bird-moon'],files:['bird-moon']}];
 const src=file=>'assets/sketches-projects/paper-v3/'+file+'.png'+(['moonfish','bird-moon'].includes(file)?'?v=colour2':'');
 for(const group of groups)for(const file of group.files)works.push({id:'sketch-'+file,category:'sketches',title:names[file][l],meta:'2017–2021',alt:names[file][l]});
