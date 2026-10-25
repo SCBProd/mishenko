@@ -4,6 +4,13 @@ const lang=document.documentElement.lang;
 const l=lang==='ru'?0:lang==='uk'?1:2;
 const text=[['Эскизы/проекты','Ескізи/проєкти','Sketches/projects'],['Связанные эскизы объединены в серии. Листайте стрелками или свайпом.','Пов’язані ескізи об’єднано в серії. Гортайте стрілками або свайпом.','Related sketches are grouped into series. Use arrows or swipe.'],['Предыдущий эскиз','Попередній ескіз','Previous sketch'],['Следующий эскиз','Наступний ескіз','Next sketch'],['Увеличить','Збільшити','Enlarge']].map(a=>a[l]);
 const names={
+"identity-layout":["Капитал идентичности. Схема композиции","Капітал ідентичності. Схема композиції","Identity Capital. Composition Layout"],
+"identity-render-1":["Капитал идентичности. Визуализация I","Капітал ідентичності. Візуалізація I","Identity Capital. Visualisation I"],
+"identity-render-2":["Капитал идентичности. Визуализация II","Капітал ідентичності. Візуалізація II","Identity Capital. Visualisation II"],
+"identity-render-3":["Капитал идентичности. Визуализация III","Капітал ідентичності. Візуалізація III","Identity Capital. Visualisation III"],
+"identity-render-4":["Капитал идентичности. Визуализация IV","Капітал ідентичності. Візуалізація IV","Identity Capital. Visualisation IV"],
+"identity-render-5":["Капитал идентичности. Визуализация V","Капітал ідентичності. Візуалізація V","Identity Capital. Visualisation V"],
+"identity-colour":["Капитал идентичности. Цветовое решение","Капітал ідентичності. Кольорове рішення","Identity Capital. Colour Scheme"],
 'identity-010':['Капитал идентичности. Форма и фактура','Капітал ідентичності. Форма й фактура','Identity Capital. Form and Texture'],
 'identity-1':['Капитал идентичности. Поиск силуэта','Капітал ідентичності. Пошук силуету','Identity Capital. Silhouette Studies'],
 'identity-2':['Капитал идентичности. Вариации композиции','Капітал ідентичності. Варіації композиції','Identity Capital. Composition Variations'],
@@ -48,7 +55,7 @@ const groups=[
 {title:['Линия и силуэт','Лінія й силует','Line and Silhouette'],files:['0065','001','067','005','066']},
 {title:['Орнаментальные сосуды','Орнаментальні посудини','Ornamental Vessels'],files:['vase-one','vase-eight','vase-two','vase-three'],realised:true},
 {title:['Рыба, съевшая луну','Риба, що з’їла місяць','The Fish That Ate the Moon'],files:['moonfish']},
-{title:['Капитал идентичности','Капітал ідентичності','Identity Capital'],files:['identity-010','identity-1','identity-2']},
+{title:['Капитал идентичности','Капітал ідентичності','Identity Capital'],files:['identity-010','identity-1','identity-2',"identity-layout","identity-render-1","identity-render-2","identity-render-3","identity-render-4","identity-render-5","identity-colour"]},
 {title:['Листья и сады','Листя й сади','Leaves and Gardens'],files:['033','botanical-plates','032','049']},
 {title:['Сад внутри формы','Сад усередині форми','A Garden Within a Form'],files:['042','041','040']},
 {title:['Геометрия орнамента','Геометрія орнаменту','Geometry of Ornament'],files:['023']},
@@ -56,7 +63,7 @@ const groups=[
 {title:['Ветви. Поиск сервиза','Гілки. Пошук сервізу','Branches. Tableware Studies'],files:['018','015','016','017','019']},
 {title:['Рыбы. Поиск формы','Риби. Пошук форми','Fish. Studies of Form'],files:['022']},
 {title:names['bird-moon'],files:['bird-moon']}];
-const src=file=>'assets/sketches-projects/paper-v3/'+file+'.png'+(['moonfish','bird-moon'].includes(file)?'?v=colour2':'');
+const src=file=>'assets/sketches-projects/paper-v3/'+file+(file==='identity-render-2'?'.jpg':'.png')+(['moonfish','bird-moon'].includes(file)?'?v=colour2':'');
 for(const group of groups)for(const file of group.files)works.push({id:'sketch-'+file,category:'sketches',title:names[file][l],meta:'2017–2021',alt:names[file][l]});
 const oldImage=imageMarkup;
 imageMarkup=function(id,original=false){if(!id.startsWith('sketch-'))return oldImage(id,original);const file=id.slice(7);return '<span class="art-window sketch-window"><img src="'+src(file)+'" alt="'+names[file][l]+'" loading="lazy" decoding="async"></span>'};
