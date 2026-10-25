@@ -28,16 +28,33 @@ const names={
 '040':['Подсолнух над рекой','Соняшник над рікою','Sunflower Above the River'],
 '058':['Рогатые силуэты','Рогаті силуети','Antlered Silhouettes'],
 '059':['Лесные характеры','Лісові характери','Forest Characters'],
-'060':['Между сосудом и зверем','Між посудиною і звіром','Between Vessel and Creature']};
+'060':['Между сосудом и зверем','Між посудиною і звіром','Between Vessel and Creature'],
+'067':['Птицы в листве','Птахи в листі','Birds Among Leaves'],
+'005':['Солнце, луна и птицы','Сонце, місяць і птахи','Sun, Moon and Birds'],
+'066':['Полёт сквозь ветви','Політ крізь гілки','Flight Through Branches'],
+'022':['Рыбы. Поиск формы','Риби. Пошук форми','Fish. Studies of Form'],
+'moonfish':['Рыба, съевшая луну','Риба, що з’їла місяць','The Fish That Ate the Moon'],
+'vase-eight':['Сосуды. Цветовые пробы','Посудини. Кольорові проби','Vessels. Colour Studies'],
+'vase-one':['Конструкция и линия','Конструкція й лінія','Structure and Line'],
+'vase-two':['Ритмы орнамента','Ритми орнаменту','Rhythms of Ornament'],
+'vase-three':['Цветовые сочетания','Кольорові поєднання','Colour Combinations'],
+'vase-four':['Сосуды. Уточнение орнамента','Посудини. Уточнення орнаменту','Vessels. Refining the Ornament'],
+'ecology':['Экология. Проект панно','Екологія. Проєкт панно','Ecology. Panel Design'],
+'botanical-plates':['Листья и цветы. Проект тарелок','Листя й квіти. Проєкт тарілок','Leaves and Flowers. Plate Designs'],
+'bird-moon':['Птица и луна','Птах і місяць','Bird and Moon']};
 const groups=[
-{title:['Линия и силуэт','Лінія й силует','Line and Silhouette'],files:['0065','001']},
+{title:['Линия и силуэт','Лінія й силует','Line and Silhouette'],files:['0065','001','067','005','066']},
 {title:['Ветви. Поиск сервиза','Гілки. Пошук сервізу','Branches. Tableware Studies'],files:['018','015','016','017','019']},
 {title:['Геометрия орнамента','Геометрія орнаменту','Geometry of Ornament'],files:['023','024']},
 {title:['Птицы, цветы и движение','Птахи, квіти й рух','Birds, Flowers and Motion'],files:['030','031','029','028']},
-{title:['Листья и сады','Листя й сади','Leaves and Gardens'],files:['033','032','049']},
+{title:['Листья и сады','Листя й сади','Leaves and Gardens'],files:['033','032','049','botanical-plates']},
 {title:['Сад внутри формы','Сад усередині форми','A Garden Within a Form'],files:['042','041','040']},
 {title:['Птицы на ветвях','Птахи на гілках','Birds on Branches'],files:['050']},
-{title:['Пластика леса','Пластика лісу','Forms of the Forest'],files:['058','059','060']}];
+{title:['Пластика леса','Пластика лісу','Forms of the Forest'],files:['058','059','060']},
+{title:['Рыбы. Поиск формы','Риби. Пошук форми','Fish. Studies of Form'],files:['022']},
+{title:['Рыба, съевшая луну','Риба, що з’їла місяць','The Fish That Ate the Moon'],files:['moonfish']},
+{title:['Орнаментальные сосуды','Орнаментальні посудини','Ornamental Vessels'],files:['vase-eight','vase-one','vase-two','vase-three','vase-four']},
+{title:['Птица и ландшафт','Птах і ландшафт','Bird and Landscape'],files:['ecology','bird-moon']}];
 const src=file=>'assets/sketches-projects/paper-v3/'+file+'.png';
 for(const group of groups)for(const file of group.files)works.push({id:'sketch-'+file,category:'sketches',title:names[file][l],meta:'2017–2021',alt:names[file][l]});
 const oldImage=imageMarkup;
