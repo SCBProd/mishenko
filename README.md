@@ -19,7 +19,7 @@ npm run dev
 npm run build
 ```
 
-Import the GitHub repository into Vercel and use the default Next.js build settings. The GitHub Actions workflow checks the build; it does not deploy to GitHub Pages.
+Import the GitHub repository into Vercel and use the default Next.js build settings. The Next.js workflow checks the build. A separate, user-authorized GitHub Pages workflow publishes the generated static portfolio from `public/legacy/` to the existing github.io address. Both hosting paths use the same `dist/` source and document assets.
 ## CV and biography documents
 
 The reviewed source records are in `document-source/cv-content.json` and the language-specific editorial JSON files. `document-source/build.py` builds the ten DOCX files and `dist/cv-data.js` from those records. It accepts optional language codes, for example `build.py de`.
