@@ -34,7 +34,7 @@
   const imageButton=btn(t.enlarge,'',()=>openViewer(imageButton));imageButton.className='project-image';imageButton.append(main);
   const prev=btn(t.previous,'←',()=>step(-1));prev.className='project-arrow project-prev';
   const next=btn(t.next,'→',()=>step(1));next.className='project-arrow project-next';
-  const zoom=btn(t.enlarge,'↗',()=>openViewer(zoom));zoom.className='project-zoom';
+  const zoom=btn(t.enlarge,'',()=>openViewer(zoom));zoom.className='project-zoom';zoom.innerHTML='<svg class="zoom-vector" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 18 18 6M7 6h11v11"/></svg>';
   stage.append(imageButton,prev,next,zoom);carousel.append(stage);
   const caption=el('div','project-caption'),viewLabel=el('span'),counter=el('span','project-counter');counter.setAttribute('aria-live','polite');counter.setAttribute('aria-atomic','true');caption.append(viewLabel,counter);carousel.append(caption);
   carousel.append(el('p','project-hint',hint));

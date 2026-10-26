@@ -6,3 +6,8 @@
 
 /* Keep the decorative circle and arrow on the same center, independent of grid flow. */
 .enlarge::after,.graphic-zoom::after,.project-stage .project-zoom::after{position:absolute;top:50%;left:50%;margin:0;transform:translate(-50%,-50%)}
+
+/* A real SVG is centered on the same 44px box as the circular background. */
+.project-stage .project-zoom{box-sizing:border-box;width:44px;height:44px;min-width:44px;min-height:44px;line-height:0;padding:0;display:block}
+.project-stage .project-zoom:has(.zoom-vector)::after{display:none}
+.project-stage .project-zoom .zoom-vector{position:absolute;left:50%;top:50%;width:18px;height:18px;display:block;transform:translate(-50%,-50%);margin:0;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
