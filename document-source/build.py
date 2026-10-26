@@ -22,9 +22,9 @@ def shade(cell,color):
 def init(title,right=False):
  d=Document();s=d.sections[0];s.page_width=Cm(21);s.page_height=Cm(29.7);s.top_margin=Cm(1.6);s.bottom_margin=Cm(1.6);s.left_margin=Cm(1.8);s.right_margin=Cm(1.8)
  for name,size in [('Normal',10.5),('Title',29),('Heading 1',11),('Heading 2',12),('Caption',9)]:
-  st=d.styles[name];st.font.name='Arial';st.font.size=Pt(size);st.font.color.rgb=RGBColor.from_string(INK);st.paragraph_format.alignment=2 if right else 0;st.paragraph_format.line_spacing=1.12;st.paragraph_format.space_after=Pt(6)
+  st=d.styles[name];st.font.name='Arial';st.font.size=Pt(size);st.font.color.rgb=RGBColor.from_string(INK);st.paragraph_format.alignment=3 if right else 0;st.paragraph_format.line_spacing=1.12;st.paragraph_format.space_after=Pt(6)
   if name!='Normal':st.paragraph_format.keep_with_next=True
- d.styles['Title'].font.bold=True;d.styles['Title'].font.color.rgb=RGBColor(0,0,0);d.styles['Title'].paragraph_format.space_after=Pt(7)
+ d.styles['Title'].paragraph_format.alignment=0;d.styles['Heading 1'].paragraph_format.alignment=0;d.styles['Title'].font.bold=True;d.styles['Title'].font.color.rgb=RGBColor(0,0,0);d.styles['Title'].paragraph_format.space_after=Pt(7)
  d.styles['Heading 1'].font.bold=True;d.styles['Heading 1'].paragraph_format.space_before=Pt(13);d.styles['Heading 1'].paragraph_format.space_after=Pt(7)
  d.styles['Heading 2'].font.bold=True;d.styles['Heading 2'].paragraph_format.space_before=Pt(10)
  for n in list(d.styles.element.iter(qn('w:pBdr'))):n.getparent().remove(n)
@@ -44,6 +44,7 @@ def header(d,l,kind,continued=False):
  cp=cell.paragraphs[0];cp.add_run(a['born']+'\n'+D[l]['city']);cp.paragraph_format.space_after=Pt(3)
  cp=cell.add_paragraph('m.krystyna.197@gmail.com  ·  DE +49 1575 3604617  ·  UA +380 93 1324782');cp.paragraph_format.space_after=Pt(3)
  for cp in cell.paragraphs:
+  cp.alignment=0
   for run in cp.runs:run.font.size=Pt(8.5)
  spacer=d.add_paragraph();spacer.paragraph_format.space_after=Pt(8);spacer.paragraph_format.line_spacing=0.3
  return d
@@ -54,7 +55,7 @@ def chronology(d,items):
   if not sep:date,body='',item
   cells=table.add_row().cells;cells[0].width=Cm(3.2);cells[1].width=Cm(14.2)
   for i,s in enumerate([date,body]):
-   cp=cells[i].paragraphs[0];cp.paragraph_format.space_after=Pt(5);cp.paragraph_format.line_spacing=1.06;r=cp.add_run(text(s));r.font.size=Pt(9.5 if i==0 else 10)
+   cp=cells[i].paragraphs[0];cp.alignment=2 if i==0 else 3;cp.paragraph_format.space_after=Pt(5);cp.paragraph_format.line_spacing=1.06;r=cp.add_run(text(s));r.font.size=Pt(9.5 if i==0 else 10)
    if i==0:r.font.color.rgb=RGBColor.from_string(MUTED);r.bold=True
   no=OxmlElement('w:cantSplit');table.rows[-1]._tr.get_or_add_trPr().append(no)
  return table
@@ -63,7 +64,7 @@ def language_grid(doc,items):
  for i in range(0,len(items),2):
   cells=table.add_row().cells
   for cell,value in zip(cells,items[i:i+2]):
-   cp=cell.paragraphs[0];cp.alignment=2;cp.add_run(value.strip())
+   cp=cell.paragraphs[0];cp.alignment=0;cp.add_run(value.strip())
 
 for l,d in D.items():
  if sys.argv[1:]and l not in sys.argv[1:]:continue
