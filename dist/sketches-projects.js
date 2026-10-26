@@ -50,7 +50,7 @@ const names={
 'bird-moon':['Эскиз к керамическому панно «Солнцестояние» — правая часть триптиха','Ескіз до керамічного панно «Сонцестояння» — права частина триптиха','Sketch for “Solstice” ceramic panel — right part of the triptych']};
 const groups=[
 {title:['Птицы на ветвях','Птахи на гілках','Birds on Branches'],files:['050']},
-{title:['Пластика леса','Пластика лісу','Forms of the Forest'],files:['060','059','058']},
+{title:['Пластика леса','Пластика лісу','Forms of the Forest'],files:['060','059']},
 {title:['Линия и силуэт','Лінія й силует','Line and Silhouette'],files:['0065','001']},
 {title:['Орнаментальные сосуды. Встречи','Орнаментальні посудини. Зустрічі','Ornamental Vessels. Encounters'],files:['vase-one','vase-two','vase-eight','vase-three'],realised:true},
 {title:['Рыба, съевшая луну','Риба, що з’їла місяць','The Fish That Ate the Moon'],files:['moonfish']},
