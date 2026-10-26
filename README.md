@@ -20,3 +20,8 @@ npm run build
 ```
 
 Import the GitHub repository into Vercel and use the default Next.js build settings. The GitHub Actions workflow checks the build; it does not deploy to GitHub Pages.
+## CV and biography documents
+
+The reviewed source records are in `document-source/cv-content.json` and the language-specific editorial JSON files. `document-source/build.py` builds the ten DOCX files and `dist/cv-data.js` from those records. It accepts optional language codes, for example `build.py de`.
+
+On Windows with Microsoft Word available, run `document-source/export-pdf.ps1` to export matching PDF files and rebuild the ZIP containing all five languages. Word runs hidden and each exported document is closed after conversion. Review the exported pages before publishing. The website uses `cv-data.js` and `cv-documents.js` for the CV section, preview links and downloads. Source edits belong in `dist/`, not generated `public/legacy/`.
