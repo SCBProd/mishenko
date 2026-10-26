@@ -1,54 +1,24 @@
-(() => {
-  const language = document.documentElement.lang;
-  const labels = {
-    en: ['Documents', 'Artist CV', 'Education, professional experience and languages.', 'Artistic journey', 'Artistic development, exhibitions, projects and awards.', 'Download'],
-    ru: ['Документы', 'CV художницы', 'Образование, опыт работы и языки.', 'Творческий путь', 'Творческое развитие, выставки, проекты и награды.', 'Скачать'],
-    uk: ['Документи', 'CV художниці', 'Освіта, досвід роботи та мови.', 'Творчий шлях', 'Творчий розвиток, виставки, проєкти та нагороди.', 'Завантажити'],
-    de: ['Dokumente', 'Künstlerischer Lebenslauf', 'Ausbildung, Berufserfahrung und Sprachkenntnisse.', 'Künstlerischer Werdegang', 'Künstlerische Entwicklung, Ausstellungen, Projekte und Auszeichnungen.', 'Herunterladen'],
-    pl: ['Dokumenty', 'CV artystyczne', 'Wykształcenie, doświadczenie zawodowe i języki.', 'Droga artystyczna', 'Rozwój artystyczny, wystawy, projekty i nagrody.', 'Pobierz']
-  };
-  const lang = labels[language] ? language : 'en';
-  const t = labels[lang];
-  const path = (kind, format) => `assets/documents/Krystyna-Mishchenko-${kind}-${lang.toUpperCase()}.${format}?v=20261026-reviewed`;
-  const section = document.querySelector('#cv');
-  if (!section) return;
-  section.querySelector('.section-heading > a[download]')?.remove();
-  const group = document.createElement('div');
-  group.className = 'cv-documents';
-  group.setAttribute('role', 'group');
-  group.setAttribute('aria-label', t[0]);
-  [['CV',1,2],['Artistic-Journey',3,4]].forEach(([kind,title,description]) => {
-    const card = document.createElement('article');
-    card.className = 'cv-document';
-    const heading = document.createElement('h3'); heading.textContent = t[title];
-    const copy = document.createElement('p'); copy.textContent = t[description];
-    const links = document.createElement('div'); links.className = 'cv-document-links';
-    const preview=document.createElement('a');preview.href=path(kind,'pdf');preview.target='_blank';preview.rel='noopener noreferrer';preview.textContent=({ru:'Открыть PDF ↗',uk:'Відкрити PDF ↗',en:'View PDF ↗',de:'PDF ansehen ↗',pl:'Otwórz PDF ↗'})[lang];links.append(preview);
-    ['pdf','docx'].forEach(format => {
-      const a = document.createElement('a');
-      a.href = path(kind,format); a.download = '';
-      a.textContent = format === 'pdf' ? 'PDF ↓' : 'Word ↓';
-      a.setAttribute('aria-label', `${t[5]}: ${t[title]} (${format.toUpperCase()})`);
-      links.append(a);
-    });
-    card.append(heading,copy,links); group.append(card);
-  });
-  section.querySelector('.section-heading').after(group);
-  document.querySelectorAll('a[href="assets/Krystyna-Mishchenko-CV.docx"]').forEach(a => {a.href=path('CV','docx');});
-  const reviewed=window.portfolioCV?.[lang];
-  if(reviewed){
-    const heading=section.querySelector('h2');if(heading)heading.textContent=({ru:'CV И РЕЗЮМЕ',uk:'CV ТА РЕЗЮМЕ',en:'CV AND RÉSUMÉ',de:'LEBENSLAUF',pl:'CV I ŻYCIORYS'})[lang];
-    const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n};
-    const block=(label)=>{const panel=el('div','cv-layout');const body=el('div','cv-reviewed-content');panel.append(el('h3','',label),body);section.append(panel);return body};
-    const experience=block(reviewed.head[2]);
-    [['SAGA POTTERY','11.2020–02.2022'],['PROCS','2018–2021'],['Studio Gozhar','2020']].forEach(([studio,date],i)=>{const item=el('article','cv-experience');item.append(el('p','cv-date',date),el('h4','',studio),el('p','',reviewed.jobs[i]));experience.append(item)});
-    const exhibitions=block(reviewed.head[5]);
-    reviewed.ex.slice(0,4).forEach(text=>exhibitions.append(el('p','cv-record',text)));
-    const more=el('details','cv-more');more.append(el('summary','',({ru:'Все выставки и проекты',uk:'Усі виставки та проєкти',en:'All exhibitions and projects',de:'Alle Ausstellungen und Projekte',pl:'Wszystkie wystawy i projekty'})[lang]));reviewed.ex.slice(4).forEach(text=>more.append(el('p','cv-record',text)));exhibitions.append(more);
-    const awards=block(reviewed.head[6]);reviewed.aw.forEach(text=>awards.append(el('p','cv-record',text)));
-    const languages=block(reviewed.head[3]);reviewed.langs.forEach(text=>languages.append(el('p','cv-record',text.trim())));
-    const archive=el('a','cv-archive',({ru:'Скачать все документы на пяти языках · ZIP',uk:'Завантажити всі документи п’ятьма мовами · ZIP',en:'Download all documents in five languages · ZIP',de:'Alle Dokumente in fünf Sprachen herunterladen · ZIP',pl:'Pobierz wszystkie dokumenty w pięciu językach · ZIP'})[lang]);archive.href='assets/documents/Krystyna-Mishchenko-CV-and-Artistic-Journey-5-languages.zip?v=20261026-reviewed';archive.download='';section.append(archive);
-  }
-  const journey = document.querySelector('.about-links a[href="#cv"]');
-  if (journey) {journey.href=path('Artistic-Journey','pdf');journey.download='';journey.textContent=t[3]+' · PDF ↓';}
+(()=>{
+ const language=document.documentElement.lang,lang=['ru','uk','en','de','pl'].includes(language)?language:'en';
+ const data=window.portfolioCV?.[lang];if(!data)return;const section=document.querySelector('#cv');if(!section)return;
+ const labels={ru:['CV и творческий путь','CV художницы','Выставки, резиденции, стипендии, образование и профессиональная практика.','Творческий путь','Биография, авторский замысел и возможности сотрудничества.','Открыть PDF ↗','PDF ↓','Word ↓','Резиденции','Стипендии и награды','Сотрудничество','Все выставки и проекты','Все документы на пяти языках · ZIP','Белые маки · 2022'],uk:['CV та творчий шлях','CV художниці','Виставки, резиденції, стипендії, освіта та професійна практика.','Творчий шлях','Біографія, авторський задум і можливості співпраці.','Відкрити PDF ↗','PDF ↓','Word ↓','Резиденції','Стипендії та нагороди','Співпраця','Усі виставки та проєкти','Усі документи п’ятьма мовами · ZIP','Білі маки · 2022'],en:['CV and artistic journey','Artist CV','Exhibitions, residencies, scholarships, education and professional practice.','Artistic journey','Biography, artistic intention and opportunities for collaboration.','View PDF ↗','PDF ↓','Word ↓','Residencies','Scholarships and awards','Collaboration','All exhibitions and projects','All documents in five languages · ZIP','White Poppies · 2022'],de:['Lebenslauf und Werdegang','Künstlerischer Lebenslauf','Ausstellungen, Residenzen, Stipendien, Ausbildung und berufliche Praxis.','Künstlerischer Werdegang','Biografie, künstlerische Idee und Möglichkeiten der Zusammenarbeit.','PDF ansehen ↗','PDF ↓','Word ↓','Residenzen','Stipendien und Auszeichnungen','Zusammenarbeit','Alle Ausstellungen und Projekte','Alle Dokumente in fünf Sprachen · ZIP','Weißer Mohn · 2022'],pl:['CV i droga artystyczna','CV artystyczne','Wystawy, rezydencje, stypendia, wykształcenie i praktyka zawodowa.','Droga artystyczna','Biografia, zamysł artystyczny i możliwości współpracy.','Otwórz PDF ↗','PDF ↓','Word ↓','Rezydencje','Stypendia i nagrody','Współpraca','Wszystkie wystawy i projekty','Wszystkie dokumenty w pięciu językach · ZIP','Białe maki · 2022']}[lang];
+ const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n};
+ const path=(kind,format)=>`assets/documents/Krystyna-Mishchenko-${kind}-${lang.toUpperCase()}.${format}?v=20261026-author`;
+ section.replaceChildren();
+ const heading=el('div','section-heading');const headingText=el('div');headingText.append(el('span','eyebrow','03 / '+labels[0].toUpperCase()),el('h2','',labels[0]));heading.append(headingText);section.append(heading);
+ const intro=el('div','cv-author');const figure=el('figure','cv-author-image');const image=el('img');image.src='assets/white-poppies/1.jpg';image.alt=labels[13];image.loading='lazy';figure.append(image,el('figcaption','',labels[13]));const copy=el('div','cv-author-copy');copy.append(el('p','cv-author-facts',data.author.born+' · '+data.city),el('h3','',data.author.role),el('p','cv-author-lead',data.profile));const statement=el('details','cv-more');statement.append(el('summary','',data.author.heads[0]),...data.author.statement.map(s=>el('p','cv-record',s)));copy.append(statement);intro.append(figure,copy);section.append(intro);
+ const documents=el('div','cv-documents');
+ [['CV',1,2],['Artistic-Journey',3,4]].forEach(([kind,title,description])=>{const card=el('article','cv-document');const links=el('div','cv-document-links');[[labels[5],'pdf',false],[labels[6],'pdf',true],[labels[7],'docx',true]].forEach(([label,format,download])=>{const a=el('a','',label);a.href=path(kind,format);if(download)a.download='';else{a.target='_blank';a.rel='noopener noreferrer'}a.setAttribute('aria-label',labels[title]+': '+label);links.append(a)});card.append(el('h3','',labels[title]),el('p','',labels[description]),links);documents.append(card)});section.append(documents);
+ const block=label=>{const panel=el('div','cv-layout');const body=el('div','cv-reviewed-content');panel.append(el('h3','',label),body);section.append(panel);return body};
+ const record=(parent,text)=>{const cut=text.indexOf(' | ');const row=el('div','cv-chronology');if(cut>=0)row.append(el('span','cv-date',text.slice(0,cut)),el('p','',text.slice(cut+3)));else row.append(el('p','',text));parent.append(row)};
+ if(data.residencies.length){const body=block(labels[8]);data.residencies.forEach(t=>record(body,t))}
+ const exhibitions=block(data.head[5]);data.ex.slice(0,4).forEach(t=>record(exhibitions,t));const more=el('details','cv-more');more.append(el('summary','',labels[11]));data.ex.slice(4).forEach(t=>record(more,t));exhibitions.append(more);
+ const awards=block(labels[9]);[...data.scholarships,...data.aw].forEach(t=>record(awards,t));
+ const education=block(data.head[1]);data.education.slice(0,3).forEach((t,i)=>record(education,t+' · '+data.education[i<2?3:5]));
+ const membership=block(data.head[4]);record(membership,data.member);
+ const experience=block(data.head[2]);[['SAGA POTTERY','11.2020–02.2022'],['PROCS','2018–2021'],['Studio Gozhar','2020']].forEach(([s,date],i)=>record(experience,date+' | '+s+' · '+data.jobs[i]));
+ const languages=block(data.head[3]);data.langs.forEach(t=>record(languages,t.trim()));
+ const collaboration=el('div','cv-collaboration');collaboration.append(el('span','eyebrow',labels[10]),el('p','',data.author.collab));const contact=el('a','outline-link','m.krystyna.197@gmail.com ↗');contact.href='mailto:m.krystyna.197@gmail.com';collaboration.append(contact);section.append(collaboration);
+ const archive=el('a','cv-archive',labels[12]);archive.href='assets/documents/Krystyna-Mishchenko-CV-and-Artistic-Journey-5-languages.zip?v=20261026-author';archive.download='';section.append(archive);
+ document.querySelectorAll('a[href="assets/Krystyna-Mishchenko-CV.docx"]').forEach(a=>{a.href=path('CV','docx')});
 })();
