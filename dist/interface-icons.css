@@ -3,3 +3,6 @@
 .enlarge::after,.graphic-zoom::after,.project-stage .project-zoom::after,#contact a span[aria-hidden="true"]::after{content:"";display:block;width:15px;height:15px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 18 18 6M7 6h11v11' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 18 18 6M7 6h11v11' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
 .enlarge,.graphic-zoom{display:grid;place-items:center}
 #contact a span[aria-hidden="true"]{display:inline-grid;vertical-align:middle;place-items:center;margin-left:5px}
+
+/* Keep the decorative circle and arrow on the same center, independent of grid flow. */
+.enlarge::after,.graphic-zoom::after,.project-stage .project-zoom::after{position:absolute;top:50%;left:50%;margin:0;transform:translate(-50%,-50%)}
