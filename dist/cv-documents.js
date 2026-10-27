@@ -9,7 +9,7 @@
   };
   const lang = labels[language] ? language : 'en';
   const t = labels[lang];
-  const path = (kind, format) => `assets/documents/Krystyna-Mishchenko-${kind}-${lang.toUpperCase()}.${format}?v=20261026-uk-languages`;
+  const path = (kind, format) => `assets/documents/Krystyna-Mishchenko-${kind}-${lang.toUpperCase()}.${format}?v=20261027-journey`;
   const section = document.querySelector('#cv');
   if (!section) return;
   section.querySelector('.section-heading > a[download]')?.remove();
