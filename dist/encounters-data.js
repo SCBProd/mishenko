@@ -214,7 +214,7 @@ window.portfolioProjects.push({
         "Kreisförmiges Feld — Linien und Wellen",
         "Überlagerte Formen und Ornament",
         "Orangefarbene und blaue Glasur",
-        "Geometrischer Dekor in Nahaufnahme",
+        "Geometrisches Dekor in Nahaufnahme",
         "Textur und sich kreuzende Linien",
         "Rhythmus der kreisförmigen Elemente",
         "Reliefband — Detail",

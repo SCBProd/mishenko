@@ -186,7 +186,7 @@ window.portfolioProjects.push({
         "Cienie zapomnianych głosów stawiają pytanie o to, co określa ludzkie istnienie: fizyczna obecność czy wpływ, jaki jednostka wywiera na przestrzeń, wydarzenia i innych ludzi.",
         "Być może człowiek jest nie tylko tym, co potrafimy zobaczyć, lecz także przestrzenią, którą zmienia samym faktem swojego istnienia.",
         "Dzieło jest refleksją nad tym, co widoczne i ukryte, materialne i niematerialne, oraz nad zdolnością ludzkiego obrazu do trwania poza własną fizyczną formą.",
-        "Czasami bowiem, aby poczuć czyjąś obecność, wystarczy zobaczyć pozostawioną przez nią pustkę."
+        "Czasami bowiem, aby poczuć czyjąś obecność, wystarczy zobaczyć pozostawioną pustkę."
       ],
       "views": [
         "Dwie formy — widok ogólny",

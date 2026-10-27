@@ -1,15 +1,15 @@
 (() => {
   const language = document.documentElement.lang;
   const labels = {
-    en: ['Documents', 'Artist CV', 'Education, professional experience and languages.', 'Artistic journey', 'Artistic development, exhibitions, projects and awards.', 'Download'],
-    ru: ['Документы', 'CV художницы', 'Образование, опыт работы и языки.', 'Творческий путь', 'Творческое развитие, выставки, проекты и награды.', 'Скачать'],
-    uk: ['Документи', 'CV художниці', 'Освіта, досвід роботи та мови.', 'Творчий шлях', 'Творчий розвиток, виставки, проєкти та нагороди.', 'Завантажити'],
-    de: ['Dokumente', 'Künstlerischer Lebenslauf', 'Ausbildung, Berufserfahrung und Sprachkenntnisse.', 'Künstlerischer Werdegang', 'Künstlerische Entwicklung, Ausstellungen, Projekte und Auszeichnungen.', 'Herunterladen'],
-    pl: ['Dokumenty', 'CV artystyczne', 'Wykształcenie, doświadczenie zawodowe i języki.', 'Droga artystyczna', 'Rozwój artystyczny, wystawy, projekty i nagrody.', 'Pobierz']
+    en: ['Documents', 'Artist CV', 'Education, professional experience and languages.', 'Artistic journey', 'Artistic practice and selected works.', 'Download'],
+    ru: ['Документы', 'CV художницы', 'Образование, опыт работы и языки.', 'Творческий путь', 'Художественная практика и ключевые произведения.', 'Скачать'],
+    uk: ['Документи', 'CV художниці', 'Освіта, досвід роботи та мови.', 'Творчий шлях', 'Мистецька практика та ключові твори.', 'Завантажити'],
+    de: ['Dokumente', 'Künstlerischer Lebenslauf', 'Ausbildung, Berufserfahrung und Sprachkenntnisse.', 'Künstlerischer Werdegang', 'Künstlerische Praxis und ausgewählte Werke.', 'Herunterladen'],
+    pl: ['Dokumenty', 'CV artystyczne', 'Wykształcenie, doświadczenie zawodowe i języki.', 'Droga artystyczna', 'Praktyka artystyczna i wybrane dzieła.', 'Pobierz']
   };
   const lang = labels[language] ? language : 'en';
   const t = labels[lang];
-  const path = (kind, format) => `assets/documents/Krystyna-Mishchenko-${kind}-${lang.toUpperCase()}.${format}?v=20261027-journey`;
+  const path = (kind, format) => `assets/documents/Krystyna-Mishchenko-${kind}-${lang.toUpperCase()}.${format}?v=20261027-approved`;
   const section = document.querySelector('#cv');
   if (!section) return;
   section.querySelector('.section-heading > a[download]')?.remove();

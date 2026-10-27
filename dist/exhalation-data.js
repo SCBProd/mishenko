@@ -33,7 +33,7 @@ window.portfolioProjects.push({
       "title": "Глубокий выдох",
       "medium": "Авторская керамическая композиция",
       "question": "Можно ли придать форму тому, что невозможно увидеть, но можно почувствовать?",
-      "intro": "«Deep Exhalation» — авторская керамическая композиция, исследующая взаимосвязь физического и эмоционального состояний человека, природу внутреннего напряжения и хрупкую границу между удержанием и освобождением.",
+      "intro": "«Глубокий выдох» — авторская керамическая композиция, исследующая взаимосвязь физического и эмоционального состояний человека, природу внутреннего напряжения и хрупкую границу между удержанием и освобождением.",
       "views": [
         "Общий вид — изгибы и внутренние проёмы",
         "Вид сверху — развёрнутая форма",
@@ -46,7 +46,7 @@ window.portfolioProjects.push({
         "Пластика произведения строится на взаимодействии плавных изгибов, сложных пересечений и выразительных пустот. Форма словно складывается и разворачивается одновременно, передавая движение, которое невозможно остановить, но можно запечатлеть в материале.",
         "Белая монохромная поверхность освобождает композицию от визуальной избыточности, превращая свет, тень и пространственные паузы в самостоятельные средства художественной выразительности.",
         "Особое значение приобретает противоречие между неподвижностью керамики и нематериальной природой дыхания. То, что существует лишь мгновение, обретает постоянную форму, сохраняя ощущение движения даже в состоянии абсолютного покоя.",
-        "«Deep Exhalation» — размышление о необходимости внутренней тишины, способности освобождаться от накопленного напряжения и принимать неизбежность перемен.",
+        "«Глубокий выдох» — размышление о необходимости внутренней тишины, способности освобождаться от накопленного напряжения и принимать неизбежность перемен.",
         "Ведь иногда освобождение начинается не с действия, а с момента, когда мы перестаём удерживать."
       ]
     },
@@ -75,7 +75,7 @@ window.portfolioProjects.push({
       "title": "Глибокий видих",
       "medium": "Авторська керамічна композиція",
       "question": "Чи можна надати форми тому, чого неможливо побачити, але можна відчути?",
-      "intro": "«Deep Exhalation» — авторська керамічна композиція, що досліджує взаємозв’язок фізичного й емоційного станів людини, природу внутрішнього напруження та крихку межу між утримуванням і звільненням.",
+      "intro": "«Глибокий видих» — авторська керамічна композиція, що досліджує взаємозв’язок фізичного й емоційного станів людини, природу внутрішнього напруження та крихку межу між утримуванням і звільненням.",
       "views": [
         "Загальний вигляд — вигини та внутрішні отвори",
         "Вигляд згори — розгорнута форма",
@@ -88,15 +88,15 @@ window.portfolioProjects.push({
         "Пластика твору будується на взаємодії плавних вигинів, складних перетинів і виразних порожнин. Форма немов складається й розгортається водночас, передаючи рух, який неможливо зупинити, але можна закарбувати в матеріалі.",
         "Біла монохромна поверхня звільняє композицію від візуальної надмірності, перетворюючи світло, тінь і просторові паузи на самостійні засоби художньої виразності.",
         "Особливого значення набуває суперечність між нерухомістю кераміки та нематеріальною природою дихання. Те, що існує лише мить, набуває сталої форми, зберігаючи відчуття руху навіть у стані абсолютного спокою.",
-        "«Deep Exhalation» — роздум про необхідність внутрішньої тиші, здатність звільнятися від накопиченого напруження та приймати неминучість змін.",
+        "«Глибокий видих» — роздум про необхідність внутрішньої тиші, здатність звільнятися від накопиченого напруження та приймати неминучість змін.",
         "Адже іноді звільнення починається не з дії, а з миті, коли ми перестаємо утримувати."
       ]
     },
     "de": {
       "title": "Tiefes Ausatmen",
       "medium": "Künstlerische Keramikkomposition",
-      "question": "Kann man etwas eine Form geben, das sich nicht sehen, aber fühlen lässt?",
-      "intro": "„Deep Exhalation“ ist eine künstlerische Keramikkomposition über das Zusammenspiel körperlicher und emotionaler Zustände, die Natur innerer Spannung und die fragile Grenze zwischen Festhalten und Loslassen.",
+      "question": "Kann man etwas eine Form geben, das man nicht sehen, aber fühlen kann?",
+      "intro": "„Tiefes Ausatmen“ ist eine künstlerische Keramikkomposition über das Zusammenspiel körperlicher und emotionaler Zustände, die Natur innerer Spannung und die fragile Grenze zwischen Festhalten und Loslassen.",
       "views": [
         "Gesamtansicht — Wölbungen und innere Öffnungen",
         "Ansicht von oben — entfaltete Form",
@@ -109,7 +109,7 @@ window.portfolioProjects.push({
         "Die plastische Gestaltung des Werkes beruht auf dem Zusammenspiel fließender Wölbungen, komplexer Überschneidungen und ausdrucksstarker Hohlräume. Die Form scheint sich gleichzeitig zusammenzufalten und zu entfalten. Sie vermittelt eine Bewegung, die sich nicht anhalten, wohl aber im Material festhalten lässt.",
         "Die monochrome weiße Oberfläche befreit die Komposition von visueller Überfülle und macht Licht, Schatten und räumliche Pausen zu eigenständigen künstlerischen Ausdrucksmitteln.",
         "Besondere Bedeutung erhält der Widerspruch zwischen der Unbewegtheit der Keramik und der immateriellen Natur des Atems. Was nur einen Augenblick besteht, erhält eine dauerhafte Form und bewahrt selbst in völliger Ruhe den Eindruck von Bewegung.",
-        "„Deep Exhalation“ reflektiert die Notwendigkeit innerer Stille, die Fähigkeit, angesammelte Spannung loszulassen, und die Bereitschaft, die Unvermeidlichkeit von Veränderungen anzunehmen.",
+        "„Tiefes Ausatmen“ reflektiert die Notwendigkeit innerer Stille, die Fähigkeit, angesammelte Spannung loszulassen, und die Bereitschaft, die Unvermeidlichkeit von Veränderungen anzunehmen.",
         "Denn manchmal beginnt Befreiung nicht mit einer Handlung, sondern mit dem Moment, in dem wir aufhören festzuhalten."
       ]
     },
@@ -117,7 +117,7 @@ window.portfolioProjects.push({
       "title": "Głęboki wydech",
       "medium": "Autorska kompozycja ceramiczna",
       "question": "Czy można nadać formę temu, czego nie da się zobaczyć, ale można poczuć?",
-      "intro": "„Deep Exhalation” to autorska kompozycja ceramiczna badająca związek między fizycznym a emocjonalnym stanem człowieka, naturę wewnętrznego napięcia i kruchą granicę między zatrzymywaniem a uwolnieniem.",
+      "intro": "„Głęboki wydech” to autorska kompozycja ceramiczna badająca związek między fizycznym a emocjonalnym stanem człowieka, naturę wewnętrznego napięcia i kruchą granicę między zatrzymywaniem a uwolnieniem.",
       "views": [
         "Widok ogólny — krzywizny i wewnętrzne otwory",
         "Widok z góry — rozwinięta forma",
@@ -130,10 +130,9 @@ window.portfolioProjects.push({
         "Plastyka dzieła opiera się na współdziałaniu płynnych krzywizn, złożonych przecięć i wyrazistych pustych przestrzeni. Forma zdaje się jednocześnie składać i rozwijać, oddając ruch, którego nie można zatrzymać, lecz można utrwalić w materiale.",
         "Biała, monochromatyczna powierzchnia uwalnia kompozycję od wizualnego nadmiaru, czyniąc ze światła, cienia i przestrzennych pauz samodzielne środki artystycznego wyrazu.",
         "Szczególnego znaczenia nabiera sprzeczność między nieruchomością ceramiki a niematerialną naturą oddechu. To, co istnieje tylko przez chwilę, zyskuje trwałą formę, zachowując wrażenie ruchu nawet w stanie całkowitego spoczynku.",
-        "„Deep Exhalation” to refleksja nad potrzebą wewnętrznej ciszy, zdolnością uwalniania nagromadzonego napięcia i akceptacją nieuchronności zmian.",
-        "Bo czasami uwolnienie zaczyna się nie od działania, lecz od chwili, w której przestajemy trzymać."
+        "„Głęboki wydech” to refleksja nad potrzebą wewnętrznej ciszy, zdolnością uwalniania nagromadzonego napięcia i akceptacją nieuchronności zmian.",
+        "Czasami uwolnienie zaczyna się nie od działania, lecz od chwili, w której przestajemy kurczowo się czegoś trzymać."
       ]
     }
   }
 });
-

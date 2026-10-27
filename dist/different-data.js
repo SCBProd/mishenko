@@ -179,7 +179,7 @@ window.portfolioProjects.push({
         "Prostokątny otwór na pierwszym planie",
         "Pochylona forma",
         "Otwory i oddzielny cylinder",
-        "Detal ramienia i szkliwa",
+        "Detal górnej części i szkliwa",
         "Zbliżenie faktury powierzchni",
         "Dwie formy — widok główny",
         "Szkliwo i prostokątny otwór",

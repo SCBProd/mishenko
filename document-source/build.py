@@ -1,11 +1,12 @@
 from pathlib import Path
-import json,re,sys
+import json,re,sys,runpy
 from docx import Document
 from docx.shared import Cm,Pt,RGBColor
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 sys.stdout.reconfigure(encoding='utf8')
 ROOT=Path(__file__).parent;OUT=ROOT.parent/'dist/assets/documents'
+build_journey=runpy.run_path(str(ROOT/'build-journey.py'))['build']
 D=json.loads((ROOT/'cv-content.json').read_text(encoding='utf8'));A=json.loads((ROOT/'author-content.json').read_text(encoding='utf8'))
 R=json.loads((ROOT/'revised-content.json').read_text(encoding='utf8'))
 for l in ['uk','en','de','pl']:R[l]=json.loads((ROOT/f'translations-{l}.json').read_text(encoding='utf8'))
@@ -80,14 +81,6 @@ for l,d in D.items():
  if d.get('residencies'):head(doc,lab[4]);chronology(doc,d['residencies'])
  head(doc,lab[2]);chronology(doc,d['ex']);head(doc,lab[5]);chronology(doc,d.get('scholarships',[])+d['aw'])
  doc.save(OUT/f'Krystyna-Mishchenko-CV-{l.upper()}.docx')
- doc=header(init(lab[1]),l,1)
- if a.get('journeyNarrative'):
-  for paragraph in a['journeyNarrative']:p(doc,paragraph)
- else:
-  for bio in a['bio']:p(doc,bio)
-  head(doc,a['heads'][1])
-  for work in a['journeyWorks']:p(doc,work)
-  head(doc,a['heads'][3]);p(doc,a['collab'])
- doc.save(OUT/f'Krystyna-Mishchenko-Artistic-Journey-{l.upper()}.docx');print(l,'updated CV and concise journey')
+ build_journey([l]);print(l,'updated CV and approved artistic journey')
 site={l:{'name':d['name'],'city':d['city'],'birthYear':1997,'education':d['edu'],'member':d['member'],'head':d['head'],'profile':A[l]['profile'],'author':A[l],'jobs':R[l]['jobs'],'langs':d['langs'].split(';'),'ex':d['ex'],'aw':d['aw'],'residencies':d.get('residencies',[]),'scholarships':d.get('scholarships',[])}for l,d in D.items()}
 (ROOT.parent/'dist/cv-data.js').write_text('window.portfolioCV='+json.dumps(site,ensure_ascii=False)+';\n',encoding='utf8')
