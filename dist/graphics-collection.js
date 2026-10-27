@@ -30,7 +30,7 @@
  const metadata=isBakst?'2020':topic===0?'2017':topic===1?String(years[artworkIndex]||''):'2018';
  const mediumIndex=topic===1?({6:0,7:1,1:2,5:3,4:4,3:5,8:8,9:9,10:10,11:4})[artworkIndex]:topic===2?5:({1:6,2:7,3:6})[artworkIndex];
  const medium=isMetro?({ru:'Гелевая ручка, акварель',uk:'Гелева ручка, акварель',en:'Gel pen, watercolour',de:'Gelstift, Aquarell',pl:'Długopis żelowy, akwarela'})[lang]:isBakst?'':topic===3?people[3]:mediumIndex===undefined?'':detailText.media[mediumIndex];
- const dimensions=(isBakst||isMetro)?'29,7 × 21 '+detailText.unit+' (A4)':topic===3?'21 × 29,7 '+detailText.unit+' (A4)':(topic===1&&[8,9,11].includes(artworkIndex)?'21 × 29,7':topic===0&&artworkIndex===0?'30 × 21':'29,7 × 42')+' '+detailText.unit;
+ const dimensions=isBakst?(lang==='en'?'42 × 29.7':'42 × 29,7')+' '+detailText.unit+' (A3)':isMetro?'29,7 × 21 '+detailText.unit+' (A4)':topic===3?'21 × 29,7 '+detailText.unit+' (A4)':(topic===1&&[8,9,11].includes(artworkIndex)?'21 × 29,7':topic===0&&artworkIndex===0?'30 × 21':'29,7 × 42')+' '+detailText.unit;
  const makeDetails=()=>{const list=el('dl','graphic-details');if(medium)list.append(el('dt','',detailText.labels[0]),el('dd','',medium));if(dimensions)list.append(el('dt','',detailText.labels[1]),el('dd','',dimensions));return list};
  const descriptionKey=(topic===3?'people':topic===0?'graphics':topic===1?'architecture':'still-life')+'-'+artworkIndex;
  const description=isBakst?(bakstNotes[lang]||bakstNotes.en)[artworkIndex-2]:(window.artworkDescriptions?.[lang]||window.artworkDescriptions?.en||{})[descriptionKey];
