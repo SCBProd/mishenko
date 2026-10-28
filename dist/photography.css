@@ -23,3 +23,6 @@
 
 /* A real, manually controlled lead carousel with a stable image area. */
 .hero{grid-template-columns:37% 63%}.hero-copy{padding-left:13.5%}.hero-copy h1{font-size:clamp(40px,4.2vw,72px)}.hero-stage{position:relative;flex:1;min-height:560px;overflow:hidden;background:#14211e}.hero-stage>img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:1;width:44px;height:44px;background:#171c188c;color:#edf0e6;border-color:#edf0e680}.hero-arrow:hover{background:#171c18d9}#hero-prev{left:18px}#hero-next{right:18px}.hero-image figcaption{min-height:42px;align-items:center}@media(max-width:1000px) and (min-width:701px){.hero{grid-template-columns:42% 58%}.hero-stage{min-height:500px}}@media(max-width:700px){.hero-copy{padding-left:6%}.hero-copy h1{font-size:clamp(35px,9.3vw,55px)}.hero-stage{flex:none;height:340px;min-height:340px}#hero-prev{left:12px}#hero-next{right:12px}}
+
+/* Leave more space between the introduction and its two actions. */
+.hero-copy .actions{margin-top:48px;margin-bottom:24px}@media(max-width:700px){.hero-copy .actions{margin-top:28px;margin-bottom:10px}}
