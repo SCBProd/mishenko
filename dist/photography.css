@@ -17,3 +17,6 @@
 
 /* Equal control boxes on desktop and mobile. */
 .settings #theme,.settings #language{box-sizing:border-box;height:44px;min-height:44px;max-height:44px;margin:0;align-self:center}
+
+/* Give the photographic signature a clearer hierarchy and breathing room. */
+.brand{font-size:12px;letter-spacing:.24em;gap:16px}.monogram{width:48px;height:48px}.monogram svg{width:48px;height:48px}@media(max-width:700px){.brand{font-size:9px;letter-spacing:.15em;gap:11px}.monogram,.monogram svg{width:40px;height:40px}.header{column-gap:8px}.settings{gap:6px}.settings select{max-width:92px}}@media(max-width:360px){.brand{font-size:8px;letter-spacing:.12em;gap:8px}.monogram,.monogram svg{width:36px;height:36px}}
