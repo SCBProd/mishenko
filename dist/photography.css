@@ -10,3 +10,7 @@
 
 /* Photography has its own circular signature, distinct from ceramics. */
 .brand{font:600 10px/1.5 Manrope,Arial,sans-serif;letter-spacing:.28em;gap:13px}.brand>span:last-child{white-space:nowrap}@media(max-width:700px){.brand{font-size:8px;letter-spacing:.18em;gap:9px}.monogram{font-size:22px;width:32px;height:32px}.settings{gap:7px}.settings select{max-width:95px}}
+
+/* Original geometric K construction inside the photography circle. */
+.monogram{border:0;background:none;display:block}.monogram svg{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1}.monogram .signature-k{stroke-width:2.5;stroke-linecap:square;stroke-linejoin:miter}
+#theme{display:flex;align-items:center;justify-content:center;gap:9px;border-radius:0;width:auto;min-width:85px;min-height:40px;height:40px;padding:8px 12px;background:var(--bg);font:11px Arial,Helvetica,sans-serif}#theme svg{width:19px;height:19px;flex:none}@media(max-width:650px){#theme{width:44px;min-width:44px;min-height:44px;height:44px;padding:8px}#theme .theme-label{display:none}}
