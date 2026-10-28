@@ -64,3 +64,10 @@ for (const name of ["photography.css", "photography.js", "photography-data.js", 
     writeFileSync(htmlPath, html.replace(assetReference, `$1${versioned}$2`));
   }
 }
+
+// A release stamp lets a restored browser tab discover a newer publication.
+const photoHtmlPath = path.join(destination, "photography.html");
+const photoHtml = readFileSync(photoHtmlPath, "utf8");
+const photoVersion = createHash("sha256").update(photoHtml).digest("hex").slice(0, 16);
+writeFileSync(photoHtmlPath, photoHtml.replace("</head>", `<meta name="photography-release" content="${photoVersion}"></head>`));
+writeFileSync(path.join(destination, "photography-release.json"), JSON.stringify({version: photoVersion}));

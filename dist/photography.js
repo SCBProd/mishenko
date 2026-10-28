@@ -36,3 +36,15 @@ document.querySelector('.hero-image').addEventListener('keydown',e=>{if(e.key===
 let heroTouch=null;document.querySelector('.hero-stage').addEventListener('touchstart',e=>{heroTouch=e.touches.length===1?[e.touches[0].clientX,e.touches[0].clientY]:null},{passive:true});document.querySelector('.hero-stage').addEventListener('touchend',e=>{if(!heroTouch)return;const dx=e.changedTouches[0].clientX-heroTouch[0],dy=e.changedTouches[0].clientY-heroTouch[1];if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)moveHero(dx<0?1:-1);heroTouch=null},{passive:true});
 
 $('#top-link').onclick=e=>{e.preventDefault();window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})};render();
+
+// Revalidate restored/open pages without interrupting a draft or the image viewer.
+let checkingRelease=false;
+async function checkRelease(){
+ if(checkingRelease||document.visibilityState==='hidden'||document.querySelector('#viewer').open||document.querySelector('#message').value||document.querySelector('#where').value)return;
+ const current=document.querySelector('meta[name="photography-release"]')?.content;
+ if(!current)return;
+ checkingRelease=true;
+ try{const response=await fetch('photography-release.json',{cache:'no-store'});if(!response.ok)return;const release=await response.json();const url=new URL(location.href);if(release.version&&release.version!==current&&url.searchParams.get('_release')!==release.version){url.searchParams.set('_release',release.version);location.replace(url.href)}}catch{}finally{checkingRelease=false}
+}
+window.addEventListener('pageshow',checkRelease);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')checkRelease()});
