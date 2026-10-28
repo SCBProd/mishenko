@@ -4,3 +4,6 @@
 .monogram{display:block;width:42px;height:42px;flex:none;background:#ece9d5 url(assets/logo.webp) center/460% no-repeat}.hero-copy h1{overflow-wrap:normal}.hero-copy{min-width:0}@media(max-width:700px){.monogram{width:34px;height:34px}.hero-copy h1{font-size:clamp(35px,9.3vw,55px)}}
 
 .filters button{min-height:44px}.header nav a{padding:7px 0}
+
+/* Explicit return to the three-discipline hub, visible on every screen size. */
+.hub-return{padding:10px 5%;border-bottom:1px solid var(--line)}.hub-return a{display:inline-flex;align-items:center;gap:10px;min-height:36px;font-size:12px}.hub-return svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}@media(max-width:700px){.hub-return{padding:7px 6%}.hub-return a{min-height:40px}}
