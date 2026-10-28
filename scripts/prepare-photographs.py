@@ -28,7 +28,8 @@ sources=[
 ('duck','landscape','E:/FOTOS/PEOPLE/24.04/01.jpg'),
 ('thought','people','E:/FOTOS/PEOPLE/25.04.26/06.jpg'),
 ('family','people','E:/FOTOS/PEOPLE/26.04.26/63.jpg'),
-('anastasia','people','E:/FOTOS/PEOPLE/ANASTASIA 27.03.2026/_DSC3216.JPG')]
+('anastasia','people','E:/FOTOS/PEOPLE/ANASTASIA 27.03.2026/_DSC3216.JPG'),
+('blue-hour','city','E:/FOTOS/Reflection - light/Close-up of decorative glowing light bulb hanging in front of a blue hour city street reflection 1.jpg')]
 items=[]
 for name,group,src in sources:
     with Image.open(src) as source:
