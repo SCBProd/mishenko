@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -46,3 +47,20 @@ for (const entry of readdirSync(destination, { withFileTypes: true })) {
 }
 
 console.log("Prepared the portfolio with only the hub link in the comparison plaque.");
+// Content-addressed entry assets prevent stale CSS/JS across photography releases.
+for (const name of ["photography.css", "photography.js", "photography-data.js", "hub-language.js"]) {
+  const assetPath = path.join(destination, name);
+  const contents = readFileSync(assetPath);
+  const fingerprint = createHash("sha256").update(contents).digest("hex").slice(0, 12);
+  const extension = path.extname(name);
+  const versioned = `${name.slice(0, -extension.length)}.${fingerprint}${extension}`;
+  writeFileSync(path.join(destination, versioned), contents);
+  const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const assetReference = new RegExp(`(["'])${escaped}(?:\\?[^"']*)?(["'])`, "g");
+  for (const entry of readdirSync(destination)) {
+    if (!entry.endsWith(".html")) continue;
+    const htmlPath = path.join(destination, entry);
+    const html = readFileSync(htmlPath, "utf8");
+    writeFileSync(htmlPath, html.replace(assetReference, `$1${versioned}$2`));
+  }
+}
