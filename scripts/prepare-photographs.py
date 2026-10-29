@@ -35,7 +35,12 @@ sources=[
 ('forsythia-garden', 'botanical', 'E:/FOTOS/Flowers/Golden Glow Spring Yellow Palette/Bright yellow forsythia flowers on a branch in early spring garden.jpg'),
 ('forsythia-bud', 'botanical', 'E:/FOTOS/Flowers/Golden Glow Spring Yellow Palette/Minimalist spring branch of yellow forsythia with a green bud.jpg'),
 ('forsythia-detail', 'botanical', 'E:/FOTOS/Flowers/Golden Glow Spring Yellow Palette/Detailed macro shot of yellow forsythia blossom on a twig.jpg'),
-('forsythia-glow', 'botanical', 'E:/FOTOS/Flowers/Golden Glow Spring Yellow Palette/Glowing yellow forsythia blossoms with soft bokeh and morning sunlight.jpg')]
+('forsythia-glow', 'botanical', 'E:/FOTOS/Flowers/Golden Glow Spring Yellow Palette/Glowing yellow forsythia blossoms with soft bokeh and morning sunlight.jpg'),
+('sakura-soft', 'botanical', 'E:\\FOTOS\\Flowers\\Japanese Cherry Blossom Collection\\Beautiful pink sakura cherry blossom branches with soft focus background.jpg'),
+('sakura-buds', 'botanical', 'E:\\FOTOS\\Flowers\\Japanese Cherry Blossom Collection\\Close-up of pink sakura flower buds on a branch before blooming.jpg'),
+('sakura-first', 'botanical', 'E:\\FOTOS\\Flowers\\Japanese Cherry Blossom Collection\\First breath of spring delicate pink sakura blossoms on a slender twig.jpg'),
+('sakura-dark', 'botanical', 'E:\\FOTOS\\Flowers\\Japanese Cherry Blossom Collection\\Minimalist pink sakura branch with early blossoms and buds on a dark background.jpg'),
+('sakura-sky', 'botanical', 'E:\\FOTOS\\Flowers\\Japanese Cherry Blossom Collection\\pink sakura cherry blossom branches against a bright white sky.jpg')]
 items=[]
 for name,group,src in sources:
     with Image.open(src) as source:
