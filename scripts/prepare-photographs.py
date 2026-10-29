@@ -29,7 +29,13 @@ sources=[
 ('thought','people','E:/FOTOS/PEOPLE/25.04.26/06.jpg'),
 ('family','people','E:/FOTOS/PEOPLE/26.04.26/63.jpg'),
 ('anastasia','people','E:/FOTOS/PEOPLE/ANASTASIA 27.03.2026/_DSC3216.JPG'),
-('blue-hour','city','E:/FOTOS/Reflection - light/Close-up of decorative glowing light bulb hanging in front of a blue hour city street reflection 1.jpg')]
+('blue-hour','city','E:/FOTOS/Reflection - light/Close-up of decorative glowing light bulb hanging in front of a blue hour city street reflection 1.jpg'),
+('forsythia-branch', 'botanical', 'E:/FOTOS/Flowers/Golden Glow Spring Yellow Palette/Spring blossoms on a brown wooden branch with soft outdoor background.jpg'),
+('forsythia-fence', 'botanical', 'E:/FOTOS/Flowers/Golden Glow Spring Yellow Palette/Vibrant yellow forsythia blooms against a soft urban fence background.jpg'),
+('forsythia-garden', 'botanical', 'E:/FOTOS/Flowers/Golden Glow Spring Yellow Palette/Bright yellow forsythia flowers on a branch in early spring garden.jpg'),
+('forsythia-bud', 'botanical', 'E:/FOTOS/Flowers/Golden Glow Spring Yellow Palette/Minimalist spring branch of yellow forsythia with a green bud.jpg'),
+('forsythia-detail', 'botanical', 'E:/FOTOS/Flowers/Golden Glow Spring Yellow Palette/Detailed macro shot of yellow forsythia blossom on a twig.jpg'),
+('forsythia-glow', 'botanical', 'E:/FOTOS/Flowers/Golden Glow Spring Yellow Palette/Glowing yellow forsythia blossoms with soft bokeh and morning sunlight.jpg')]
 items=[]
 for name,group,src in sources:
     with Image.open(src) as source:
