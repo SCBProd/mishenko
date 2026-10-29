@@ -1,0 +1,20 @@
+exclude:
+  - .github
+  - .openai
+  - AGENTS.md
+  - COLLECTION-NOTES.md
+  - README.md
+  - README-UK.txt
+  - TABLEWARE-NOTES.md
+  - add-graphic-materials.cjs
+  - archived-artworks
+  - build-cinema.cjs
+  - cinema-translations.json
+  - dist
+  - document-source
+  - more-artwork-descriptions.json
+  - scripts
+  - src
+  - update-architecture.cjs
+  - update-still-life.cjs
+  - validate-full.cjs
