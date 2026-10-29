@@ -52,7 +52,28 @@ sources=[
 ('evening-dusk', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Spring tree branch with white flowers and buds at dusk.jpg'),
 ('evening-close', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\White spring blossoms on a tree branch close-up.jpg'),
 ('evening-blue', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\White spring blossoms on branch against blue evening sky.jpg'),
-('evening-bokeh', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\White spring tree blossoms on branches with soft bokeh background.jpg')]
+('evening-bokeh', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\White spring tree blossoms on branches with soft bokeh background.jpg'),
+('spring-floral', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Delicate white floral background for spring.jpg'),
+('spring-bee', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Honey bee collecting pollen on white cherry blossom.jpg'),
+('spring-center', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Macro of White Spring Flower with Yellow Center.jpg'),
+('spring-bee-sky', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Macro shot of bee on flower with blue sky background.jpg'),
+('spring-white', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\White spring blossom flowers on a tree branch.jpg'),
+('spring-golden', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\White spring blossoms on branch in golden hour light.jpg'),
+('spring-mixed', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Beautiful spring branches with pink and white blossoms against blue sky.jpg'),
+('spring-sunset', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Beautiful spring flowering branch in golden sunset light.jpg'),
+('spring-pink-buds', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Close-up of pink flower buds on branch in early spring.jpg'),
+('spring-bud-bokeh', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Delicate pink buds on a tree branch with soft golden bokeh.jpg'),
+('forsythia-sun', 'botanical', 'E:\\FOTOS\\Flowers\\Shutterstock 2025\\Vivid yellow Forsythia flowers on a dark, sunny spring day.jpg'),
+('forsythia-early', 'botanical', 'E:\\FOTOS\\Flowers\\Shutterstock 2025\\Bright yellow Forsythia flowers in early spring. Nature background.jpg'),
+('forsythia-panorama', 'botanical', 'E:\\FOTOS\\Flowers\\Shutterstock 2025\\Panoramic view of bright yellow Forsythia with green leaves in sunlight.jpg'),
+('glass-edison-1', 'city', 'E:\\FOTOS\\Reflection - light\\Elegant Edison style light bulbs hanging inside a coffee shop view through glass 1.jpg'),
+('glass-edison', 'city', 'E:\\FOTOS\\Reflection - light\\Elegant Edison style light bulbs hanging inside a coffee shop view through glass.jpg'),
+('glass-trees', 'city', 'E:\\FOTOS\\Reflection - light\\Moody city view with bare trees and old buildings reflected in a window with cozy hanging lamps.jpg'),
+('glass-self', 'city', 'E:\\FOTOS\\Reflection - light\\Silhouette of a person taking a photo reflected in a cafe window with glowing vintage lamps.jpg'),
+('glass-arcade', 'city', 'E:\\FOTOS\\Reflection - light\\Abstract reflection of a street arcade with people walking seen through a glass window with warm lights.jpg'),
+('glass-architecture', 'city', 'E:\\FOTOS\\Reflection - light\\Artistic reflection of old european architecture mixed with warm interior lighting and wooden decor.jpg'),
+('glass-blue', 'city', 'E:\\FOTOS\\Reflection - light\\Close-up of decorative glowing light bulb hanging in front of a blue hour city street reflection.jpg'),
+('glass-cozy', 'city', 'E:\\FOTOS\\Reflection - light\\Cozy cafe window reflection with warm decorative light bulbs and street silhouette.jpg')]
 items=[]
 for name,group,src in sources:
     with Image.open(src) as source:
