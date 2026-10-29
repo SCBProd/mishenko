@@ -1,25 +1,25 @@
-# Krystyna Mishchenko portfolio — Next.js
+# Krystyna Mishchenko portfolio — static site
 
-This repository is prepared for Vercel and uses Next.js as its application and routing layer. The home page opens the Ukrainian standard portfolio. Existing portfolio content is preserved in `dist/` and served through the compatibility copy generated in `public/legacy/`.
+The portfolio is plain HTML, CSS and JavaScript. The source website is in `dist/`; GitHub Actions prepares it and publishes a filtered copy from `public/legacy/` to `https://scbprod.github.io/mishenko/`.
 
-The top plaque contains a link to the original portfolio hub at `concepts.html` plus its close control. The hub retains ceramics, photography, and 3D art. The museum and night exhibition alternatives are excluded from the runtime.
+The published home page is the three-discipline hub. It links to ceramics, photography and 3D art. The comparison plaque contains the return link to the hub and its close control; the museum and night exhibition alternatives are excluded from the published copy.
 
-`scripts/prepare-legacy.mjs` copies `dist/` into the ignored `public/legacy/` directory before development and production builds. Edit the original files or their generators in `dist/`, `src/`, and supporting source folders; do not edit `public/legacy/`, because it is regenerated.
+## Preview locally
 
-## Local development
-
-```sh
-npm ci
-npm run dev
-```
-
-## Production build
+Run the preparation script, then serve the generated files with any static HTTP server:
 
 ```sh
-npm run build
+node scripts/prepare-legacy.mjs
+python -m http.server 8000 --directory public/legacy
 ```
 
-Import the GitHub repository into Vercel and use the default Next.js build settings. The Next.js workflow checks the build. A separate, user-authorized GitHub Pages workflow publishes the generated static portfolio from `public/legacy/` to the existing github.io address. Both hosting paths use the same `dist/` source and document assets.
+Open `http://localhost:8000`.
+
+## GitHub Pages
+
+The workflow `.github/workflows/pages.yml` runs on pushes to `main` and publishes `public/legacy/`. In repository Settings → Pages, set the source to **GitHub Actions**. For a GitHub Free personal account, the repository must be public for Pages; private repositories require an eligible paid plan.
+
+Edit the original pages and assets in `dist/`, or their generators and source data in `src/`, `document-source/` and `scripts/`. Do not edit `public/legacy/`; it is generated. Preserve source material and archived artworks.
 ## CV and biography documents
 
 The reviewed source records are in `document-source/cv-content.json` and the language-specific editorial JSON files. `document-source/build.py` builds the ten DOCX files and `dist/cv-data.js` from those records. It accepts optional language codes, for example `build.py de`.
