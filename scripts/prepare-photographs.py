@@ -40,7 +40,19 @@ sources=[
 ('sakura-buds', 'botanical', 'E:\\FOTOS\\Flowers\\Japanese Cherry Blossom Collection\\Close-up of pink sakura flower buds on a branch before blooming.jpg'),
 ('sakura-first', 'botanical', 'E:\\FOTOS\\Flowers\\Japanese Cherry Blossom Collection\\First breath of spring delicate pink sakura blossoms on a slender twig.jpg'),
 ('sakura-dark', 'botanical', 'E:\\FOTOS\\Flowers\\Japanese Cherry Blossom Collection\\Minimalist pink sakura branch with early blossoms and buds on a dark background.jpg'),
-('sakura-sky', 'botanical', 'E:\\FOTOS\\Flowers\\Japanese Cherry Blossom Collection\\pink sakura cherry blossom branches against a bright white sky.jpg')]
+('sakura-sky', 'botanical', 'E:\\FOTOS\\Flowers\\Japanese Cherry Blossom Collection\\pink sakura cherry blossom branches against a bright white sky.jpg'),
+('evening-silhouette', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Silhouette of blooming tree branch against golden sunset sun.jpg'),
+('evening-branches', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Branches of white blooming flowers in bright sunset sunlight.jpg'),
+('evening-twilight', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Delicate white blossoms in soft evening light at twilight.jpg'),
+('evening-buds', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Flowering fruit tree branch with buds against twilight sky.jpg'),
+('evening-flare-2', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Flowering tree branch in soft twilight light with sun flare 2.jpg'),
+('evening-flare', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Flowering tree branch in soft twilight light with sun flare.jpg'),
+('evening-stamens', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Macro of white tree blossoms with yellow stamens in spring.jpg'),
+('evening-sun', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Spring tree branch with white flowers against glowing sun background.jpg'),
+('evening-dusk', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\Spring tree branch with white flowers and buds at dusk.jpg'),
+('evening-close', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\White spring blossoms on a tree branch close-up.jpg'),
+('evening-blue', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\White spring blossoms on branch against blue evening sky.jpg'),
+('evening-bokeh', 'botanical', 'E:\\FOTOS\\Flowers\\Mixed white flowers and pink buds (03.04.26)\\White spring tree blossoms on branches with soft bokeh background.jpg')]
 items=[]
 for name,group,src in sources:
     with Image.open(src) as source:
