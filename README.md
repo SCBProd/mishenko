@@ -1,6 +1,6 @@
 # Krystyna Mishchenko portfolio — static site
 
-The portfolio is plain HTML, CSS and JavaScript. The source website is in `dist/`; the filtered static copy in `public/legacy/` is published at `https://scbprod.github.io/mishenko/`. The root `index.html` is a minimal frame that opens this static copy.
+The portfolio is plain HTML, CSS and JavaScript. The source website is in `dist/`; GitHub Actions generates a filtered copy in `public/legacy/` and publishes its contents at `https://scbprod.github.io/mishenko/`.
 
 The published home page is the three-discipline hub. It links to ceramics, photography and 3D art. The comparison plaque contains the return link to the hub and its close control; the museum and night exhibition alternatives are excluded from the published copy.
 
@@ -17,9 +17,9 @@ Open `http://localhost:8000`.
 
 ## GitHub Pages
 
-GitHub Pages publishes from the `main` branch root. `_config.yml` excludes source code, editorial files and artwork archives; only the root frame and the generated site in `public/legacy/` are public. For a GitHub Free personal account, the repository must be public for Pages; private repositories require an eligible paid plan.
+The workflow `.github/workflows/pages.yml` runs on pushes to `main` and publishes `public/legacy/`. In repository Settings → Pages, set the source to **GitHub Actions**. For a GitHub Free personal account, the repository must be public for Pages; private repositories require an eligible paid plan.
 
-Edit the original pages and assets in `dist/`, or their generators and source data in `src/`, `document-source/` and `scripts/`. Then run `node scripts/prepare-legacy.mjs` and commit the regenerated `public/legacy/` output. Preserve source material and archived artworks.
+Edit the original pages and assets in `dist/`, or their generators and source data in `src/`, `document-source/` and `scripts/`. Do not edit `public/legacy/`; it is generated before each Pages deployment. Preserve source material and archived artworks.
 ## CV and biography documents
 
 The reviewed source records are in `document-source/cv-content.json` and the language-specific editorial JSON files. `document-source/build.py` builds the ten DOCX files and `dist/cv-data.js` from those records. It accepts optional language codes, for example `build.py de`.
