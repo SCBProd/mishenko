@@ -10,7 +10,7 @@ const $=s=>document.querySelector(s), groups=['people','city','landscape','botan
 const covers=['family','reflection','stone','evening','rain'];
 const order=['blue-hour','reflection','anastasia','stone','traffic','evening','family','motion','river','thought','sakura','rain','street','ferns','play','water','architecture','yellow','platform','smile','sky','windows','petals','rosehips','duck','pink','leaves'];
 const photos=order.map(id=>({...window.PHOTOS.find(p=>p.id===id),index:window.PHOTOS.findIndex(p=>p.id===id)}));
-const heroPhotos=photos.slice(0,19);
+const heroPhotos=photos.slice(0,18);
 let lang='uk', active='all', current=0, heroCurrent=0, returnTo=null;
 const read=k=>{try{return localStorage.getItem(k)}catch{return null}},save=(k,v)=>{try{localStorage.setItem(k,v)}catch{}};
 const queryLang=new URLSearchParams(location.search).get('lang');lang=COPY[queryLang]?queryLang:(COPY[read('km-hub-language')]?read('km-hub-language'):'uk');
