@@ -74,6 +74,7 @@ sources=[
 ('glass-architecture', 'city', 'E:\\FOTOS\\Reflection - light\\Artistic reflection of old european architecture mixed with warm interior lighting and wooden decor.jpg'),
 ('glass-blue', 'city', 'E:\\FOTOS\\Reflection - light\\Close-up of decorative glowing light bulb hanging in front of a blue hour city street reflection.jpg'),
 ('glass-cozy', 'city', 'E:\\FOTOS\\Reflection - light\\Cozy cafe window reflection with warm decorative light bulbs and street silhouette.jpg')]
+sources += [('night-13', 'city', 'E:/FOTOS/Urban/Night city/13.jpg'), ('night-14', 'city', 'E:/FOTOS/Urban/Night city/14.jpg'), ('night-15', 'city', 'E:/FOTOS/Urban/Night city/15.jpg'), ('night-17', 'city', 'E:/FOTOS/Urban/Night city/17.jpg'), ('night-21', 'city', 'E:/FOTOS/Urban/Night city/21.jpg'), ('night-5', 'city', 'E:/FOTOS/Urban/Night city/5.jpg'), ('night-9', 'city', 'E:/FOTOS/Urban/Night city/9.jpg'), ('night-10', 'city', 'E:/FOTOS/Urban/Night city/10.jpg')]
 items=[]
 for name,group,src in sources:
     with Image.open(src) as source:
