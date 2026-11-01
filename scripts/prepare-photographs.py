@@ -91,6 +91,7 @@ sources += [('anastasia-3439', 'people', 'E:/FOTOS/PEOPLE/ANASTASIA 27.03.2026/T
 sources += [('anastasia-2569', 'people', 'E:/FOTOS/PEOPLE/ANASTASIA 27.03.2026/_DSC2569.JPG'), ('anastasia-3310', 'people', 'E:/FOTOS/PEOPLE/ANASTASIA 27.03.2026/_DSC3310.JPG'), ('anastasia-3311', 'people', 'E:/FOTOS/PEOPLE/ANASTASIA 27.03.2026/_DSC3311.JPG'), ('anastasia-3133', 'people', 'E:/FOTOS/PEOPLE/ANASTASIA 27.03.2026/_DSC3133.JPG')]
 sources += [('childhood-111', 'people', 'E:/FOTOS/PEOPLE/10.05.26/111.jpg')]
 sources += [('childhood-107', 'people', 'E:/FOTOS/PEOPLE/10.05.26/107.jpg'), ('childhood-117', 'people', 'E:/FOTOS/PEOPLE/10.05.26/117.jpg'), ('childhood-120', 'people', 'E:/FOTOS/PEOPLE/10.05.26/120.jpg'), ('childhood-104', 'people', 'E:/FOTOS/PEOPLE/10.05.26/104.jpg'), ('childhood-106', 'people', 'E:/FOTOS/PEOPLE/10.05.26/106.jpg')]
+sources += [('childrens-fantasy-18', 'people', 'E:/FOTOS/PEOPLE/25.04.26/18.jpg'), ('childrens-fantasy-24', 'people', 'E:/FOTOS/PEOPLE/25.04.26/24.jpg'), ('childrens-fantasy-11', 'people', 'E:/FOTOS/PEOPLE/25.04.26/11.jpg'), ('childrens-fantasy-32', 'people', 'E:/FOTOS/PEOPLE/25.04.26/32.jpg'), ('childrens-fantasy-35', 'people', 'E:/FOTOS/PEOPLE/25.04.26/35.jpg'), ('childrens-fantasy-64', 'people', 'E:/FOTOS/PEOPLE/25.04.26/64.jpg')]
 items=[]
 for name,group,src in sources:
     with Image.open(src) as source:
