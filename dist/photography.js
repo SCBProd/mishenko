@@ -92,6 +92,20 @@ const fantasyOutdoorTitles={"uk": ["Сонячна усмішка", "Мален�
 for(const [language,titles] of Object.entries(fantasyOutdoorTitles)) COPY[language].titles.push(...titles);
 order.push(...["fantasy-outdoor-12", "fantasy-outdoor-28"]);
 
+
+const mayPlayTitles={"uk": ["Перед польотом", "За підтримки тата", "Тиха мить", "Гра на галявині", "Погляд угору", "Радість гри", "Серед зелені", "Маленький дослідник", "На гірці", "Перед поїздкою", "Щира усмішка", "Світ в очах", "Теплий погляд", "Ось і я", "Поруч із татом"], "ru": ["Перед полётом", "С поддержкой папы", "Тихое мгновение", "Игра на поляне", "Взгляд вверх", "Радость игры", "Среди зелени", "Маленький исследователь", "На горке", "Перед поездкой", "Искренняя улыбка", "Мир в глазах", "Тёплый взгляд", "А вот и я", "Рядом с папой"], "en": ["Before takeoff", "With dad’s support", "A quiet moment", "A game on the lawn", "Looking up", "The joy of play", "Among the greenery", "A little explorer", "On the slide", "Before the ride", "A genuine smile", "A world in the eyes", "A warm glance", "Here I am", "Beside dad"], "de": ["Vor dem Abflug", "Mit Papas Unterstützung", "Ein stiller Moment", "Ein Spiel auf der Wiese", "Der Blick nach oben", "Spielfreude", "Im Grünen", "Ein kleiner Entdecker", "Auf der Rutsche", "Vor der Fahrt", "Ein ehrliches Lächeln", "Eine Welt in den Augen", "Ein warmer Blick", "Hier bin ich", "Bei Papa"], "pl": ["Przed lotem", "Ze wsparciem taty", "Cicha chwila", "Zabawa na polanie", "Spojrzenie w górę", "Radość zabawy", "Wśród zieleni", "Mały odkrywca", "Na zjeżdżalni", "Przed przejażdżką", "Szczery uśmiech", "Świat w oczach", "Ciepłe spojrzenie", "Oto jestem", "Obok taty"]};
+for(const [language,titles] of Object.entries(mayPlayTitles)) COPY[language].titles.push(...titles);
+order.push(...["may-play-flight-63", "may-play-142", "may-play-144", "may-play-148", "may-play-12", "may-play-13", "may-play-48", "may-play-54", "may-play-56", "may-play-64", "may-play-83", "may-play-89", "may-play-129", "may-play-112", "may-play-140"]);
+groups.push("monochrome"); covers.push("may-play-140");
+COPY.uk.groups.push("Чорно-біла фотографія");
+COPY.ru.groups.push("Чёрно-белая фотография");
+COPY.en.groups.push("Black and white photography");
+COPY.de.groups.push("Schwarzweißfotografie");
+COPY.pl.groups.push("Fotografia czarno-biała");
+collections.find(c=>c.id==="childrens-sessions").photos.push(...["may-play-flight-63", "may-play-142", "may-play-13", "may-play-54", "may-play-56", "may-play-64", "may-play-112"]);
+Object.assign(collections.find(c=>c.id==="childrens-sessions").descriptions,{"uk": "Дитинство у грі: польоти іграшкового літака, гірки, перші поїздки та підтримка близьких.", "ru": "Детство в игре: полёты игрушечного самолёта, горки, первые поездки и поддержка близких.", "en": "Childhood at play: a toy plane, slides, first rides and a helping hand.", "de": "Kindheit im Spiel: ein Spielzeugflugzeug, Rutschen, erste Fahrten und eine helfende Hand.", "pl": "Dzieciństwo w zabawie: samolot, zjeżdżalnie, pierwsze przejażdżki i pomocna dłoń."});
+collections.push({"id": "childrens-portraits", "group": "people", "cover": "may-play-83", "photos": ["may-play-83", "may-play-12", "may-play-144", "may-play-48", "may-play-89", "may-play-129"], "names": {"uk": "Дитячі портрети", "ru": "Детские портреты", "en": "Childhood portraits", "de": "Kinderporträts", "pl": "Portrety dziecięce"}, "descriptions": {"uk": "Погляди, веснянки та щирі усмішки у природному світлі.", "ru": "Взгляды, веснушки и искренние улыбки в естественном свете.", "en": "Glances, freckles and genuine smiles in natural light.", "de": "Blicke, Sommersprossen und ehrliches Lächeln im natürlichen Licht.", "pl": "Spojrzenia, piegi i szczere uśmiechy w naturalnym świetle."}});
+
 const photos=order.map(id=>({...window.PHOTOS.find(p=>p.id===id),index:window.PHOTOS.findIndex(p=>p.id===id)}));
 const heroPhotos=photos.slice(0,18);
 let lang='uk', active='all', activeCollection=null, current=0, heroCurrent=0, returnTo=null;
