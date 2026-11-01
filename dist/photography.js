@@ -8,6 +8,10 @@ pl:{series:'Serie',collaborate:'Współpraca',headline:'Światło.<br>Przestrze�
 };
 const $=s=>document.querySelector(s), groups=['people','city','landscape','botanical','texture'];
 
+
+const directionCopy={"uk": {"directionsEyebrow": "Портфоліо", "directionsTitle": "Два напрями", "photoDirection": "Фото", "photoDirectionText": "Серії, портрети та візуальні історії.", "videoDirection": "Відео", "videoDirectionText": "Рух, світло та історії в кадрі.", "videoEmptyTitle": "Відеороботи з’являться тут", "videoEmptyText": "Цей розділ готується до поповнення."}, "ru": {"directionsEyebrow": "Портфолио", "directionsTitle": "Два направления", "photoDirection": "Фото", "photoDirectionText": "Серии, портреты и визуальные истории.", "videoDirection": "Видео", "videoDirectionText": "Движение, свет и истории в кадре.", "videoEmptyTitle": "Видеоработы появятся здесь", "videoEmptyText": "Этот раздел готовится к пополнению."}, "en": {"directionsEyebrow": "Portfolio", "directionsTitle": "Two directions", "photoDirection": "Photo", "photoDirectionText": "Series, portraits and visual stories.", "videoDirection": "Video", "videoDirectionText": "Motion, light and stories on screen.", "videoEmptyTitle": "Video work will appear here", "videoEmptyText": "This section is being prepared for new work."}, "de": {"directionsEyebrow": "Portfolio", "directionsTitle": "Zwei Bereiche", "photoDirection": "Foto", "photoDirectionText": "Serien, Porträts und visuelle Geschichten.", "videoDirection": "Video", "videoDirectionText": "Bewegung, Licht und Geschichten im Bild.", "videoEmptyTitle": "Hier erscheinen bald Videoarbeiten", "videoEmptyText": "Dieser Bereich wird für neue Arbeiten vorbereitet."}, "pl": {"directionsEyebrow": "Portfolio", "directionsTitle": "Dwa kierunki", "photoDirection": "Foto", "photoDirectionText": "Serie, portrety i wizualne historie.", "videoDirection": "Wideo", "videoDirectionText": "Ruch, światło i historie w kadrze.", "videoEmptyTitle": "Tutaj pojawią się prace wideo", "videoEmptyText": "Ta sekcja jest przygotowywana na nowe prace."}};
+for(const [language,copy] of Object.entries(directionCopy)) Object.assign(COPY[language],copy);
+
 const collections=[{id:'forsythia',group:'botanical',cover:'yellow',photos:['yellow','forsythia-branch','forsythia-fence','forsythia-garden','forsythia-bud','forsythia-detail','forsythia-glow'],names:{uk:'Форзиція. Золоте цвітіння',ru:'Форзиция. Золотое цветение',en:'Forsythia. Golden bloom',de:'Forsythie. Goldene Blüte',pl:'Forsycja. Złote kwitnienie'},descriptions:{uk:'Десять спостережень за весняною форзицією: лінії гілок, молоді бруньки й жовті пелюстки у м’якому світлі.',ru:'Десять наблюдений за весенней форзицией: линии ветвей, молодые почки и жёлтые лепестки в мягком свете.',en:'Ten studies of spring forsythia: branching lines, new buds and yellow petals in soft light.',de:'Zehn Studien einer Forsythie im Frühling: Zweiglinien, junge Knospen und gelbe Blütenblätter im weichen Licht.',pl:'Dziesięć spojrzeń na wiosenną forsycję: linie gałęzi, młode pąki i żółte płatki w miękkim świetle.'}}];
 
 collections.push({"id": "sakura", "group": "botanical", "cover": "sakura-soft", "photos": ["sakura-soft", "sakura", "sakura-buds", "sakura-first", "sakura-dark", "sakura-sky"], "names": {"uk": "Сакура. Між бутоном і цвітінням", "ru": "Сакура. Между бутоном и цветением", "en": "Sakura. Between bud and blossom", "de": "Sakura. Zwischen Knospe und Blüte", "pl": "Sakura. Między pąkiem a kwiatem"}, "descriptions": {"uk": "Шість кадрів сакури: від закритих бутонів до рожевих пелюсток, від темного тла до білого неба.", "ru": "Шесть кадров сакуры: от закрытых бутонов до розовых лепестков, от тёмного фона до белого неба.", "en": "Six photographs of cherry blossom: from closed buds to pink petals, from dark backgrounds to a white sky.", "de": "Sechs Kirschblütenaufnahmen: von geschlossenen Knospen zu rosa Blütenblättern, vor dunklem Hintergrund und weißem Himmel.", "pl": "Sześć fotografii kwitnącej wiśni: od zamkniętych pąków po różowe płatki, na ciemnym tle i białym niebie."}});
@@ -154,3 +158,16 @@ async function checkRelease(){
 }
 window.addEventListener('pageshow',checkRelease);
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')checkRelease()});
+
+
+function selectDirection(direction){
+ const video=direction==='video';
+ document.querySelector('#series').hidden=video;
+ document.querySelector('#photographs').hidden=video;
+ document.querySelector('#video-portfolio').hidden=!video;
+ document.querySelector('#direction-photo').setAttribute('aria-pressed',String(!video));
+ document.querySelector('#direction-video').setAttribute('aria-pressed',String(video));
+}
+document.querySelector('#direction-photo').onclick=()=>selectDirection('photo');
+document.querySelector('#direction-video').onclick=()=>selectDirection('video');
+document.querySelectorAll('a[href="#series"]').forEach(a=>a.addEventListener('click',()=>selectDirection('photo')));

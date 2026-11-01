@@ -39,3 +39,15 @@
 /* Repeated navigation clicks must not select the photograph or viewer text. */
 #viewer{-webkit-user-select:none;user-select:none}
 #viewer-image{-webkit-user-drag:none}
+
+/* Photo and video directions inside the photography portfolio. */
+[hidden]{display:none!important}
+.direction-switch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.direction-card{display:grid;grid-template-columns:1fr auto;gap:16px;text-align:left;padding:32px;background:var(--panel);border:1px solid var(--line);color:var(--ink);min-height:220px}
+.direction-card>.eyebrow,.direction-card>strong{grid-column:1/-1}
+.direction-card strong{font-size:clamp(32px,4vw,52px);font-weight:400;letter-spacing:-.04em;line-height:1.1}
+.direction-card>span:not(.eyebrow){font-size:13px;color:var(--muted)}
+.direction-card[aria-pressed=true]{border-color:var(--ink);box-shadow:inset 0 3px var(--ink)}
+.direction-card:hover{border-color:var(--ink)}
+.video-portfolio{min-height:340px}.video-portfolio h2{max-width:750px}.video-portfolio p{margin-top:25px}
+@media(max-width:600px){.direction-switch{gap:12px}.direction-card{padding:20px;min-height:200px;gap:12px}.direction-card>span:not(.eyebrow){font-size:11px}}
