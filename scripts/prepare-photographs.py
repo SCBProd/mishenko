@@ -97,6 +97,7 @@ sources += [('may-play-flight-63', 'people', 'E:/FOTOS/PEOPLE/10.05.26/10.05.202
 sources += [('spring-sky-7', 'botanical', 'D:/7.jpg'), ('spring-sky-8', 'botanical', 'D:/8.jpg'), ('spring-sky-9', 'botanical', 'D:/9.jpg')]
 items=[]
 for name,group,src in sources:
+    if name == 'night-9': src = 'dist/assets/photography/edited/night-9.png'
     with Image.open(src) as source:
         im=ImageOps.exif_transpose(source).convert('RGB'); w,h=im.size
         icc=source.info.get('icc_profile')
