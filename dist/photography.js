@@ -142,7 +142,7 @@ const asset=(p,size)=>`assets/photography/${p.id}-${size}.webp`,title=p=>COPY[la
 const expand='<span class="expand" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></svg></span>';
 function filter(group,scroll=false){active=group;activeCollection=null;const url=new URL(location.href);url.searchParams.delete('series');history.replaceState(null,'',url);renderGallery();if(!scroll)document.querySelector('#filters [aria-pressed="true"]').focus();if(scroll)$('#photographs').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}
 
-function selectCollection(id){activeCollection=id;if(id)active=collections.find(c=>c.id===id).group;const url=new URL(location.href);if(id)url.searchParams.set('series',id);else url.searchParams.delete('series');history.replaceState(null,'',url);renderGallery();document.querySelector('#collection-nav button')?.focus();}
+function selectCollection(id){activeCollection=id;if(id)active=collections.find(c=>c.id===id).group;const url=new URL(location.href);if(id)url.searchParams.set('series',id);else url.searchParams.delete('series');history.replaceState(null,'',url);renderGallery();(document.querySelector('#collection-nav [aria-pressed="true"]') || document.querySelector('#collection-nav button'))?.focus();}
 const peopleSections = [
   {names:{uk:'Індивідуальні зйомки',ru:'Индивидуальные съёмки',en:'Individual sessions',de:'Einzelshootings',pl:'Sesje indywidualne'}, ids:['individual-sessions','anastasia-yellow-accent']},
   {names:{uk:'Дитячі зйомки',ru:'Детские съёмки',en:'Children’s sessions',de:'Kinderfotografie',pl:'Sesje dziecięce'}, ids:['childrens-sessions','soap-bubbles','childrens-fantasy-world','childrens-portraits']},
@@ -150,6 +150,7 @@ const peopleSections = [
   {names:{uk:'Love Story',ru:'Love Story',en:'Love Story',de:'Love Story',pl:'Love Story'}, ids:[]},
   {names:{uk:'Портрети',ru:'Портреты',en:'Portraits',de:'Porträts',pl:'Portrety'}, ids:['people-individual-photos']}
 ];
+let activePeopleSection = 0;
 const comingSoon = {uk:'Добірки з’являться тут.',ru:'Здесь появятся подборки.',en:'Collections will appear here.',de:'Hier erscheinen die Sammlungen.',pl:'Tutaj pojawią się kolekcje.'};
 
 function collectionCard(c) {
@@ -163,9 +164,32 @@ function renderCollections() {
   const choices = collections.filter(c => active === 'all' || c.group === active);
   nav.hidden = choices.length === 0;
 
+  if (active === 'people') {
+    if (activeCollection) {
+      const section = peopleSections.findIndex(direction => direction.ids.includes(activeCollection));
+      if (section !== -1) activePeopleSection = section;
+    }
+    const panel = document.createElement('div');
+    panel.className = 'filters';
+    panel.setAttribute('role', 'group');
+    panel.setAttribute('aria-label', groupTitle('people'));
+    peopleSections.forEach((direction, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = direction.names[lang];
+      button.setAttribute('aria-pressed', String(index === activePeopleSection));
+      button.onclick = () => {
+        activePeopleSection = index;
+        selectCollection(null);
+      };
+      panel.append(button);
+    });
+    nav.append(panel);
+  }
+
   if (activeCollection) {
     const description = choices.find(c => c.id === activeCollection).descriptions[lang];
-    nav.hidden = !description;
+    nav.hidden = active !== 'people' && !description;
     if (description) {
       const paragraph = document.createElement('p');
       paragraph.textContent = description;
@@ -179,23 +203,17 @@ function renderCollections() {
     return;
   }
 
-  for (const direction of peopleSections) {
-    const section = document.createElement('section');
-    const heading = document.createElement('h3');
-    heading.textContent = direction.names[lang];
-    section.append(heading);
-    const matching = direction.ids.map(id => choices.find(c => c.id === id)).filter(Boolean);
-    if (matching.length) {
-      const grid = document.createElement('div');
-      grid.className = 'collection-nav';
-      grid.append(...matching.map(collectionCard));
-      section.append(grid);
-    } else {
-      const empty = document.createElement('p');
-      empty.textContent = comingSoon[lang];
-      section.append(empty);
-    }
-    nav.append(section);
+  const direction = peopleSections[activePeopleSection];
+  const matching = direction.ids.map(id => choices.find(c => c.id === id)).filter(Boolean);
+  if (matching.length) {
+    const grid = document.createElement('div');
+    grid.className = 'collection-nav';
+    grid.append(...matching.map(collectionCard));
+    nav.append(grid);
+  } else {
+    const empty = document.createElement('p');
+    empty.textContent = comingSoon[lang];
+    nav.append(empty);
   }
 }
 
