@@ -68,7 +68,7 @@ order.push("forest-16","forest-10","forest-5","forest-6","forest-11","forest-12"
 order.push("bastei-18","bastei-21","bastei-22","bastei-20-gold","bastei-23","bastei-25","bastei-26","bastei-29","bastei-30","bastei-32","bastei-34","bastei-37","bastei-40","bastei-41","bastei-43","bastei-44","bastei-46");
 order.push(...["bastei-47", "bastei-52", "bastei-53", "bastei-57", "bastei-62", "bastei-63", "bastei-65", "bastei-66", "bastei-75", "bastei-84", "bastei-67", "bastei-68", "bastei-69", "bastei-70", "bastei-95", "bastei-54", "bastei-56", "bastei-58", "bastei-59", "bastei-60", "bastei-64", "bastei-71"]);
 // Individual photo sessions.
-collections.push({"id":"individual-sessions","group":"people","cover":"individual-portrait-29","photos":["individual-portrait-29","individual-portrait-39","individual-portrait-12","individual-portrait-18","individual-portrait-17","individual-portrait-32","individual-portrait-11","individual-portrait-55","individual-portrait-36","individual-portrait-28"],"names":{"uk":"Індивідуальні зйомки","ru":"Индивидуальные съёмки","en":"Individual photo sessions","de":"Einzelshootings","pl":"Sesje indywidualne"},"descriptions":{"uk":"Індивідуальна зйомка в теплому вечірньому світлі.","ru":"Индивидуальная съёмка в тёплом вечернем свете.","en":"An individual photo session in warm evening light.","de":"Ein Einzelshooting im warmen Abendlicht.","pl":"Sesja indywidualna w ciepłym wieczornym świetle."}});
+collections.push({"id":"individual-sessions","group":"people","cover":"individual-portrait-29","photos":["individual-portrait-29","individual-portrait-39","individual-portrait-12","individual-portrait-18","individual-portrait-17","individual-portrait-32","individual-portrait-11","individual-portrait-55","individual-portrait-36","individual-portrait-28"],"names":{"uk":"Вечірнє світло","ru":"Вечерний свет","en":"Evening light","de":"Abendlicht","pl":"Wieczorne światło"},"descriptions":{"uk":"Індивідуальна зйомка в теплому вечірньому світлі.","ru":"Индивидуальная съёмка в тёплом вечернем свете.","en":"An individual photo session in warm evening light.","de":"Ein Einzelshooting im warmen Abendlicht.","pl":"Sesja indywidualna w ciepłym wieczornym świetle."}});
 const individualTitles={"uk": ["Золотий портрет", "Усмішка у світлі", "Міська мить", "Назустріч сонцю", "Світло у волоссі", "Погляд знизу", "Тихий портрет", "Через плече", "Біля фонтану", "Усмішка на заході", "На міській лавці", "Мить спокою"], "ru": ["Золотой портрет", "Улыбка в свете", "Городской миг", "Навстречу солнцу", "Свет в волосах", "Взгляд снизу", "Тихий портрет", "Через плечо", "У фонтана", "Улыбка на закате", "На городской скамье", "Мгновение покоя"], "en": ["Golden portrait", "A smile in the light", "A city moment", "Towards the sun", "Light in her hair", "From below", "A quiet portrait", "Over her shoulder", "By the fountain", "A sunset smile", "On a city bench", "A moment of calm"], "de": ["Goldenes Porträt", "Ein Lächeln im Licht", "Ein Stadtmoment", "Der Sonne entgegen", "Licht im Haar", "Von unten", "Ein stilles Porträt", "Über die Schulter", "Am Brunnen", "Ein Lächeln im Abendlicht", "Auf einer Stadtbank", "Ein Moment der Ruhe"], "pl": ["Złoty portret", "Uśmiech w świetle", "Miejska chwila", "Ku słońcu", "Światło we włosach", "Spojrzenie z dołu", "Spokojny portret", "Przez ramię", "Przy fontannie", "Uśmiech o zachodzie", "Na miejskiej ławce", "Chwila spokoju"]};
 for(const [language,titles] of Object.entries(individualTitles)) COPY[language].titles.push(...titles);
 order.push(...["individual-portrait-17", "individual-portrait-18", "individual-portrait-11", "individual-portrait-12", "individual-portrait-19", "individual-portrait-32", "individual-portrait-36", "individual-portrait-39", "individual-portrait-55", "individual-portrait-57", "individual-portrait-28", "individual-portrait-29"]);
@@ -143,7 +143,61 @@ const expand='<span class="expand" aria-hidden="true"><svg viewBox="0 0 24 24"><
 function filter(group,scroll=false){active=group;activeCollection=null;const url=new URL(location.href);url.searchParams.delete('series');history.replaceState(null,'',url);renderGallery();if(!scroll)document.querySelector('#filters [aria-pressed="true"]').focus();if(scroll)$('#photographs').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}
 
 function selectCollection(id){activeCollection=id;if(id)active=collections.find(c=>c.id===id).group;const url=new URL(location.href);if(id)url.searchParams.set('series',id);else url.searchParams.delete('series');history.replaceState(null,'',url);renderGallery();document.querySelector('#collection-nav button')?.focus();}
-function renderCollections(){const nav=$('#collection-nav');nav.replaceChildren();const choices=collections.filter(c=>active==='all'||c.group===active);nav.hidden=choices.length===0;if(nav.hidden)return;if(activeCollection){const c=choices.find(c=>c.id===activeCollection);const description=document.createElement('p');description.textContent=c.descriptions[lang]||'';if(description.textContent)nav.append(description);else nav.hidden=true;return;}choices.forEach(c=>{const button=document.createElement('button');button.className='collection-card';const image=document.createElement('img');image.src=`assets/photography/${c.cover}-720.webp`;image.alt='';image.loading='lazy';const text=document.createElement('span'),name=document.createElement('strong'),detail=document.createElement('span'),count=document.createElement('small');name.textContent=c.names[lang];detail.textContent=c.descriptions[lang]||'';count.textContent=String(c.photos.length).padStart(2,'0')+' / '+groupTitle(c.group);text.append(name);if(detail.textContent)text.append(detail);text.append(count);button.append(image,text);button.onclick=()=>selectCollection(c.id);nav.append(button)});}
+const peopleSections = [
+  {names:{uk:'Індивідуальні зйомки',ru:'Индивидуальные съёмки',en:'Individual sessions',de:'Einzelshootings',pl:'Sesje indywidualne'}, ids:['individual-sessions','anastasia-yellow-accent']},
+  {names:{uk:'Дитячі зйомки',ru:'Детские съёмки',en:'Children’s sessions',de:'Kinderfotografie',pl:'Sesje dziecięce'}, ids:['childrens-sessions','soap-bubbles','childrens-fantasy-world','childrens-portraits']},
+  {names:{uk:'Репортажні зйомки',ru:'Репортажные съёмки',en:'Reportage',de:'Reportagefotografie',pl:'Fotografia reportażowa'}, ids:[]},
+  {names:{uk:'Love Story',ru:'Love Story',en:'Love Story',de:'Love Story',pl:'Love Story'}, ids:[]},
+  {names:{uk:'Портрети',ru:'Портреты',en:'Portraits',de:'Porträts',pl:'Portrety'}, ids:['people-individual-photos']}
+];
+const comingSoon = {uk:'Добірки з’являться тут.',ru:'Здесь появятся подборки.',en:'Collections will appear here.',de:'Hier erscheinen die Sammlungen.',pl:'Tutaj pojawią się kolekcje.'};
+
+function collectionCard(c) {
+  const button=document.createElement('button');button.type='button';button.className='collection-card';const image=document.createElement('img');image.src=`assets/photography/${c.cover}-720.webp`;image.alt='';image.loading='lazy';const text=document.createElement('span'),name=document.createElement('strong'),detail=document.createElement('span'),count=document.createElement('small');name.textContent=c.names[lang];detail.textContent=c.descriptions[lang]||'';count.textContent=String(c.photos.length).padStart(2,'0')+' / '+groupTitle(c.group);text.append(name);if(detail.textContent)text.append(detail);text.append(count);button.append(image,text);button.onclick=()=>selectCollection(c.id);
+  return button;
+}
+
+function renderCollections() {
+  const nav = $('#collection-nav');
+  nav.replaceChildren();
+  const choices = collections.filter(c => active === 'all' || c.group === active);
+  nav.hidden = choices.length === 0;
+
+  if (activeCollection) {
+    const description = choices.find(c => c.id === activeCollection).descriptions[lang];
+    nav.hidden = !description;
+    if (description) {
+      const paragraph = document.createElement('p');
+      paragraph.textContent = description;
+      nav.append(paragraph);
+    }
+    return;
+  }
+
+  if (active !== 'people') {
+    nav.append(...choices.map(collectionCard));
+    return;
+  }
+
+  for (const direction of peopleSections) {
+    const section = document.createElement('section');
+    const heading = document.createElement('h3');
+    heading.textContent = direction.names[lang];
+    section.append(heading);
+    const matching = direction.ids.map(id => choices.find(c => c.id === id)).filter(Boolean);
+    if (matching.length) {
+      const grid = document.createElement('div');
+      grid.className = 'collection-nav';
+      grid.append(...matching.map(collectionCard));
+      section.append(grid);
+    } else {
+      const empty = document.createElement('p');
+      empty.textContent = comingSoon[lang];
+      section.append(empty);
+    }
+    nav.append(section);
+  }
+}
 
 function renderGallery(){const c=COPY[lang];$('#gallery-title').textContent=activeCollection?collections.find(c=>c.id===activeCollection).names[lang]:(active==='all'?allCollections[lang]:groupTitle(active));renderCollections();$('#count').hidden=!activeCollection;$('#count').textContent=activeCollection?String(visible().length).padStart(2,'0')+' / PHOTOGRAPHY':'';$('#filters').replaceChildren();['all',...groups].forEach(g=>{const b=document.createElement('button');b.textContent=g==='all'?allCollections[lang]:groupTitle(g);b.setAttribute('aria-pressed',String(active===g));b.onclick=()=>filter(g);$('#filters').append(b)});$('#gallery').replaceChildren();visible().forEach((p,i)=>{const f=document.createElement('figure');f.className='photo-card';const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',title(p));const img=document.createElement('img');img.src=asset(p,720);img.srcset=`${asset(p,720)} 720w, ${asset(p,1440)} 1440w`;img.sizes=i%7===0?'90vw':'(max-width:700px) 88vw, 45vw';img.width=p.width;img.height=p.height;img.alt=title(p);img.loading='lazy';img.decoding='async';b.append(img);b.insertAdjacentHTML('beforeend',expand);b.onclick=()=>openViewer(i,b);const cap=document.createElement('figcaption');const t=document.createElement('span');t.textContent=title(p);const s=document.createElement('small');s.textContent=groupTitle(p.group);cap.append(t,s);f.append(b,cap);$('#gallery').append(f)});}
 function render(){const c=COPY[lang];document.documentElement.lang=lang;document.title=({uk:'Фотографія',ru:'Фотография',en:'Photography',de:'Fotografie',pl:'Fotografia'})[lang]+' — Krystyna Mishchenko';document.querySelectorAll('[data-t]').forEach(e=>{const v=c[e.dataset.t];if(['headline','contactTitle'].includes(e.dataset.t))e.innerHTML=v;else e.textContent=v});$('#language').value=lang;document.querySelectorAll('a[href="index.html"], #hub-return').forEach(a=>{a.href='concepts.html?lang='+lang});renderHero();$('#series-grid').replaceChildren();groups.forEach((g,i)=>{const p=photos.find(p=>p.id===covers[i]),b=document.createElement('button');b.className='series-card';const img=document.createElement('img');img.src=asset(p,720);img.alt=groupTitle(g);img.loading='lazy';img.width=p.width;img.height=p.height;const s=document.createElement('span');s.className='series-name';s.textContent=groupTitle(g);const count=document.createElement('small');count.textContent=String(photos.filter(p=>p.group===g).length).padStart(2,'0');s.append(count);b.append(img,s);b.onclick=()=>filter(g,true);$('#series-grid').append(b)});const selected=$('#shoot-type').selectedIndex;$('#shoot-type').replaceChildren(...c.types.map(t=>new Option(t,t)));$('#shoot-type').selectedIndex=Math.max(0,selected);['close','prev','next'].forEach(id=>$('#'+id).setAttribute('aria-label',c[id]));$('#filters').setAttribute('aria-label',c.series);$('#viewer').setAttribute('aria-label',c.all);renderGallery();themeLabel();if($('#viewer').open)showImage();}

@@ -60,3 +60,7 @@
 .collection-card strong{overflow-wrap:anywhere}
 @media(max-width:1050px) and (min-width:701px){.collection-card{grid-template-columns:1fr;gap:0}.collection-card>img{height:200px;min-height:0}.collection-card>span{padding:24px}}
 @media(max-width:700px){.collection-nav:has(>.collection-card){grid-template-columns:1fr;gap:18px}.collection-card{display:block}.collection-card>img{height:190px;min-height:0}.collection-card>span{padding:22px}}
+
+#collection-nav > section > h3{font-size:clamp(21px,3vw,30px);font-weight:500;margin:0 0 16px}
+#collection-nav > section + section{margin-top:32px}
+#collection-nav > section > p{margin:0}
