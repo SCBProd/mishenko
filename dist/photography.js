@@ -147,6 +147,7 @@ function selectCollection(id){activeCollection=id;if(id)active=collections.find(
 const peopleSections = [
   {names:{uk:'Індивідуальні зйомки',ru:'Индивидуальные съёмки',en:'Individual sessions',de:'Einzelshootings',pl:'Sesje indywidualne'}, ids:['individual-sessions','anastasia-yellow-accent']},
   {names:{uk:'Дитячі зйомки',ru:'Детские съёмки',en:'Children’s sessions',de:'Kinderfotografie',pl:'Sesje dziecięce'}, ids:['childrens-sessions','soap-bubbles','childrens-fantasy-world','childrens-portraits']},
+  {names:{uk:'Сімейні зйомки',ru:'Семейные съёмки',en:'Family sessions',de:'Familienshootings',pl:'Sesje rodzinne'}, ids:[]},
   {names:{uk:'Репортажні зйомки',ru:'Репортажные съёмки',en:'Reportage',de:'Reportagefotografie',pl:'Fotografia reportażowa'}, ids:[]},
   {names:{uk:'Love Story',ru:'Love Story',en:'Love Story',de:'Love Story',pl:'Love Story'}, ids:[]},
   {names:{uk:'Портрети',ru:'Портреты',en:'Portraits',de:'Porträts',pl:'Portrety'}, ids:[]}
