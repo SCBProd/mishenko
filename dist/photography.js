@@ -119,6 +119,7 @@ const allCollections = {uk:'Усі добірки', ru:'Все подборки'
 const individualPhotos = {uk:'Окремі кадри', ru:'Отдельные кадры', en:'Individual photographs', de:'Einzelaufnahmen', pl:'Pojedyncze zdjęcia'};
 const collectedIds = new Set(collections.flatMap(collection => collection.photos));
 for (const group of groups) {
+  if (group === 'people') continue;
   const uncollected = photos.filter(photo => photo.group === group && !collectedIds.has(photo.id));
   if (!uncollected.length) continue;
   const names = collections.some(collection => collection.group === group)
@@ -148,7 +149,7 @@ const peopleSections = [
   {names:{uk:'Дитячі зйомки',ru:'Детские съёмки',en:'Children’s sessions',de:'Kinderfotografie',pl:'Sesje dziecięce'}, ids:['childrens-sessions','soap-bubbles','childrens-fantasy-world','childrens-portraits']},
   {names:{uk:'Репортажні зйомки',ru:'Репортажные съёмки',en:'Reportage',de:'Reportagefotografie',pl:'Fotografia reportażowa'}, ids:[]},
   {names:{uk:'Love Story',ru:'Love Story',en:'Love Story',de:'Love Story',pl:'Love Story'}, ids:[]},
-  {names:{uk:'Портрети',ru:'Портреты',en:'Portraits',de:'Porträts',pl:'Portrety'}, ids:['people-individual-photos']}
+  {names:{uk:'Портрети',ru:'Портреты',en:'Portraits',de:'Porträts',pl:'Portrety'}, ids:[]}
 ];
 let activePeopleSection = 0;
 const comingSoon = {uk:'Добірки з’являться тут.',ru:'Здесь появятся подборки.',en:'Collections will appear here.',de:'Hier erscheinen die Sammlungen.',pl:'Tutaj pojawią się kolekcje.'};
