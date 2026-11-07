@@ -97,6 +97,7 @@ sources += [('may-play-flight-63', 'people', 'E:/FOTOS/PEOPLE/10.05.26/10.05.202
 sources += [('spring-sky-7', 'botanical', 'D:/7.jpg'), ('spring-sky-8', 'botanical', 'D:/8.jpg'), ('spring-sky-9', 'botanical', 'D:/9.jpg')]
 sources += [('spring-city-3286', 'people', 'E:/FOTOS/PEOPLE/ANASTASIA 27.03.2026/_DSC3286.JPG'), ('spring-city-3145', 'people', 'E:/FOTOS/PEOPLE/ANASTASIA 27.03.2026/_DSC3145.JPG'), ('spring-city-3111', 'people', 'E:/FOTOS/PEOPLE/ANASTASIA 27.03.2026/_DSC3111.JPG'), ('spring-city-3107', 'people', 'E:/FOTOS/PEOPLE/ANASTASIA 27.03.2026/_DSC3107.JPG')]
 sources += [('spring-city-3252', 'people', 'E:/FOTOS/PEOPLE/ANASTASIA 27.03.2026/_DSC3252.JPG')]
+sources += [('evening-petal-light', 'botanical', 'E:/FOTOS/Архив/Unbenannter Export/10.jpg')]
 items=[]
 for name,group,src in sources:
     if name == 'night-9': src = 'dist/assets/photography/edited/night-9.png'
