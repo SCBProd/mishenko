@@ -126,6 +126,13 @@ COPY.ru.titles.push("Белое сияние");
 COPY.en.titles.push("White glow");
 COPY.de.titles.push("Weißes Leuchten");
 COPY.pl.titles.push("Biała poświata");
+collections.push({"id":"azure-bloom","group":"botanical","cover":"azure-bloom-15","photos":["azure-bloom-15","azure-bloom-14","azure-bloom-13"],"names":{"uk":"Лазур у цвіту","ru":"Лазурь в цвету","en":"Azure in bloom","de":"Azur in Blüte","pl":"Lazur w rozkwicie"},"descriptions":{"uk":"Рожеве мереживо гілок, блакить неба й теплий подих весни.","ru":"Розовое кружево ветвей, лазурное небо и тёплое дыхание весны.","en":"Pink lace of branches, azure skies and the warm breath of spring.","de":"Rosa Blütenspitzen, azurblauer Himmel und der warme Atem des Frühlings.","pl":"Różowa koronka gałęzi, lazurowe niebo i ciepły oddech wiosny."}});
+order.push(...["azure-bloom-15","azure-bloom-14","azure-bloom-13"]);
+for (const [language, titles] of Object.entries({"uk":["Пелюстки в лазурі","Мереживо весни","Ритм цвітіння"],"ru":["Лепестки в лазури","Кружево весны","Ритм цветения"],"en":["Petals in azure","Spring lace","The rhythm of blossom"],"de":["Blütenblätter im Azur","Frühlingsspitze","Rhythmus der Blüte"],"pl":["Płatki w lazurze","Wiosenna koronka","Rytm kwitnienia"]})) {
+  ["azure-bloom-15","azure-bloom-14","azure-bloom-13"].forEach((id, index) => {
+    COPY[language].titles[window.PHOTOS.findIndex(photo => photo.id === id)] = titles[index];
+  });
+}
 const photos=order.map(id=>({...window.PHOTOS.find(p=>p.id===id),index:window.PHOTOS.findIndex(p=>p.id===id)}));
 const allCollections = {uk:'Усі добірки', ru:'Все подборки', en:'All collections', de:'Alle Sammlungen', pl:'Wszystkie kolekcje'};
 const individualPhotos = {uk:'Окремі кадри', ru:'Отдельные кадры', en:'Individual photographs', de:'Einzelaufnahmen', pl:'Pojedyncze zdjęcia'};
@@ -151,7 +158,7 @@ const heroPhotos=photos.slice(0,18);
 let lang='uk', active='all', activeCollection=null, current=0, heroCurrent=0, returnTo=null;
 const read=k=>{try{return localStorage.getItem(k)}catch{return null}},save=(k,v)=>{try{localStorage.setItem(k,v)}catch{}};
 const queryLang=new URLSearchParams(location.search).get('lang');lang=COPY[queryLang]?queryLang:(COPY[read('km-hub-language')]?read('km-hub-language'):'uk');
-const asset=(p,size)=>`assets/photography/${p.id}-${size}.webp`,title=p=>COPY[lang].titles[p.index],groupTitle=g=>COPY[lang].groups[groups.indexOf(g)], visible=()=>activeCollection?collections.find(c=>c.id===activeCollection).photos.map(id=>photos.find(p=>p.id===id)):[];
+const asset=(p,size)=>`assets/photography/${p.id}-${size}.${p.id.startsWith('azure-bloom-') ? 'jpg' : 'webp'}`,title=p=>COPY[lang].titles[p.index],groupTitle=g=>COPY[lang].groups[groups.indexOf(g)], visible=()=>activeCollection?collections.find(c=>c.id===activeCollection).photos.map(id=>photos.find(p=>p.id===id)):[];
 const expand='<span class="expand" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></svg></span>';
 function filter(group,scroll=false){active=group;activeCollection=null;const url=new URL(location.href);url.searchParams.delete('series');history.replaceState(null,'',url);renderGallery();if(!scroll)document.querySelector('#filters [aria-pressed="true"]').focus();if(scroll)$('#photographs').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}
 
