@@ -133,13 +133,18 @@ for (const [language, titles] of Object.entries({"uk":["Пелюстки в ла
     COPY[language].titles[window.PHOTOS.findIndex(photo => photo.id === id)] = titles[index];
   });
 }
+collections.push(...[{"id":"young-greenery","group":"botanical","cover":"leaves","photos":["leaves","young-green-branch"],"names":{"uk":"Молода зелень","ru":"Молодая зелень","en":"Young greenery","de":"Junges Grün","pl":"Młoda zieleń"},"descriptions":{"uk":"Перші листочки й свіже дихання весни.","ru":"Первые листья и свежее дыхание весны.","en":"First leaves and the fresh breath of spring.","de":"Erste Blätter und der frische Atem des Frühlings.","pl":"Pierwsze liście i świeży oddech wiosny."}},{"id":"white-silence","group":"botanical","cover":"white-silence-12","photos":["white-silence-12"],"names":{"uk":"Біла тиша","ru":"Белая тишина","en":"White silence","de":"Weiße Stille","pl":"Biała cisza"},"descriptions":{"uk":"Білі пелюстки в м’якому світлі, між спокоєм і пробудженням.","ru":"Белые лепестки в мягком свете, между покоем и пробуждением.","en":"White petals in soft light, between stillness and awakening.","de":"Weiße Blütenblätter im sanften Licht, zwischen Ruhe und Erwachen.","pl":"Białe płatki w miękkim świetle, między spokojem a przebudzeniem."}}]);
+order.push(...["young-green-branch","white-silence-12"]);
+for (const [language, titles] of Object.entries({"uk":["Зелень на тонкій гілці","Біла тиша"],"ru":["Зелень на тонкой ветви","Белая тишина"],"en":["Green leaves on a slender branch","White silence"],"de":["Grüne Blätter am zarten Zweig","Weiße Stille"],"pl":["Zieleń na cienkiej gałęzi","Biała cisza"]})) {
+ ["young-green-branch","white-silence-12"].forEach((id,index)=>{COPY[language].titles[window.PHOTOS.findIndex(photo=>photo.id===id)]=titles[index];});
+}
 const photos=order.map(id=>({...window.PHOTOS.find(p=>p.id===id),index:window.PHOTOS.findIndex(p=>p.id===id)}));
 const allCollections = {uk:'Усі добірки', ru:'Все подборки', en:'All collections', de:'Alle Sammlungen', pl:'Wszystkie kolekcje'};
 const individualPhotos = {uk:'Окремі кадри', ru:'Отдельные кадры', en:'Individual photographs', de:'Einzelaufnahmen', pl:'Pojedyncze zdjęcia'};
 const collectedIds = new Set(collections.flatMap(collection => collection.photos));
 for (const group of groups) {
   if (group === 'people' || group === 'monochrome') continue;
-  const uncollected = photos.filter(photo => photo.group === group && !collectedIds.has(photo.id));
+  const uncollected = photos.filter(photo => photo.group === group && !collectedIds.has(photo.id) && (group !== 'botanical' || ['petals','rosehips','pink'].includes(photo.id)));
   if (!uncollected.length) continue;
   const names = collections.some(collection => collection.group === group)
     ? individualPhotos
@@ -158,7 +163,7 @@ const heroPhotos=photos.slice(0,18);
 let lang='uk', active='all', activeCollection=null, current=0, heroCurrent=0, returnTo=null;
 const read=k=>{try{return localStorage.getItem(k)}catch{return null}},save=(k,v)=>{try{localStorage.setItem(k,v)}catch{}};
 const queryLang=new URLSearchParams(location.search).get('lang');lang=COPY[queryLang]?queryLang:(COPY[read('km-hub-language')]?read('km-hub-language'):'uk');
-const asset=(p,size)=>`assets/photography/${p.id}-${size}.${p.id.startsWith('azure-bloom-') ? 'jpg' : 'webp'}`,title=p=>COPY[lang].titles[p.index],groupTitle=g=>COPY[lang].groups[groups.indexOf(g)], visible=()=>activeCollection?collections.find(c=>c.id===activeCollection).photos.map(id=>photos.find(p=>p.id===id)):[];
+const asset=(p,size)=>`assets/photography/${p.id}-${size}.${window.PHOTOS.find(photo=>photo.id===p.id)?.format || (p.id.startsWith('azure-bloom-') ? 'jpg' : 'webp')}`,title=p=>COPY[lang].titles[p.index],groupTitle=g=>COPY[lang].groups[groups.indexOf(g)], visible=()=>activeCollection?collections.find(c=>c.id===activeCollection).photos.map(id=>photos.find(p=>p.id===id)):[];
 const expand='<span class="expand" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></svg></span>';
 function filter(group,scroll=false){active=group;activeCollection=null;const url=new URL(location.href);url.searchParams.delete('series');history.replaceState(null,'',url);renderGallery();if(!scroll)document.querySelector('#filters [aria-pressed="true"]').focus();if(scroll)$('#photographs').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}
 
