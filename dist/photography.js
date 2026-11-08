@@ -144,9 +144,9 @@ const individualPhotos = {uk:'Окремі кадри', ru:'Отдельные �
 const collectedIds = new Set(collections.flatMap(collection => collection.photos));
 for (const group of groups) {
   if (group === 'people' || group === 'monochrome') continue;
-  const uncollected = photos.filter(photo => photo.group === group && !collectedIds.has(photo.id) && (group !== 'botanical' || ['petals','rosehips','pink'].includes(photo.id)));
+  const uncollected = photos.filter(photo => photo.group === group && !collectedIds.has(photo.id) && (group !== 'botanical' || photo.id === 'petals'));
   if (!uncollected.length) continue;
-  const names = collections.some(collection => collection.group === group)
+  const names = group === 'botanical' ? {uk:'Ніжність білого',ru:'Нежность белого',en:'The tenderness of white',de:'Die Zartheit des Weiß',pl:'Delikatność bieli'} : collections.some(collection => collection.group === group)
     ? individualPhotos
     : Object.fromEntries(Object.keys(COPY).map(language => [language, COPY[language].groups[groups.indexOf(group)]]));
   collections.push({
