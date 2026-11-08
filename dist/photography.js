@@ -153,6 +153,7 @@ collections.push({"id":"forest-memory","group":"texture","cover":"forest-12","ph
 collections.find(c=>c.id==="forest-floor").photos=["forest-5","ferns","bastei-95","bastei-68","bastei-67","bastei-70"];
 {const moved=new Set(["bastei-41","bastei-44","bastei-53","bastei-65"]);const c=collections.find(c=>c.id==='stone-horizon');c.photos=c.photos.filter(id=>!moved.has(id));}
 collections.push({"id":"facets-of-time","group":"texture","cover":"bastei-41","photos":["bastei-65","bastei-41","bastei-53","bastei-44"],"names":{"uk":"Грані часу","ru":"Грани времени","en":"Facets of time","de":"Facetten der Zeit","pl":"Oblicza czasu"},"descriptions":{"uk":"Рельєфи каменю й природні візерунки, створені часом.","ru":"Рельефы камня и природные узоры, созданные временем.","en":"Stone reliefs and natural patterns shaped by time.","de":"Steinreliefs und natürliche Muster, von der Zeit geformt.","pl":"Kamienne reliefy i naturalne wzory ukształtowane przez czas."}});
+{const stone=collections.find(c=>c.id==='stone-horizon');const river=collections.find(c=>c.id==='river-bend');stone.photos=[...new Set([...river.photos,...stone.photos])];stone.cover=river.cover;stone.names={"uk":"Рельєф спокою","ru":"Рельеф покоя","en":"Contours of calm","de":"Relief der Ruhe","pl":"Relief spokoju"};stone.descriptions={"uk":"Від вигину річки до кам’яних глибин — простір, у якому час сповільнюється.","ru":"От изгиба реки до каменных глубин — пространство, в котором время замедляется.","en":"From the river bend to the depths of stone — a space where time slows down.","de":"Von der Flussbiegung bis in die Tiefe des Steins — ein Raum, in dem die Zeit langsamer wird.","pl":"Od zakola rzeki po kamienne głębie — przestrzeń, w której czas zwalnia."};collections.splice(collections.indexOf(river),1);}
 const photos=order.map(id=>({...window.PHOTOS.find(p=>p.id===id),index:window.PHOTOS.findIndex(p=>p.id===id)}));
 const allCollections = {uk:'Усі добірки', ru:'Все подборки', en:'All collections', de:'Alle Sammlungen', pl:'Wszystkie kolekcje'};
 const individualPhotos = {uk:'Окремі кадри', ru:'Отдельные кадры', en:'Individual photographs', de:'Einzelaufnahmen', pl:'Pojedyncze zdjęcia'};
@@ -283,7 +284,7 @@ let heroTouch=null;document.querySelector('.hero-stage').addEventListener('touch
 function initializeGalleryRoute(){
  const url=new URL(location.href);
  const requestedGroup=url.searchParams.get('group');
- const requestedCollection=collections.find(c=>c.id===url.searchParams.get('series'));
+ const requestedCollection=collections.find(c=>c.id===(url.searchParams.get('series')==='river-bend'?'stone-horizon':url.searchParams.get('series')));
  active=groups.includes(requestedGroup)?requestedGroup:(requestedCollection?.group||'all');
  activeCollection=null;
  url.searchParams.delete('series');
