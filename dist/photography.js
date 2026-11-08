@@ -175,7 +175,7 @@ let activePeopleSection = 0;
 const comingSoon = {uk:'Добірки з’являться тут.',ru:'Здесь появятся подборки.',en:'Collections will appear here.',de:'Hier erscheinen die Sammlungen.',pl:'Tutaj pojawią się kolekcje.'};
 
 function collectionCard(c) {
-  const button=document.createElement('button');button.type='button';button.className='collection-card';const image=document.createElement('img');image.src=`assets/photography/${c.cover}-720.webp`;image.alt='';image.loading='lazy';const text=document.createElement('span'),name=document.createElement('strong'),detail=document.createElement('span'),count=document.createElement('small');name.textContent=c.names[lang];detail.textContent=c.descriptions[lang]||'';count.textContent=String(c.photos.length).padStart(2,'0')+' / '+groupTitle(c.group);text.append(name);if(detail.textContent)text.append(detail);text.append(count);button.append(image,text);button.onclick=()=>selectCollection(c.id);
+  const button=document.createElement('button');button.type='button';button.className='collection-card';const image=document.createElement('img');image.src=asset({id:c.cover},720);image.alt='';image.loading='lazy';const text=document.createElement('span'),name=document.createElement('strong'),detail=document.createElement('span'),count=document.createElement('small');name.textContent=c.names[lang];detail.textContent=c.descriptions[lang]||'';count.textContent=String(c.photos.length).padStart(2,'0')+' / '+groupTitle(c.group);text.append(name);if(detail.textContent)text.append(detail);text.append(count);button.append(image,text);button.onclick=()=>selectCollection(c.id);
   return button;
 }
 
