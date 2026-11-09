@@ -102,11 +102,11 @@ const mayPlayTitles={"uk": ["Перед польотом", "За підтрим�
 for(const [language,titles] of Object.entries(mayPlayTitles)) COPY[language].titles.push(...titles);
 order.push(...["may-play-flight-63", "may-play-142", "may-play-144", "may-play-148", "may-play-12", "may-play-13", "may-play-48", "may-play-54", "may-play-56", "may-play-64", "may-play-83", "may-play-89", "may-play-129", "may-play-112", "may-play-140"]);
 groups.push("monochrome"); covers.push("may-play-140");
-COPY.uk.groups.push("Монохром");
-COPY.ru.groups.push("Монохром");
-COPY.en.groups.push("Monochrome");
-COPY.de.groups.push("Monochrom");
-COPY.pl.groups.push("Monochromia");
+COPY.uk.groups.push("Між світлом і тінню");
+COPY.ru.groups.push("Между светом и тенью");
+COPY.en.groups.push("Between light and shadow");
+COPY.de.groups.push("Zwischen Licht und Schatten");
+COPY.pl.groups.push("Między światłem a cieniem");
 collections.find(c=>c.id==="childrens-sessions").photos.push(...["may-play-flight-63", "may-play-142", "may-play-13", "may-play-54", "may-play-56", "may-play-64", "may-play-112"]);
 Object.assign(collections.find(c=>c.id==="childrens-sessions").descriptions,{"uk": "Дитинство у грі: польоти іграшкового літака, гірки, перші поїздки та підтримка близьких.", "ru": "Детство в игре: полёты игрушечного самолёта, горки, первые поездки и поддержка близких.", "en": "Childhood at play: a toy plane, slides, first rides and a helping hand.", "de": "Kindheit im Spiel: ein Spielzeugflugzeug, Rutschen, erste Fahrten und eine helfende Hand.", "pl": "Dzieciństwo w zabawie: samolot, zjeżdżalnie, pierwsze przejażdżki i pomocna dłoń."});
 collections.push({"id":"childrens-portraits","group":"people","cover":"may-play-83","photos":["may-play-83","may-play-12","may-play-144","may-play-48","may-play-89","may-play-129"],"names":{"uk":"Дитячі портрети","ru":"Детские портреты","en":"Childhood portraits","de":"Kinderporträts","pl":"Portrety dziecięce"},"descriptions":{"uk":"Погляди, веснянки та щирі усмішки у природному світлі.","ru":"Взгляды, веснушки и искренние улыбки в естественном свете.","en":"Glances, freckles and genuine smiles in natural light.","de":"Blicke, Sommersprossen und ehrliches Lächeln im natürlichen Licht.","pl":"Spojrzenia, piegi i szczere uśmiechy w naturalnym świetle."}});
@@ -189,6 +189,7 @@ for (const group of groups) {
   });
 }
 
+collections.find(c=>c.id==="landscape-individual-photos").names={"uk":"Тиха присутність","ru":"Тихое присутствие","en":"Quiet presence","de":"Stille Präsenz","pl":"Cicha obecność"};
 const heroPhotos=photos.slice(0,18);
 let lang='uk', active='all', activeCollection=null, current=0, heroCurrent=0, returnTo=null;
 const read=k=>{try{return localStorage.getItem(k)}catch{return null}},save=(k,v)=>{try{localStorage.setItem(k,v)}catch{}};
