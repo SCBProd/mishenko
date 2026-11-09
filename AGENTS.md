@@ -2,7 +2,7 @@
 
 - Photography must display the original uploaded files without resizing or re-encoding, including covers, gallery and viewer. Keep byte-identical files in `photography-originals/`, referenced by each `window.PHOTOS` entry's `original` URL and `originalSha256`. Do not substitute compressed previews. For new photographs, register the source in `scripts/audit-photo-originals.cjs` and run `node scripts/sync-photo-originals.cjs` before publication.
 
-- User-authorized exception: only the People category cover in the Series panel uses `dist/assets/photography/covers/people-portrait-520.png`, an antialiased display preview. Its gallery/viewer image and every other photograph must continue to use originals.
+- User-authorized exception: photo covers in the Series category panel use antialiased previews from `dist/assets/photography/covers/`. This exception applies only to that panel. All collection covers, gallery photographs, fullscreen images and hub cover must use originals.
 
 - This repository is currently a plain static HTML/CSS/JavaScript website. Do not add Next.js or another application framework unless the user asks.
 - `dist/` contains the original website source. The GitHub Pages workflow runs `scripts/prepare-legacy.mjs` to produce the filtered static website in `public/legacy/` and publish it.
