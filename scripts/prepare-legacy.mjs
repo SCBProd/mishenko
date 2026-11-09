@@ -71,3 +71,13 @@ const photoHtml = readFileSync(photoHtmlPath, "utf8");
 const photoVersion = createHash("sha256").update(photoHtml).digest("hex").slice(0, 16);
 writeFileSync(photoHtmlPath, photoHtml.replace("</head>", `<meta name="photography-release" content="${photoVersion}"></head>`));
 writeFileSync(path.join(destination, "photography-release.json"), JSON.stringify({version: photoVersion}));
+
+// Older branch-based publications sent visitors to /dist/*.html. Keep those
+// addresses working when the prepared site is published at the repository root.
+const legacyRoutes = path.join(destination, "dist");
+mkdirSync(legacyRoutes, { recursive: true });
+for (const page of readdirSync(destination).filter(name => name.endsWith(".html"))) {
+  const target = `../${page}`;
+  writeFileSync(path.join(legacyRoutes, page),
+    `<!doctype html><html><head><meta charset="utf-8"><title>Krystyna Mishchenko</title><script>location.replace(${JSON.stringify(target)}+location.search+location.hash)</script></head><body><a href="${target}">Open portfolio</a></body></html>\n`);
+}
