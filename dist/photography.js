@@ -321,7 +321,7 @@ function initializeGalleryRoute(){
  history.replaceState(null,'',url);
 }
 initializeGalleryRoute();
-document.querySelector('.brand').onclick=$('#top-link').onclick=e=>{e.preventDefault();window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})};render();
+$('#top-link').onclick=e=>{e.preventDefault();window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})};document.querySelector('.brand').onclick=$('#top-link').onclick;render();
 
 // Revalidate restored/open pages without interrupting a draft or the image viewer.
 let checkingRelease=false;
