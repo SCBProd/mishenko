@@ -181,6 +181,7 @@ collections.push({"id":"beneath-the-canopy","group":"landscape","cover":"forest-
 }
 {const c=collections.find(c=>c.id==='childrens-sessions');const removed=c.photos[2];c.photos.splice(2,1);if(c.cover===removed)c.cover=c.photos[0];if(!collections.some(c=>c.photos.includes(removed))){const i=order.indexOf(removed);if(i!==-1)order.splice(i,1);}}
 {const c=collections.find(c=>c.id==='childrens-sessions');const removed='may-play-13';c.photos=c.photos.filter(id=>id!==removed);c.names={"uk":"Перші відкриття","ru":"Первые открытия","en":"First discoveries","de":"Erste Entdeckungen","pl":"Pierwsze odkrycia"};if(c.cover===removed)c.cover=c.photos[0];if(!collections.some(c=>c.photos.includes(removed))){const i=order.indexOf(removed);if(i!==-1)order.splice(i,1);}}
+{const c=collections.find(c=>c.id==='childrens-fantasy-world');const removed=c.photos[2];c.photos.splice(2,1);if(c.cover===removed)c.cover=c.photos[0];if(!collections.some(c=>c.photos.includes(removed))){const i=order.indexOf(removed);if(i!==-1)order.splice(i,1);}}
 const photos=order.map(id=>({...window.PHOTOS.find(p=>p.id===id),index:window.PHOTOS.findIndex(p=>p.id===id)}));
 const allCollections = {uk:'Усі добірки', ru:'Все подборки', en:'All collections', de:'Alle Sammlungen', pl:'Wszystkie kolekcje'};
 const individualPhotos = {uk:'Окремі кадри', ru:'Отдельные кадры', en:'Individual photographs', de:'Einzelaufnahmen', pl:'Pojedyncze zdjęcia'};
