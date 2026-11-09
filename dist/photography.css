@@ -64,4 +64,6 @@
 
 #collection-nav > .collection-nav{margin-bottom:0}
 
-.series-gradient{display:block;width:100%;background:linear-gradient(90deg,#000 0%,#fff 100%);}
+.series-gradient{display:block;width:100%;background:linear-gradient(90deg,#000 0%,#080808 28%,#1c1c1c 50%,#404040 69%,#797979 84%,#c4c4c4 95%,#fff 100%);}
+
+@media(max-width:700px){.series-card:last-child{grid-column:auto}.series-card img,.series-card .series-gradient,.series-card:last-child img{height:auto;aspect-ratio:1/1;object-fit:cover}}
