@@ -168,6 +168,17 @@ order.push('relief-export-47');
 collections.push({"id":"beneath-the-canopy","group":"landscape","cover":"forest-13","photos":["forest-13","forest-8","forest-9"],"names":{"uk":"Під пологом лісу","ru":"Под пологом леса","en":"Beneath the forest canopy","de":"Unter dem Blätterdach","pl":"Pod sklepieniem lasu"},"descriptions":{"uk":"Тихе життя грибів серед хвої та лісової підстилки.","ru":"Тихая жизнь грибов среди хвои и лесной подстилки.","en":"The quiet life of mushrooms among needles and the forest floor.","de":"Das stille Leben der Pilze zwischen Nadeln und Waldboden.","pl":"Ciche życie grzybów pośród igliwia i leśnej ściółki."}});
 {const removed=new Set(["stone","duck","forest-10"]);for(let i=order.length-1;i>=0;i--)if(removed.has(order[i]))order.splice(i,1);}
 {const removed=new Set(["motion","street","glass-edison","glass-blue","exposure-neon-2"]);for(let i=order.length-1;i>=0;i--)if(removed.has(order[i]))order.splice(i,1);}
+{
+ const removed=new Set();
+ for(const [id,positions] of [['childrens-sessions',[4,6,7,8,9]],['childrens-fantasy-world',[1,2,6,7,8]]]){
+  const c=collections.find(c=>c.id===id);const indices=new Set(positions.map(n=>n-1));
+  c.photos=c.photos.filter((id,i)=>{if(indices.has(i)){removed.add(id);return false;}return true;});
+  if(!c.photos.includes(c.cover))c.cover=c.photos[0];
+ }
+ const portraits=collections.find(c=>c.id==='childrens-portraits');portraits.photos.forEach(id=>removed.add(id));collections.splice(collections.indexOf(portraits),1);
+ const retained=new Set(collections.flatMap(c=>c.photos));
+ for(let i=order.length-1;i>=0;i--)if(removed.has(order[i])&&!retained.has(order[i]))order.splice(i,1);
+}
 const photos=order.map(id=>({...window.PHOTOS.find(p=>p.id===id),index:window.PHOTOS.findIndex(p=>p.id===id)}));
 const allCollections = {uk:'Усі добірки', ru:'Все подборки', en:'All collections', de:'Alle Sammlungen', pl:'Wszystkie kolekcje'};
 const individualPhotos = {uk:'Окремі кадри', ru:'Отдельные кадры', en:'Individual photographs', de:'Einzelaufnahmen', pl:'Pojedyncze zdjęcia'};
