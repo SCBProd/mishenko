@@ -17,7 +17,7 @@ sources['bastei-43']='E:/FOTOS/Basteiweg, 01824 Lohmen/Unbenannter Export/31.jpg
 sources['bastei-58']='E:/FOTOS/Basteiweg, 01824 Lohmen/Unbenannter Export/30.jpg';
 sources['bastei-34']='E:/FOTOS/Basteiweg, 01824 Lohmen/Unbenannter Export/33.jpg';
 sources['bastei-66']='E:/FOTOS/Basteiweg, 01824 Lohmen/Unbenannter Export/34.jpg';
-for(const n of [32,35])sources['relief-export-'+n]=`E:/FOTOS/Basteiweg, 01824 Lohmen/Unbenannter Export/${n}.jpg`;
+for(const n of [32,35,36])sources['relief-export-'+n]=`E:/FOTOS/Basteiweg, 01824 Lohmen/Unbenannter Export/${n}.jpg`;
 const audit=data.map(p=>{const source=sources[p.id];return {id:p.id,source:source||null,exists:!!source&&fs.existsSync(source),bytes:source&&fs.existsSync(source)?fs.statSync(source).size:0};});
 if(require.main===module){fs.writeFileSync('photo-originals-audit.json',JSON.stringify(audit,null,2));console.log(JSON.stringify({count:audit.length,found:audit.filter(p=>p.exists).length,totalMiB:Math.round(audit.reduce((sum,p)=>sum+p.bytes,0)/1048576),missing:audit.filter(p=>!p.exists)},null,2));}
 module.exports={data,sources,audit};
