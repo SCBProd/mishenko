@@ -59,6 +59,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Verify photography references and navigation
+        run: |
+          node scripts/check-photography-integrity.cjs
+          node scripts/check-photography-navigation.cjs
       - name: Prepare static portfolio from the shared source
         run: node scripts/prepare-legacy.mjs
       - uses: actions/configure-pages@v5
