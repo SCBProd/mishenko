@@ -182,6 +182,15 @@ collections.push({"id":"beneath-the-canopy","group":"landscape","cover":"forest-
 {const c=collections.find(c=>c.id==='childrens-sessions');const removed=c.photos[2];c.photos.splice(2,1);if(c.cover===removed)c.cover=c.photos[0];if(!collections.some(c=>c.photos.includes(removed))){const i=order.indexOf(removed);if(i!==-1)order.splice(i,1);}}
 {const c=collections.find(c=>c.id==='childrens-sessions');const removed='may-play-13';c.photos=c.photos.filter(id=>id!==removed);c.names={"uk":"Перші відкриття","ru":"Первые открытия","en":"First discoveries","de":"Erste Entdeckungen","pl":"Pierwsze odkrycia"};if(c.cover===removed)c.cover=c.photos[0];if(!collections.some(c=>c.photos.includes(removed))){const i=order.indexOf(removed);if(i!==-1)order.splice(i,1);}}
 {const c=collections.find(c=>c.id==='childrens-fantasy-world');const removed=c.photos[2];c.photos.splice(2,1);if(c.cover===removed)c.cover=c.photos[0];if(!collections.some(c=>c.photos.includes(removed))){const i=order.indexOf(removed);if(i!==-1)order.splice(i,1);}}
+{
+ const light=collections.find(c=>c.id==='light-handwriting');light.group='light-art';groups.push('light-art');covers.push(light.cover);
+ for(const [language,name] of Object.entries({"uk":"Почерк світла","ru":"Почерк света","en":"Handwriting of light","de":"Handschrift des Lichts","pl":"Pismo światła"}))COPY[language].groups.push(name);
+ const azure=collections.find(c=>c.id==='azure-bloom');azure.cover=azure.photos[3];
+ const white=collections.find(c=>c.id==='white-silence');const removedWhite=white.photos.splice(5,1)[0];
+ const glass=collections.find(c=>c.id==='glass-reflections');const removedGlass=glass.photos.splice(7,1)[0];[glass.photos[4],glass.photos[6]]=[glass.photos[6],glass.photos[4]];
+ const bubbles=collections.find(c=>c.id==='soap-bubbles');[bubbles.photos[2],bubbles.photos[3]]=[bubbles.photos[3],bubbles.photos[2]];
+ const removed=new Set([removedWhite,removedGlass]);for(let i=order.length-1;i>=0;i--)if(removed.has(order[i])&&!collections.some(c=>c.photos.includes(order[i])))order.splice(i,1);
+}
 const photos=order.map(id=>({...window.PHOTOS.find(p=>p.id===id),index:window.PHOTOS.findIndex(p=>p.id===id)}));
 const allCollections = {uk:'Усі добірки', ru:'Все подборки', en:'All collections', de:'Alle Sammlungen', pl:'Wszystkie kolekcje'};
 const individualPhotos = {uk:'Окремі кадри', ru:'Отдельные кадры', en:'Individual photographs', de:'Einzelaufnahmen', pl:'Pojedyncze zdjęcia'};
