@@ -115,3 +115,10 @@ select{color-scheme:dark}select option{background:#171c18;color:#eeeadf}html[dat
  #photographs.people-collection>#gallery{grid-column:2;grid-row:4;min-width:0}
 }
 @media(min-width:701px) and (max-width:1000px){#photographs.people-collection{grid-template-columns:180px minmax(0,1fr);column-gap:24px}}
+
+/* Equal-height collection cards keep row dividers and counts aligned. */
+#collection-nav:has(>.collection-card),#collection-nav>.collection-nav{align-items:stretch}
+#collection-nav .collection-card{height:100%}
+#collection-nav .collection-card>img{flex:0 0 auto}
+#collection-nav .collection-card>span{flex:1;justify-content:flex-start}
+#collection-nav .collection-card>span>small{margin-top:auto;padding-top:3px}
