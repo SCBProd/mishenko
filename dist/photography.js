@@ -232,7 +232,7 @@ const peopleSections = [
   {names:{uk:'Сімейна',ru:'Семейная',en:'Family',de:'Familie',pl:'Rodzinna'}, ids:[]},
   {names:{uk:'Дитяча',ru:'Детская',en:'Children',de:'Kinder',pl:'Dziecięca'}, ids:['childrens-sessions','soap-bubbles','childrens-fantasy-world','childrens-portraits']},
   {names:{uk:'Репортажна',ru:'Репортажная',en:'Reportage',de:'Reportage',pl:'Reportażowa'}, ids:[]},
-  {names:{uk:'Love Story',ru:'Лов стори',en:'Love Story',de:'Love Story',pl:'Love Story'}, ids:[]},
+  {names:{uk:'Love Story',ru:'Love story',en:'Love Story',de:'Love Story',pl:'Love Story'}, ids:[]},
   {names:{uk:'Портрети',ru:'Портреты',en:'Portraits',de:'Porträts',pl:'Portrety'}, ids:[]}
 ];
 let activePeopleSection = 0;
