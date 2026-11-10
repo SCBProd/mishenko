@@ -105,3 +105,13 @@ html{scroll-padding-top:125px}
 
 select{color-scheme:dark}select option{background:#171c18;color:#eeeadf}html[data-theme="light"] select{color-scheme:light}html[data-theme="light"] select option{background:#f2eee6;color:#252621}
 .about-photographer{display:grid;grid-template-columns:1fr 1fr;gap:9%;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.about-photographer h2{max-width:11ch}.about-signature{display:block;margin-top:30px;font-size:12px;letter-spacing:.12em}.about-copy{max-width:58ch;padding-top:24px}.about-copy p{color:var(--muted);line-height:1.9;margin:0 0 22px}.about-copy .about-lead{font-size:22px;line-height:1.5;color:var(--ink)}@media(max-width:700px){.about-photographer{grid-template-columns:1fr;gap:24px}.about-copy{padding:0}.about-copy .about-lead{font-size:20px}.header nav{gap:16px;flex-wrap:wrap}}
+
+@media(min-width:701px){
+ #photographs.people-collection{display:grid;grid-template-columns:220px minmax(0,1fr);column-gap:40px;align-items:start}
+ #photographs.people-collection>.section-heading,#photographs.people-collection>#filters{grid-column:1/-1}
+ #photographs.people-collection>#collection-nav.people-layout{display:contents}
+ #photographs.people-collection .people-menu{grid-column:1;grid-row:3/span 2;position:sticky;top:125px}
+ #photographs.people-collection .collection-description{grid-column:2;grid-row:3;margin:0 0 26px;max-width:65ch}
+ #photographs.people-collection>#gallery{grid-column:2;grid-row:4;min-width:0}
+}
+@media(min-width:701px) and (max-width:1000px){#photographs.people-collection{grid-template-columns:180px minmax(0,1fr);column-gap:24px}}
