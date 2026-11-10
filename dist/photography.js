@@ -244,12 +244,14 @@ function collectionCard(c) {
 }
 
 const allCollectionOrder=["spring-details","sakura","evening-blossom","forsythia","glass-reflections","night-city","stone-memory","city-exposure","rain-light","azure-bloom","light-handwriting","lantern-hour","individual-sessions","forest-floor","wood-rhythm","between-clouds","anastasia-yellow-accent","botanical-individual-photos","forest-memory","childrens-sessions","stone-horizon","childrens-fantasy-world","facets-of-time","white-silence","soap-bubbles","young-greenery","landscape-individual-photos","beneath-the-canopy"];
+const categoryCollectionOrder={"city":["night-city","glass-reflections","stone-memory","city-exposure","lantern-hour"],"landscape":["stone-horizon","between-clouds","forest-floor","beneath-the-canopy","landscape-individual-photos"],"botanical":["spring-details","sakura","evening-blossom","azure-bloom","forsythia","white-silence","botanical-individual-photos","young-greenery"]};
 function renderCollections() {
   const nav = $('#collection-nav');
   nav.replaceChildren();
   nav.classList.toggle('people-layout',active==='people');
   const choices = collections.filter(c => active === 'all' || c.group === active);
-  if(active==='all')choices.sort((a,b)=>{const rank=id=>{const i=allCollectionOrder.indexOf(id);return i<0?Infinity:i};return rank(a.id)-rank(b.id)});
+  const collectionOrder=active==='all'?allCollectionOrder:categoryCollectionOrder[active];
+  if(collectionOrder)choices.sort((a,b)=>{const rank=id=>{const i=collectionOrder.indexOf(id);return i<0?Infinity:i};return rank(a.id)-rank(b.id)});
   nav.hidden = choices.length === 0;
 
   if (active === 'people') {
