@@ -245,7 +245,7 @@ function collectionCard(c) {
 
 
 {const c=collections.find(c=>c.id==='beneath-the-canopy');const first=c.photos.splice(2,1)[0];c.photos.unshift(first);c.cover=first;}
-collections.find(c=>c.id==='stone-horizon').cover=collections.find(c=>c.id==='stone-horizon').photos[3];
+collections.find(c=>c.id==='stone-horizon').cover=collections.find(c=>c.id==='stone-horizon').photos[11];
 // Distinct titles for the landscape collections.
 collections.find(c=>c.id==="stone-horizon").names={"uk":"Кам’яний горизонт","ru":"Каменный горизонт","en":"Stone horizon","de":"Steinerner Horizont","pl":"Kamienny horyzont"};
 collections.find(c=>c.id==="between-clouds").names={"uk":"Вище землі","ru":"Выше земли","en":"Above the earth","de":"Über der Erde","pl":"Ponad ziemią"};
