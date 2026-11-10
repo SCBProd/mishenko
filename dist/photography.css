@@ -136,3 +136,14 @@ select{color-scheme:dark}select option{background:#171c18;color:#eeeadf}html[dat
  #viewer .icon:after{content:'';position:absolute;inset:-6px}
  .viewer-stage img{width:calc(100% - 70px)}
 }
+
+@media(max-width:700px){
+ #collection-nav .people-menu{flex-direction:row;flex-wrap:nowrap;gap:24px;overflow-x:auto;overscroll-behavior-x:contain;border-bottom:1px solid var(--line);margin-bottom:28px;padding:0;scrollbar-width:thin}
+ .people-menu .people-menu-label,.people-menu .people-menu-select{display:none}
+ .people-menu button{display:flex;flex:0 0 auto;width:auto;gap:9px;min-height:44px;padding:12px 0 14px;border:0;border-bottom:2px solid transparent;white-space:nowrap;font-size:13px;font-weight:400}
+ .people-menu button[aria-pressed=true]{border-bottom-color:var(--ink);font-weight:400}
+ .people-menu button[aria-pressed=true] span:before{content:none}
+ .people-menu button small{font-size:10px}
+ .photo-card .expand{width:28px;height:28px;right:10px;bottom:10px;display:flex;align-items:center;justify-content:center}
+ .photo-card .expand svg{display:block;width:14px;height:14px;flex:none}
+}
