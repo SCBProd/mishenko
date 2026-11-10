@@ -78,7 +78,7 @@ const springPortraitTitles={"uk": ["Погляд крізь квіти", "Кав
 for(const [language,titles] of Object.entries(springPortraitTitles)) COPY[language].titles.push(...titles);
 order.push(...["anastasia-3439", "anastasia-2598", "anastasia-2610", "anastasia-2654", "anastasia-2727", "anastasia-3121", "anastasia-3235", "anastasia-2587", "anastasia-2649", "anastasia-3216", "anastasia-2792", "anastasia-2569", "anastasia-3310", "anastasia-3311", "anastasia-3133"]);
 // Children’s photography. Reuse the existing playground photograph.
-collections.push({"id":"childrens-sessions","group":"people","cover":"play","photos":["play","childhood-111"],"names":{"uk":"Дитяча зйомка","ru":"Детская съёмка","en":"Children’s photography","de":"Kinderfotografie","pl":"Sesje dziecięce"},"descriptions":{"uk":"Дитинство у грі: щирі усмішки, цікавість і маленькі пригоди на дитячому майданчику.","ru":"Детство в игре: искренние улыбки, любопытство и маленькие приключения на детской площадке.","en":"Childhood at play: genuine smiles, curiosity and little adventures on the playground.","de":"Kindheit im Spiel: ehrliches Lächeln, Neugier und kleine Abenteuer auf dem Spielplatz.","pl":"Dzieciństwo w zabawie: szczere uśmiechy, ciekawość i małe przygody na placu zabaw."}});
+collections.push({"id":"childrens-sessions","group":"people","cover":"play","photos":["play","childhood-111"],"names":{"uk":"Дитяча зйомка","ru":"Детская съёмка","en":"Children’s photography","de":"Kinder","pl":"Dziecięca"},"descriptions":{"uk":"Дитинство у грі: щирі усмішки, цікавість і маленькі пригоди на дитячому майданчику.","ru":"Детство в игре: искренние улыбки, любопытство и маленькие приключения на детской площадке.","en":"Childhood at play: genuine smiles, curiosity and little adventures on the playground.","de":"Kindheit im Spiel: ehrliches Lächeln, Neugier und kleine Abenteuer auf dem Spielplatz.","pl":"Dzieciństwo w zabawie: szczere uśmiechy, ciekawość i małe przygody na placu zabaw."}});
 const childhoodTitles={"uk": "Маленька пригода", "ru": "Маленькое приключение", "en": "A little adventure", "de": "Ein kleines Abenteuer", "pl": "Mała przygoda"};
 for(const [language,title] of Object.entries(childhoodTitles)) COPY[language].titles.push(title);
 order.push("childhood-111");
@@ -228,11 +228,11 @@ function filter(group,scroll=false){active=group;activeCollection=null;const url
 
 function selectCollection(id){activeCollection=id;if(id)active=collections.find(c=>c.id===id).group;const url=new URL(location.href);if(id)url.searchParams.set('series',id);else url.searchParams.delete('series');history.replaceState(null,'',url);renderGallery();if(id&&matchMedia('(max-width:700px)').matches){current=0;requestAnimationFrame(()=>$('#gallery').scrollIntoView({block:'start',behavior:'instant'}));}else{(document.querySelector('#collection-nav [aria-pressed="true"]') || document.querySelector('#collection-nav button'))?.focus();}}
 const peopleSections = [
-  {names:{uk:'Індивідуальні зйомки',ru:'Индивидуальные съёмки',en:'Individual sessions',de:'Einzelshootings',pl:'Sesje indywidualne'}, ids:['individual-sessions','anastasia-yellow-accent']},
-  {names:{uk:'Дитячі зйомки',ru:'Детские съёмки',en:'Children’s sessions',de:'Kinderfotografie',pl:'Sesje dziecięce'}, ids:['childrens-sessions','soap-bubbles','childrens-fantasy-world','childrens-portraits']},
-  {names:{uk:'Сімейні зйомки',ru:'Семейные съёмки',en:'Family sessions',de:'Familienshootings',pl:'Sesje rodzinne'}, ids:[]},
-  {names:{uk:'Репортажні зйомки',ru:'Репортажные съёмки',en:'Reportage',de:'Reportagefotografie',pl:'Fotografia reportażowa'}, ids:[]},
-  {names:{uk:'Love Story',ru:'Love Story',en:'Love Story',de:'Love Story',pl:'Love Story'}, ids:[]},
+  {names:{uk:'Індивідуальна',ru:'Индивидуальная',en:'Individual',de:'Einzel',pl:'Indywidualna'}, ids:['individual-sessions','anastasia-yellow-accent']},
+  {names:{uk:'Дитяча',ru:'Детская',en:'Children',de:'Kinder',pl:'Dziecięca'}, ids:['childrens-sessions','soap-bubbles','childrens-fantasy-world','childrens-portraits']},
+  {names:{uk:'Сімейна',ru:'Семейная',en:'Family',de:'Familie',pl:'Rodzinna'}, ids:[]},
+  {names:{uk:'Репортажна',ru:'Репортажная',en:'Reportage',de:'Reportage',pl:'Reportażowa'}, ids:[]},
+  {names:{uk:'Love Story',ru:'Лов стори',en:'Love Story',de:'Love Story',pl:'Love Story'}, ids:[]},
   {names:{uk:'Портрети',ru:'Портреты',en:'Portraits',de:'Porträts',pl:'Portrety'}, ids:[]}
 ];
 let activePeopleSection = 0;
@@ -269,7 +269,7 @@ function renderCollections() {
     }
     const panel = document.createElement('div');
     panel.className = 'people-menu';
-    const label=document.createElement('span');label.className='people-menu-label';label.textContent=({uk:'Види зйомки',ru:'Виды съёмки',en:'Session types',de:'Shootingarten',pl:'Rodzaje sesji'})[lang];panel.append(label);
+    const label=document.createElement('span');label.className='people-menu-label';label.textContent=({uk:'Види фотосесій',ru:'Виды фотосессий',en:'Session types',de:'Shootingarten',pl:'Rodzaje sesji'})[lang];panel.append(label);
     const select=document.createElement('select');select.className='people-menu-select';select.setAttribute('aria-label',label.textContent);select.onchange=()=>{activePeopleSection=Number(select.value);selectCollection(null)};panel.append(select);
     panel.setAttribute('role', 'group');
     panel.setAttribute('aria-label', groupTitle('people'));
