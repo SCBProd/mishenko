@@ -233,6 +233,7 @@ function collectionCard(c) {
 function renderCollections() {
   const nav = $('#collection-nav');
   nav.replaceChildren();
+  nav.classList.toggle('people-layout',active==='people');
   const choices = collections.filter(c => active === 'all' || c.group === active);
   nav.hidden = choices.length === 0;
 
@@ -242,13 +243,17 @@ function renderCollections() {
       if (section !== -1) activePeopleSection = section;
     }
     const panel = document.createElement('div');
-    panel.className = 'filters';
+    panel.className = 'people-menu';
+    const label=document.createElement('span');label.className='people-menu-label';label.textContent=({uk:'Види зйомки',ru:'Виды съёмки',en:'Session types',de:'Shootingarten',pl:'Rodzaje sesji'})[lang];panel.append(label);
+    const select=document.createElement('select');select.className='people-menu-select';select.setAttribute('aria-label',label.textContent);select.onchange=()=>{activePeopleSection=Number(select.value);selectCollection(null)};panel.append(select);
     panel.setAttribute('role', 'group');
     panel.setAttribute('aria-label', groupTitle('people'));
     peopleSections.forEach((direction, index) => {
       const button = document.createElement('button');
       button.type = 'button';
-      button.textContent = direction.names[lang];
+      const total=direction.ids.filter(id=>collections.some(c=>c.id===id)).length;
+      const option=new Option(direction.names[lang]+' · '+total,index);option.selected=index===activePeopleSection;select.append(option);
+      const name=document.createElement('span');name.textContent=direction.names[lang];const count=document.createElement('small');count.textContent=String(total).padStart(2,'0');button.append(name,count);
       button.setAttribute('aria-pressed', String(index === activePeopleSection));
       button.onclick = () => {
         activePeopleSection = index;
@@ -265,7 +270,7 @@ function renderCollections() {
     if (description) {
       const paragraph = document.createElement('p');
       paragraph.textContent = description;
-      nav.append(paragraph);
+      paragraph.className='collection-description';nav.append(paragraph);
     }
     return;
   }
@@ -284,7 +289,7 @@ function renderCollections() {
     nav.append(grid);
   } else {
     const empty = document.createElement('p');
-    empty.textContent = comingSoon[lang];
+    empty.className='collection-empty';empty.textContent = comingSoon[lang];
     nav.append(empty);
   }
 }
