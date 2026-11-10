@@ -29,6 +29,12 @@ jobs:
         run: |
           mode=$(gh api "repos/$GH_REPO/pages" --jq '.build_type')
           if [[ "$mode" == "legacy" ]]; then
+            # Release stale Pages deployments before the built-in branch publisher runs.
+            for stale in $(gh api "repos/$GH_REPO/deployments?environment=github-pages&per_page=5" --jq '.[].sha' | sort -u); do
+              if [[ "$stale" != "$COMMIT_SHA" ]]; then
+                gh api --method POST "repos/$GH_REPO/pages/deployments/$stale/cancel" >/dev/null 2>&1 || true
+              fi
+            done
             echo "publish=false" >> "$GITHUB_OUTPUT"
             echo "Branch-based Pages publishes the filtered source site. Skipping a competing deployment."
             exit 0
