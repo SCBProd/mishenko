@@ -244,7 +244,7 @@ function collectionCard(c) {
 }
 
 const allCollectionOrder=["spring-details","sakura","evening-blossom","forsythia","glass-reflections","night-city","stone-memory","city-exposure","rain-light","azure-bloom","light-handwriting","lantern-hour","individual-sessions","forest-floor","wood-rhythm","between-clouds","anastasia-yellow-accent","botanical-individual-photos","forest-memory","childrens-sessions","stone-horizon","childrens-fantasy-world","facets-of-time","white-silence","soap-bubbles","young-greenery","landscape-individual-photos","beneath-the-canopy"];
-const categoryCollectionOrder={"city":["night-city","glass-reflections","stone-memory","city-exposure","lantern-hour"],"landscape":["stone-horizon","between-clouds","forest-floor","beneath-the-canopy","landscape-individual-photos"],"botanical":["spring-details","sakura","evening-blossom","azure-bloom","forsythia","white-silence","botanical-individual-photos","young-greenery"]};
+const categoryCollectionOrder={"city":["night-city","glass-reflections","stone-memory","city-exposure","lantern-hour"],"landscape":["stone-horizon","between-clouds","forest-floor","beneath-the-canopy","landscape-individual-photos"],"botanical":["spring-details","sakura","evening-blossom","azure-bloom","forsythia","white-silence","botanical-individual-photos","young-greenery"],"texture":["forest-memory","rain-light","facets-of-time","wood-rhythm"]};
 function renderCollections() {
   const nav = $('#collection-nav');
   nav.replaceChildren();
