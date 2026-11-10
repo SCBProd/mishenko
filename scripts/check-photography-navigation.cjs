@@ -16,12 +16,14 @@ for(const [query,expected] of [['?lang=ru&series=azure-bloom','botanical'],['?la
  assert.equal(new URL(ctx.location.href).searchParams.has('series'),false);
 }
 const ctx=makeContext('https://example.com/photography.html?lang=ru&series=azure-bloom');
-vm.runInContext("function renderGallery(){};const document={querySelector(){return {focus(){},scrollIntoView(){}}}};function matchMedia(){return {matches:true}};",ctx);
+vm.runInContext("let current=7,scrolledToFirst=false;function requestAnimationFrame(fn){fn()};function renderGallery(){};const document={querySelector(){return {focus(){},scrollIntoView(){scrolledToFirst=true}}}};function matchMedia(){return {matches:true}};",ctx);
 for(const name of ['filter','selectCollection']){
  const line=script.split('\n').find(line=>line.startsWith('function '+name+'('));vm.runInContext(line,ctx);
 }
 vm.runInContext("selectCollection('white-silence')",ctx);
 assert.equal(vm.runInContext('activeCollection',ctx),'white-silence');
+assert.equal(vm.runInContext('current',ctx),0);
+assert.equal(vm.runInContext('scrolledToFirst',ctx),true);
 vm.runInContext("filter('botanical')",ctx);
 assert.equal(vm.runInContext('activeCollection',ctx),null);
 assert.equal(new URL(ctx.location.href).searchParams.get('group'),'botanical');

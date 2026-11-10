@@ -126,3 +126,13 @@ select{color-scheme:dark}select option{background:#171c18;color:#eeeadf}html[dat
 .about-photographer{gap:32px 9%}.about-photographer>div:first-child{grid-column:1/-1}.about-photographer h2{max-width:20ch}.about-portrait{margin:0;width:100%;max-width:360px;align-self:start}.about-portrait img{display:block;width:100%;height:auto}.about-photographer .about-copy{padding-top:0;align-self:center}.about-signature{margin-top:20px}@media(max-width:700px){.about-photographer{gap:28px}.about-portrait{max-width:360px}.about-photographer .about-copy{align-self:start}}
 
 .about-photographer>div:first-child{grid-column:auto}.about-photographer h2{max-width:11ch}
+
+@media(max-width:700px){
+ .series-grid{align-items:start}
+ .series-grid .series-card{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;align-self:start;min-width:0}
+ .series-grid .series-card>img,.series-grid .series-card>.series-gradient{flex:none;width:100%;height:auto;aspect-ratio:1/1}
+ #viewer .icon{position:relative;display:flex;align-items:center;justify-content:center;width:32px;height:32px;min-width:32px;min-height:32px;padding:0;line-height:1;box-sizing:border-box}
+ #viewer .icon svg{display:block;width:16px;height:16px;flex:none;margin:0}
+ #viewer .icon:after{content:'';position:absolute;inset:-6px}
+ .viewer-stage img{width:calc(100% - 70px)}
+}
