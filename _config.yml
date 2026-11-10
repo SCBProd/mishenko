@@ -1,0 +1,16 @@
+# Keep source and original archives in Git without copying them into the Pages deployment.
+exclude:
+  - photography-originals
+  - archived-artworks
+  - document-source
+  - src
+  - scripts
+  - public
+  - node_modules
+  - vendor
+  - AGENTS.md
+  - README.md
+  - README-UK.txt
+  - COLLECTION-NOTES.md
+  - TABLEWARE-NOTES.md
+plugins: []
