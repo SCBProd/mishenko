@@ -74,3 +74,5 @@ body[data-concept="cinema"] .about-image img.artist-portrait{height:auto;width:1
  body[data-concept="cinema"] .tableware-section .section-heading h2{font-size:clamp(24px,6.5vw,36px);overflow-wrap:normal;word-break:normal;hyphens:none;letter-spacing:-.6px;line-height:1.12}
  body[data-concept="cinema"] .tableware-section .section-heading>p{max-width:none;margin-top:16px}
 }
+
+.ceramic-hub-return{padding:10px 5%;border-bottom:1px solid var(--line);background:var(--bg)}.ceramic-hub-return a{display:inline-flex;align-items:center;gap:10px;min-height:36px;font-size:12px}.ceramic-hub-return svg{display:block;width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}@media(max-width:700px){.ceramic-hub-return{padding:7px 6%}.ceramic-hub-return a{min-height:40px}}
