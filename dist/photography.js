@@ -243,11 +243,13 @@ function collectionCard(c) {
   return button;
 }
 
+const allCollectionOrder=["spring-details","sakura","evening-blossom","forsythia","glass-reflections","night-city","stone-memory","city-exposure","rain-light","azure-bloom","light-handwriting","lantern-hour","individual-sessions","forest-floor","wood-rhythm","between-clouds","anastasia-yellow-accent","botanical-individual-photos","forest-memory","childrens-sessions","stone-horizon","childrens-fantasy-world","facets-of-time","white-silence","soap-bubbles","young-greenery","landscape-individual-photos","beneath-the-canopy"];
 function renderCollections() {
   const nav = $('#collection-nav');
   nav.replaceChildren();
   nav.classList.toggle('people-layout',active==='people');
   const choices = collections.filter(c => active === 'all' || c.group === active);
+  if(active==='all')choices.sort((a,b)=>{const rank=id=>{const i=allCollectionOrder.indexOf(id);return i<0?Infinity:i};return rank(a.id)-rank(b.id)});
   nav.hidden = choices.length === 0;
 
   if (active === 'people') {
