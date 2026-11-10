@@ -192,6 +192,7 @@ collections.push({"id":"beneath-the-canopy","group":"landscape","cover":"forest-
  const removed=new Set([removedWhite,removedGlass]);for(let i=order.length-1;i>=0;i--)if(removed.has(order[i])&&!collections.some(c=>c.photos.includes(order[i])))order.splice(i,1);
 }
 {const c=collections.find(c=>c.id==='childrens-fantasy-world');const removed=c.photos[1];c.photos.splice(1,1);if(c.cover===removed)c.cover=c.photos[0];if(!collections.some(c=>c.photos.includes(removed))){const i=order.indexOf(removed);if(i!==-1)order.splice(i,1);}}
+collections.find(c=>c.id==='childrens-fantasy-world').descriptions={"uk":"Дитяча уява, гра й маленькі відкриття.","ru":"Детское воображение, игра и маленькие открытия.","en":"Childhood imagination, play and little discoveries.","de":"Kindliche Fantasie, Spiel und kleine Entdeckungen.","pl":"Dziecięca wyobraźnia, zabawa i małe odkrycia."};
 const photos=order.map(id=>({...window.PHOTOS.find(p=>p.id===id),index:window.PHOTOS.findIndex(p=>p.id===id)}));
 const allCollections = {uk:'Усі добірки', ru:'Все подборки', en:'All collections', de:'Alle Sammlungen', pl:'Wszystkie kolekcje'};
 const individualPhotos = {uk:'Окремі кадри', ru:'Отдельные кадры', en:'Individual photographs', de:'Einzelaufnahmen', pl:'Pojedyncze zdjęcia'};
