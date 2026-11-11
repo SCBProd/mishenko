@@ -157,3 +157,5 @@ p,.collection-card span span{text-align:left;text-align-last:auto;hyphens:none;-
 .hero-copy>p,.hero-quote p{text-align:justify;text-align-last:left;hyphens:auto;-webkit-hyphens:auto}
 @media(min-width:701px){.hero-copy{padding-right:32px}.hero-copy>p,.hero-quote{max-width:none;width:100%}}
 @media(max-width:700px){.hero-copy{padding-bottom:24px}}
+
+.contact-information{border-top:1px solid var(--line);margin-top:28px;padding-top:22px}.contact-information h3{font-size:12px;font-weight:400;letter-spacing:.08em;margin:0 0 18px;color:var(--muted)}.contact .email{display:inline-flex;align-items:center;gap:12px;max-width:100%}.contact .email svg{width:24px;height:24px;flex:none;fill:none;stroke:currentColor;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round}.contact .email span{overflow-wrap:anywhere}
