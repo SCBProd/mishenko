@@ -396,3 +396,5 @@ function selectDirection(direction){
 document.querySelector('#direction-photo').onclick=()=>selectDirection('photo');
 document.querySelector('#direction-video').onclick=()=>selectDirection('video');
 document.querySelectorAll('a[href="#series"]').forEach(a=>a.addEventListener('click',()=>selectDirection('photo')));
+
+document.querySelectorAll('a[href="#video-portfolio"]').forEach(a=>a.addEventListener('click',()=>selectDirection('video')));
