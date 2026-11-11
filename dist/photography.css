@@ -162,3 +162,7 @@ p,.collection-card span span{text-align:left;text-align-last:auto;hyphens:none;-
 
 /* Contact details follow the ceramic portfolio’s restrained label/value style. */
 .photo-contact-details{margin:30px 0 0;max-width:400px}.photo-contact-details>div{border-top:1px solid var(--line);padding-top:14px}.photo-contact-details dt{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.04em;color:var(--muted)}.photo-contact-details dt svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}.photo-contact-details dd{margin:16px 0 0;font-size:14px;line-height:1.7}.photo-contact-details a{border-bottom:1px solid var(--line);padding-bottom:3px;overflow-wrap:anywhere}.photo-contact-details a:hover{border-color:var(--ink)}
+
+.photo-contact-title{font-size:14px;font-weight:500;line-height:1.5;letter-spacing:.02em;margin:28px 0 14px}.photo-contact-title+.photo-contact-details{margin-top:0}
+@media(min-width:701px){.contact{column-gap:5%}}
+@media(max-width:700px){.contact{row-gap:20px}}
