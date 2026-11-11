@@ -18,7 +18,10 @@
  function makeProject(project){
   const data=project.text[lang]||project.text.en,photos=project.photos;
   const views=data.views||t.views;
-  const hint=photos.length>1?t.hint.replace('9',String(photos.length)):t.enlarge;
+  const count=photos.length,plural=new Intl.PluralRules(lang).select(count);
+  const words={ru:{one:'фотография',few:'фотографии',many:'фотографий',other:'фотографии'},uk:{one:'фотографія',few:'фотографії',many:'фотографій',other:'фотографії'},pl:{one:'zdjęcie',few:'zdjęcia',many:'zdjęć',other:'zdjęcia'},en:{one:'photograph',other:'photographs'},de:{one:'Foto',other:'Fotos'}};
+  const word=(words[lang]||words.en)[plural]||(words[lang]||words.en).other;
+  const hint=count>1?t.hint.replace(/^9 \S+/,count+' '+word):t.enlarge;
   let index=indexes.get(project.id)||0,lastTrigger;
   const article=el('article','project-work');article.id=project.id;
   if(photos.length===1)article.classList.add('single-photo');

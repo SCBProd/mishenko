@@ -16,7 +16,7 @@ de:[['Sehen.','Spüren. Bewahren.'],['Vorstellen.','Form geben.'],'Eine Auswahl 
 pl:[['Zobaczyć.','Poczuć. Zachować.'],['Wyobrazić sobie.','Nadać formę.'],'Wybór fotografii jest przygotowywany do publikacji.','Wybór prac 3D jest przygotowywany do publikacji.','← Wszystkie portfolio','Język']
 };
 function render(lang){
- if(!Object.hasOwn(translations,lang))lang='uk';const t=translations[lang];select.value=lang;document.documentElement.lang=lang;document.title=t[0]+' — Krystyna Mishchenko';
+ if(!Object.hasOwn(translations,lang))lang='uk';const t=translations[lang];select.value=lang;document.documentElement.lang=lang;document.querySelectorAll('.top>a').forEach(a=>a.href='concepts.html?lang='+lang);document.title=t[0]+' — Krystyna Mishchenko';
  const dt=detailTranslations[lang];select.setAttribute('aria-label',dt[5]);document.querySelector('.hub-language .sr-only').textContent=dt[5];
  if(document.querySelector('main.detail')){
   const index=location.pathname.endsWith('photography.html')?0:1;
@@ -25,7 +25,7 @@ function render(lang){
   const title=document.querySelector('.detail h1');title.replaceChildren(document.createTextNode(dt[index][0]),document.createElement('br'),document.createTextNode(dt[index][1]));
   document.querySelector('.detail .eyebrow').textContent=t[5][index+1];
   const paragraphs=document.querySelectorAll('.detail p');paragraphs[0].textContent=t[7][index+1];paragraphs[1].textContent=dt[index+2];
-  const back=document.querySelector('.back');back.textContent=dt[4];back.href='index.html?lang='+lang;
+  const back=document.querySelector('.back');back.textContent=dt[4];back.href='concepts.html?lang='+lang;
   document.querySelector('meta[name="description"]').content=t[7][index+1];
   document.querySelector('.foot span:last-child').textContent=t[9];
   return;
