@@ -147,3 +147,6 @@ select{color-scheme:dark}select option{background:#171c18;color:#eeeadf}html[dat
  .photo-card .expand{width:28px;height:28px;right:10px;bottom:10px;display:flex;align-items:center;justify-content:center}
  .photo-card .expand svg{display:block;width:14px;height:14px;flex:none}
 }
+
+/* Readable, naturally spaced photography descriptions. */
+p,.collection-card span span{text-align:left;text-align-last:auto;hyphens:none;-webkit-hyphens:none;word-spacing:normal}
