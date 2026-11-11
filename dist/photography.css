@@ -171,3 +171,6 @@ p,.collection-card span span{text-align:left;text-align-last:auto;hyphens:none;-
 
 /* Keep Cyrillic and Latin letterforms distinct at every heading size. */
 h1,h2,h3,.collection-card strong,.direction-card strong{letter-spacing:normal;font-kerning:normal;font-variant-ligatures:none}h1,h2{line-height:1.16;overflow-wrap:break-word}.contact h2{max-width:100%}
+
+/* Mobile subsection tabs show names without counters. */
+@media(max-width:700px){#collection-nav .people-menu button small{display:none}}
