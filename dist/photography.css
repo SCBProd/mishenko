@@ -166,3 +166,5 @@ p,.collection-card span span{text-align:left;text-align-last:auto;hyphens:none;-
 .photo-contact-title{font-size:14px;font-weight:500;line-height:1.5;letter-spacing:.02em;margin:28px 0 14px}.photo-contact-title+.photo-contact-details{margin-top:0}
 @media(min-width:701px){.contact{column-gap:5%}}
 @media(max-width:700px){.contact{row-gap:20px}}
+
+.photo-contact-title{font-size:22px;font-weight:400;border-top:1px solid var(--line);padding-top:20px;max-width:400px;margin-top:28px;margin-bottom:18px}.photo-contact-title+.photo-contact-details>div{border-top:0;padding-top:0}
