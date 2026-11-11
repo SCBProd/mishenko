@@ -150,3 +150,5 @@ select{color-scheme:dark}select option{background:#171c18;color:#eeeadf}html[dat
 
 /* Readable, naturally spaced photography descriptions. */
 p,.collection-card span span{text-align:left;text-align-last:auto;hyphens:none;-webkit-hyphens:none;word-spacing:normal}
+
+.hero-quote{margin:8px 0 0;max-width:340px}.hero-quote p{font-size:15px;line-height:1.7;color:var(--ink);margin:0;font-style:italic}
