@@ -76,3 +76,6 @@ body[data-concept="cinema"] .about-image img.artist-portrait{height:auto;width:1
 }
 
 .ceramic-hub-return{padding:10px 5%;border-bottom:1px solid var(--line);background:var(--bg)}.ceramic-hub-return a{display:inline-flex;align-items:center;gap:10px;min-height:36px;font-size:12px}.ceramic-hub-return svg{display:block;width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}@media(max-width:700px){.ceramic-hub-return{padding:7px 6%}.ceramic-hub-return a{min-height:40px}}
+
+/* Natural word spacing in narrow multilingual prose. */
+@media(max-width:650px){body[data-concept="cinema"] main p:not(.eyebrow):not(.project-hint):not(.project-question){text-align:left;text-align-last:left;hyphens:none;-webkit-hyphens:none}}

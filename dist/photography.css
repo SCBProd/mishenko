@@ -174,3 +174,7 @@ h1,h2,h3,.collection-card strong,.direction-card strong{letter-spacing:normal;fo
 
 /* Mobile subsection tabs show names without counters. */
 @media(max-width:700px){#collection-nav .people-menu button small{display:none}}
+
+/* Short quotations must never stretch their word spaces. */
+.hero-quote p{text-align:left;text-align-last:left;word-spacing:normal;letter-spacing:normal;hyphens:none;-webkit-hyphens:none}
+@media(max-width:700px){.hero-copy>p{text-align:left;text-align-last:left;hyphens:none;-webkit-hyphens:none}}
