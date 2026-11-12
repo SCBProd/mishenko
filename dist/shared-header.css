@@ -15,3 +15,7 @@ html[data-theme="light"] .header .monogram img{filter:grayscale(1);mix-blend-mod
 .header .brand{font-weight:500;letter-spacing:1.5px;white-space:nowrap}.header .monogram img{opacity:1}
 @media(max-width:700px){.header .brand{font-size:9px;letter-spacing:1px;gap:10px}.header .monogram{width:36px;height:36px;flex-basis:36px}}
 @media(max-width:360px){.header .brand{font-size:8px;letter-spacing:.8px;gap:8px}}
+
+/* Render the ceramic monogram directly as a vector, without raster upscaling. */
+body[data-concept="cinema"] .site-header .mark img{transform:none;mix-blend-mode:normal;filter:brightness(0) invert(1)}
+html[data-theme="light"] body[data-concept="cinema"] .site-header .mark img{filter:brightness(0);mix-blend-mode:normal}
