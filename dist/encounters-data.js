@@ -67,6 +67,10 @@ window.portfolioProjects.push({
     {
       "src": "assets/encounters/cover-hd.png",
       "view": 0
+    },
+    {
+      "src": "assets/encounters/gallery-visualization.png",
+      "view": 16
     }
   ],
   "text": {
@@ -91,7 +95,8 @@ window.portfolioProjects.push({
         "Элемент с волнами и полосами",
         "Оранжевая глазурь и круглые детали",
         "Полосы и круги — деталь",
-        "Отдельный элемент в композиции"
+        "Отдельный элемент в композиции",
+        "В выставочном пространстве — визуализация"
       ],
       "paragraphs": [
         "В основе художественной концепции лежит осмысление изоляции не только как внешнего ограничения свободы, но и как внутреннего переживания, способного изменять восприятие пространства, времени и отношений между людьми.",
@@ -135,7 +140,8 @@ window.portfolioProjects.push({
         "Element with waves and stripes",
         "Orange glaze and circular details",
         "Stripes and circles — close-up",
-        "Individual element in the composition"
+        "Individual element in the composition",
+        "Exhibition placement — visualization"
       ],
       "paragraphs": [
         "The artistic concept considers isolation not only as an external restriction of freedom, but also as an inner experience capable of transforming our perception of space, time, and relationships between people.",
@@ -179,7 +185,8 @@ window.portfolioProjects.push({
         "Елемент із хвилями й смугами",
         "Помаранчева полива та круглі деталі",
         "Смуги й кола — деталь",
-        "Окремий елемент у композиції"
+        "Окремий елемент у композиції",
+        "У виставковому просторі — візуалізація"
       ],
       "paragraphs": [
         "В основі художньої концепції лежить осмислення ізоляції не лише як зовнішнього обмеження свободи, а й як внутрішнього переживання, здатного змінювати сприйняття простору, часу та стосунків між людьми.",
@@ -223,7 +230,8 @@ window.portfolioProjects.push({
         "Element mit Wellen und Streifen",
         "Orange Glasur und runde Details",
         "Streifen und Kreise — Detail",
-        "Einzelelement in der Komposition"
+        "Einzelelement in der Komposition",
+        "Im Ausstellungsraum — Visualisierung"
       ],
       "paragraphs": [
         "Das künstlerische Konzept versteht Isolation nicht nur als äußere Einschränkung der Freiheit, sondern auch als inneres Erleben, das die Wahrnehmung von Raum, Zeit und zwischenmenschlichen Beziehungen verändern kann.",
@@ -267,7 +275,8 @@ window.portfolioProjects.push({
         "Element z falami i pasami",
         "Pomarańczowe szkliwo i okrągłe detale",
         "Pasy i koła — detal",
-        "Pojedynczy element w kompozycji"
+        "Pojedynczy element w kompozycji",
+        "W przestrzeni wystawowej — wizualizacja"
       ],
       "paragraphs": [
         "U podstaw koncepcji artystycznej leży refleksja nad izolacją nie tylko jako zewnętrznym ograniczeniem wolności, lecz także jako wewnętrznym doświadczeniem zdolnym zmieniać postrzeganie przestrzeni, czasu i relacji między ludźmi.",
