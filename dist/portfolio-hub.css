@@ -7,3 +7,5 @@
 main p:not(.eyebrow){text-align:justify;text-align-last:left;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
 
 .photo.has-photograph:before,.photo.has-photograph:after{display:none}
+
+.open b{display:flex;align-items:center;justify-content:center}.open .direction-arrow{display:block;width:20px;height:20px;flex:none}
