@@ -63,6 +63,10 @@ window.portfolioProjects.push({
     {
       "src": "assets/devastated/10.jpg",
       "view": 5
+    },
+    {
+      "src": "assets/devastated/interior-visualization.png",
+      "view": 14
     }
   ],
   "text": {
@@ -93,7 +97,8 @@ window.portfolioProjects.push({
         "Диалог поверхностей",
         "Поверхность крупным планом",
         "Круглые углубления",
-        "Деталь фактуры"
+        "Деталь фактуры",
+        "В интерьере — визуализация"
       ]
     },
     "en": {
@@ -123,7 +128,8 @@ window.portfolioProjects.push({
         "Dialogue of surfaces",
         "Surface close-up",
         "Circular indentations",
-        "Texture detail"
+        "Texture detail",
+        "Interior placement — visualization"
       ]
     },
     "uk": {
@@ -153,7 +159,8 @@ window.portfolioProjects.push({
         "Діалог поверхонь",
         "Поверхня зблизька",
         "Круглі заглиблення",
-        "Деталь фактури"
+        "Деталь фактури",
+        "В інтер’єрі — візуалізація"
       ]
     },
     "de": {
@@ -183,7 +190,8 @@ window.portfolioProjects.push({
         "Dialog der Oberflächen",
         "Nahaufnahme der Oberfläche",
         "Runde Vertiefungen",
-        "Texturdetail"
+        "Texturdetail",
+        "Im Raum — Visualisierung"
       ]
     },
     "pl": {
@@ -213,7 +221,8 @@ window.portfolioProjects.push({
         "Dialog powierzchni",
         "Zbliżenie powierzchni",
         "Okrągłe zagłębienia",
-        "Detal faktury"
+        "Detal faktury",
+        "We wnętrzu — wizualizacja"
       ]
     }
   }

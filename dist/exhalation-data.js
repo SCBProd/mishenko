@@ -26,6 +26,10 @@ window.portfolioProjects.push({
     {
       "src": "assets/deep-exhalation/3.jpg",
       "view": 4
+    },
+    {
+      "src": "assets/deep-exhalation/interior-visualization.png",
+      "view": 5
     }
   ],
   "text": {
@@ -39,7 +43,8 @@ window.portfolioProjects.push({
         "Вид сверху — развёрнутая форма",
         "Обратный ракурс — силуэт и объём",
         "Деталь — пересечение изгибов",
-        "Низкий ракурс — свет на поверхности"
+        "Низкий ракурс — свет на поверхности",
+        "В интерьере — визуализация"
       ],
       "paragraphs": [
         "В основе художественной концепции лежит образ дыхания как непрерывного процесса, связывающего внутренний мир человека с окружающим пространством. Глубокий выдох становится метафорой перехода — от напряжения к покою, от сопротивления к принятию, от внутренней скованности к свободе.",
@@ -60,7 +65,8 @@ window.portfolioProjects.push({
         "View from above — unfolding form",
         "Reverse view — silhouette and volume",
         "Detail — intersecting curves",
-        "Low angle — light on the surface"
+        "Low angle — light on the surface",
+        "Interior placement — visualization"
       ],
       "paragraphs": [
         "The artistic concept centres on breathing as a continuous process connecting a person's inner world with the surrounding space. A deep exhalation becomes a metaphor for transition: from tension to calm, from resistance to acceptance, from inner constraint to freedom.",
@@ -81,7 +87,8 @@ window.portfolioProjects.push({
         "Вигляд згори — розгорнута форма",
         "Зворотний ракурс — силует і об’єм",
         "Деталь — перетин вигинів",
-        "Низький ракурс — світло на поверхні"
+        "Низький ракурс — світло на поверхні",
+        "В інтер’єрі — візуалізація"
       ],
       "paragraphs": [
         "В основі художньої концепції лежить образ дихання як безперервного процесу, що пов’язує внутрішній світ людини з навколишнім простором. Глибокий видих стає метафорою переходу — від напруження до спокою, від опору до прийняття, від внутрішньої скутості до свободи.",
@@ -102,7 +109,8 @@ window.portfolioProjects.push({
         "Ansicht von oben — entfaltete Form",
         "Rückansicht — Silhouette und Volumen",
         "Detail — sich kreuzende Wölbungen",
-        "Niedrige Perspektive — Licht auf der Oberfläche"
+        "Niedrige Perspektive — Licht auf der Oberfläche",
+        "Im Raum — Visualisierung"
       ],
       "paragraphs": [
         "Das künstlerische Konzept betrachtet den Atem als einen ununterbrochenen Prozess, der die innere Welt des Menschen mit dem umgebenden Raum verbindet. Tiefes Ausatmen wird zur Metapher eines Übergangs — von Anspannung zu Ruhe, von Widerstand zu Akzeptanz, von innerer Enge zu Freiheit.",
@@ -123,7 +131,8 @@ window.portfolioProjects.push({
         "Widok z góry — rozwinięta forma",
         "Widok od tyłu — sylwetka i bryła",
         "Detal — przecinające się krzywizny",
-        "Niska perspektywa — światło na powierzchni"
+        "Niska perspektywa — światło na powierzchni",
+        "We wnętrzu — wizualizacja"
       ],
       "paragraphs": [
         "U podstaw koncepcji artystycznej leży obraz oddechu jako nieprzerwanego procesu łączącego wewnętrzny świat człowieka z otaczającą przestrzenią. Głęboki wydech staje się metaforą przejścia — od napięcia do spokoju, od oporu do akceptacji, od wewnętrznego skrępowania do wolności.",
