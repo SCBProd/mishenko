@@ -19,3 +19,7 @@ html[data-theme="light"] .header .monogram img{filter:grayscale(1);mix-blend-mod
 /* Render the ceramic monogram directly as a vector, without raster upscaling. */
 body[data-concept="cinema"] .site-header .mark img{transform:none;mix-blend-mode:normal;filter:brightness(0) invert(1)}
 html[data-theme="light"] body[data-concept="cinema"] .site-header .mark img{filter:brightness(0);mix-blend-mode:normal}
+
+/* Match the monogram to the inherited author name color in both themes. */
+body[data-concept="cinema"] .site-header .identity .mark{background-color:currentColor;-webkit-mask:url("assets/monogram.svg?v=20261112-crisp") center/contain no-repeat;mask:url("assets/monogram.svg?v=20261112-crisp") center/contain no-repeat}
+body[data-concept="cinema"] .site-header .identity .mark img{visibility:hidden}
