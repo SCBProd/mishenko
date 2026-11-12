@@ -47,6 +47,10 @@ window.portfolioProjects.push({
     {
       "src": "assets/shadows2021/3.png",
       "view": 10
+    },
+    {
+      "src": "assets/shadows2021/interior-visualization.png",
+      "view": 14
     }
   ],
   "text": {
@@ -78,7 +82,8 @@ window.portfolioProjects.push({
         "Цветочный мотив — фактура",
         "Силуэт и орнамент листвы",
         "Лиственный орнамент и фактура",
-        "Наложение силуэтов"
+        "Наложение силуэтов",
+        "В интерьере — визуализация"
       ]
     },
     "en": {
@@ -109,7 +114,8 @@ window.portfolioProjects.push({
         "Floral motif — texture",
         "Silhouette and leaf ornament",
         "Leaf ornament and surface texture",
-        "Overlapping silhouettes"
+        "Overlapping silhouettes",
+        "Interior placement — visualization"
       ]
     },
     "uk": {
@@ -140,7 +146,8 @@ window.portfolioProjects.push({
         "Квітковий мотив — фактура",
         "Силует і орнамент листя",
         "Листяний орнамент та фактура",
-        "Накладання силуетів"
+        "Накладання силуетів",
+        "В інтер’єрі — візуалізація"
       ]
     },
     "de": {
@@ -171,7 +178,8 @@ window.portfolioProjects.push({
         "Blumenmotiv — Textur",
         "Silhouette und Blattornament",
         "Blattornament und Oberflächentextur",
-        "Überlagerte Silhouetten"
+        "Überlagerte Silhouetten",
+        "Im Raum — Visualisierung"
       ]
     },
     "pl": {
@@ -202,7 +210,8 @@ window.portfolioProjects.push({
         "Motyw kwiatowy — faktura",
         "Sylwetka i ornament liści",
         "Ornament liści i faktura",
-        "Nakładające się sylwetki"
+        "Nakładające się sylwetki",
+        "We wnętrzu — wizualizacja"
       ]
     }
   }

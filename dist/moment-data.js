@@ -48,6 +48,10 @@ window.portfolioProjects.push({
     {
       "src": "assets/moment/0.jpg",
       "view": 0
+    },
+    {
+      "src": "assets/moment/interior-visualization.png",
+      "view": 10
     }
   ],
   "text": {
@@ -65,7 +69,8 @@ window.portfolioProjects.push({
         "Форма и природная деталь",
         "Свет и тень внутри проёма",
         "Сочетание полос и круглых элементов",
-        "Фактура обратной стороны"
+        "Фактура обратной стороны",
+        "В интерьере — визуализация"
       ],
       "intro": "«Мгновение» — композиция, посвящённая осмыслению времени, быстротечности человеческого существования и неуловимой границы между присутствием и исчезновением. Произведение обращается к парадоксу человеческого восприятия: то, что длится лишь долю секунды, порой оставляет след, способный сопровождать нас всю жизнь.",
       "paragraphs": [
@@ -98,7 +103,8 @@ window.portfolioProjects.push({
         "Form and a natural detail",
         "Light and shadow within the opening",
         "Stripes and circular elements",
-        "Texture of the reverse side"
+        "Texture of the reverse side",
+        "Interior placement — visualization"
       ],
       "intro": "Moment is a composition reflecting on time, the brevity of human existence and the elusive boundary between presence and disappearance. It explores a paradox of perception: something lasting only a fraction of a second can leave a trace that accompanies us throughout our lives.",
       "paragraphs": [
@@ -131,7 +137,8 @@ window.portfolioProjects.push({
         "Форма та природна деталь",
         "Світло й тінь усередині отвору",
         "Поєднання смуг і круглих елементів",
-        "Фактура зворотного боку"
+        "Фактура зворотного боку",
+        "В інтер’єрі — візуалізація"
       ],
       "intro": "«Мить» — композиція, присвячена осмисленню часу, швидкоплинності людського існування та невловимої межі між присутністю і зникненням. Твір звертається до парадоксу людського сприйняття: те, що триває лише частку секунди, іноді залишає слід, здатний супроводжувати нас усе життя.",
       "paragraphs": [
@@ -164,7 +171,8 @@ window.portfolioProjects.push({
         "Form und ein natürliches Detail",
         "Licht und Schatten in der Öffnung",
         "Streifen und kreisförmige Elemente",
-        "Textur der Rückseite"
+        "Textur der Rückseite",
+        "Im Raum — Visualisierung"
       ],
       "intro": "Augenblick ist eine Komposition über Zeit, die Vergänglichkeit des menschlichen Daseins und die schwer fassbare Grenze zwischen Anwesenheit und Verschwinden. Das Werk berührt ein Paradox der Wahrnehmung: Was nur einen Sekundenbruchteil dauert, kann eine Spur hinterlassen, die uns ein Leben lang begleitet.",
       "paragraphs": [
@@ -197,7 +205,8 @@ window.portfolioProjects.push({
         "Forma i naturalny detal",
         "Światło i cień wewnątrz otworu",
         "Pasy i okrągłe elementy",
-        "Faktura odwrotnej strony"
+        "Faktura odwrotnej strony",
+        "We wnętrzu — wizualizacja"
       ],
       "intro": "Chwila to kompozycja poświęcona refleksji nad czasem, przemijaniem ludzkiego istnienia i nieuchwytną granicą między obecnością a znikaniem. Dzieło odnosi się do paradoksu ludzkiej percepcji: coś, co trwa zaledwie ułamek sekundy, potrafi pozostawić ślad towarzyszący nam przez całe życie.",
       "paragraphs": [
