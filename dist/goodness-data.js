@@ -72,6 +72,10 @@ window.portfolioProjects.push({
     {
       "src": "assets/goodness/added-20261020-5.jpg",
       "view": 15
+    },
+    {
+      "src": "assets/goodness/interior-large-table.png",
+      "view": 16
     }
   ],
   "text": {
@@ -108,7 +112,8 @@ window.portfolioProjects.push({
         "Композиция в песке — боковой ракурс",
         "Композиция в песке — общий вид",
         "Раздельные элементы сверху",
-        "Взаимодействие с керамическим элементом"
+        "Взаимодействие с керамическим элементом",
+        "В интерьере — визуализация"
       ],
       "facts": [
         [
@@ -158,7 +163,8 @@ window.portfolioProjects.push({
         "Composition in sand — side view",
         "Composition in sand — full view",
         "Separated elements from above",
-        "Interaction with a ceramic element"
+        "Interaction with a ceramic element",
+        "Interior placement — visualization"
       ],
       "facts": [
         [
@@ -208,7 +214,8 @@ window.portfolioProjects.push({
         "Композиція в піску — бічний ракурс",
         "Композиція в піску — загальний вигляд",
         "Окремі елементи згори",
-        "Взаємодія з керамічним елементом"
+        "Взаємодія з керамічним елементом",
+        "В інтер’єрі — візуалізація"
       ],
       "facts": [
         [
@@ -258,7 +265,8 @@ window.portfolioProjects.push({
         "Komposition im Sand — Seitenansicht",
         "Komposition im Sand — Gesamtansicht",
         "Getrennte Elemente von oben",
-        "Interaktion mit einem Keramikelement"
+        "Interaktion mit einem Keramikelement",
+        "Im Raum — Visualisierung"
       ],
       "facts": [
         [
@@ -308,7 +316,8 @@ window.portfolioProjects.push({
         "Kompozycja w piasku — widok z boku",
         "Kompozycja w piasku — widok ogólny",
         "Oddzielne elementy z góry",
-        "Interakcja z elementem ceramicznym"
+        "Interakcja z elementem ceramicznym",
+        "We wnętrzu — wizualizacja"
       ],
       "facts": [
         [
