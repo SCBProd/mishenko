@@ -59,6 +59,10 @@ window.portfolioProjects.push({
     {
       "src": "assets/shadows2021/added-20261020-8.jpg",
       "view": 12
+    },
+    {
+      "src": "assets/shadows/interior-walnut.png",
+      "view": 13
     }
   ],
   "text": {
@@ -89,7 +93,8 @@ window.portfolioProjects.push({
         "Лист — деталь",
         "Силуэт и орнамент листвы",
         "Лиственный орнамент и фактура",
-        "Наложение силуэтов"
+        "Наложение силуэтов",
+        "В интерьере — визуализация"
       ]
     },
     "en": {
@@ -119,7 +124,8 @@ window.portfolioProjects.push({
         "Leaf — detail",
         "Silhouette and leaf ornament",
         "Leaf ornament and surface texture",
-        "Overlapping silhouettes"
+        "Overlapping silhouettes",
+        "Interior placement — visualization"
       ]
     },
     "uk": {
@@ -149,7 +155,8 @@ window.portfolioProjects.push({
         "Листок — деталь",
         "Силует і орнамент листя",
         "Листяний орнамент та фактура",
-        "Накладання силуетів"
+        "Накладання силуетів",
+        "В інтер’єрі — візуалізація"
       ]
     },
     "de": {
@@ -179,7 +186,8 @@ window.portfolioProjects.push({
         "Blatt — Detail",
         "Silhouette und Blattornament",
         "Blattornament und Oberflächentextur",
-        "Überlagerte Silhouetten"
+        "Überlagerte Silhouetten",
+        "Im Raum — Visualisierung"
       ]
     },
     "pl": {
@@ -209,7 +217,8 @@ window.portfolioProjects.push({
         "Liść — detal",
         "Sylwetka i ornament liści",
         "Ornament liści i faktura",
-        "Nakładające się sylwetki"
+        "Nakładające się sylwetki",
+        "We wnętrzu — wizualizacja"
       ]
     }
   }
