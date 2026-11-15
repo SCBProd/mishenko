@@ -23,3 +23,7 @@ html[data-theme="light"] body[data-concept="cinema"] .site-header .mark img{filt
 /* Match the monogram to the inherited author name color in both themes. */
 body[data-concept="cinema"] .site-header .identity .mark{background-color:currentColor;-webkit-mask:url("assets/monogram.svg?v=20261112-crisp") center/contain no-repeat;mask:url("assets/monogram.svg?v=20261112-crisp") center/contain no-repeat}
 body[data-concept="cinema"] .site-header .identity .mark img{visibility:hidden}
+
+/* Restore the quieter ceramic signature scale while keeping vector edges. */
+body[data-concept="cinema"] .site-header .identity .mark{width:32px;height:32px;flex-basis:32px}
+@media(max-width:650px){body[data-concept="cinema"] .site-header .identity .mark{width:28px;height:28px;flex-basis:28px}}
