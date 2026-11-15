@@ -103,3 +103,7 @@ body[data-concept="cinema"] .about-image img.artist-portrait{height:auto;width:1
  .site-header .language-trigger{width:100%;min-width:0;height:44px;font-size:12px}
  .site-header #main-nav{grid-column:1;grid-row:3;max-height:55dvh;overflow-y:auto}
 }
+
+/* Match the menu disclosure to the language chevron. */
+body[data-concept="cinema"] .site-header #menu-toggle span{display:block;width:6px;height:6px;font-size:0;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg);margin-top:-4px;margin-left:12px;flex:none}
+body[data-concept="cinema"] .site-header #menu-toggle[aria-expanded="true"] span{transform:rotate(225deg);margin-top:4px}
