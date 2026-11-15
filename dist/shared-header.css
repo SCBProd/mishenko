@@ -9,7 +9,7 @@ html[data-theme="light"] .header .monogram img{filter:grayscale(1);mix-blend-mod
 @media(max-width:700px){.header .brand{font-size:12px;letter-spacing:1.2px;gap:13px}.header .monogram{width:36px;height:36px;flex-basis:36px}}
 @media(max-width:650px){body[data-concept="cinema"] .site-header .identity{font-size:12px;letter-spacing:1.2px;gap:13px}body[data-concept="cinema"] .site-header .identity .mark{width:36px;height:36px;flex-basis:36px}}
 
-.header .monogram{overflow:hidden;background-color:currentColor;border-radius:0;-webkit-mask:url("assets/monogram.svg?v=20261112-crisp") center/contain no-repeat;mask:url("assets/monogram.svg?v=20261112-crisp") center/contain no-repeat}.header .monogram img{visibility:hidden;transform:none;filter:none;mix-blend-mode:normal}
+.header .monogram{overflow:hidden;background-color:currentColor;border-radius:0;-webkit-mask:url("assets/photography-monogram.svg?v=20261115-circle") center/contain no-repeat;mask:url("assets/photography-monogram.svg?v=20261115-circle") center/contain no-repeat}.header .monogram img{visibility:hidden;transform:none;filter:none;mix-blend-mode:normal}
 
 /* A lighter, single-line signature for photography. */
 .header .brand{font-weight:500;letter-spacing:1.5px;white-space:nowrap}.header .monogram img{opacity:1}
