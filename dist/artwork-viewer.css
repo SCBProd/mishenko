@@ -94,3 +94,6 @@
   .graphic-viewer-arrow { width: 28px; height: 28px; }
   .graphic-viewer-copy { padding: 24px 8px 8px; }
 }
+
+/* Painting card titles do not need ordinal numbers. */
+#gallery[data-category="painting"] > figure > figcaption small{display:none}
