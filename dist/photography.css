@@ -178,3 +178,7 @@ h1,h2,h3,.collection-card strong,.direction-card strong{letter-spacing:normal;fo
 /* Short quotations must never stretch their word spaces. */
 .hero-quote p{text-align:left;text-align-last:left;word-spacing:normal;letter-spacing:normal;hyphens:none;-webkit-hyphens:none}
 @media(max-width:700px){.hero-copy>p{text-align:left;text-align-last:left;hyphens:none;-webkit-hyphens:none}}
+
+/* Visible navigation cues for both portfolio directions. */
+.direction-card{position:relative;padding-right:82px}.direction-card .direction-arrow{position:absolute;right:32px;top:36px;width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+@media(max-width:600px){.direction-card{padding-right:54px}.direction-card .direction-arrow{right:20px;top:24px;width:22px;height:22px}}
