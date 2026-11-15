@@ -11,3 +11,6 @@ body[data-concept="cinema"] #gallery[data-category="tableware"],body[data-concep
 .project-photo-credit{font-size:11px;line-height:1.5;color:var(--muted);margin:8px 0 14px}
 @media(min-width:951px){#language-of-bloom .project-intro{margin-top:0;align-self:start}}
 @media(max-width:700px){body[data-concept="cinema"] #gallery[data-category="tableware"],body[data-concept="cinema"] #gallery[data-category="panels"]{gap:45px}}
+
+/* Category totals already appear in the navigation tabs. */
+body[data-concept="cinema"] #work-count{display:none}
