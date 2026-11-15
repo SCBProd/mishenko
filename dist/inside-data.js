@@ -14,6 +14,10 @@ window.portfolioProjects.push({
     {
       "src": "assets/from-the-inside/1.jpg",
       "view": 1
+    },
+    {
+      "src": "assets/from-the-inside/interior-visualization.png",
+      "view": 2
     }
   ],
   "text": {
@@ -24,7 +28,8 @@ window.portfolioProjects.push({
       "intro": "«From the Inside» — керамическая композиция, исследующая противоречие между внешним обликом и внутренним состоянием, видимой целостностью и скрытой эмоциональной глубиной.",
       "views": [
         "Общий вид — белая оболочка и красная фактура",
-        "Боковой ракурс — изгиб и внутреннее пространство"
+        "Боковой ракурс — изгиб и внутреннее пространство",
+        "В интерьере — визуализация"
       ],
       "paragraphs": [
         "Плавная, почти безупречная белая поверхность вступает в резкий контраст с насыщенной красной фактурой, открывающейся изнутри. Этот цветовой и пластический конфликт становится метафорой человеческой природы, в которой внешнее спокойствие может сосуществовать с сильными чувствами, внутренними противоречиями и переживаниями, недоступными чужому взгляду.",
@@ -40,7 +45,8 @@ window.portfolioProjects.push({
       "intro": "From the Inside is a ceramic composition exploring the tension between outward appearance and inner experience, visible wholeness and concealed emotional depth.",
       "views": [
         "Overall view — white shell and red texture",
-        "Side view — curve and inner space"
+        "Side view — curve and inner space",
+        "Interior placement — visualization"
       ],
       "paragraphs": [
         "The flowing, almost flawless white surface contrasts sharply with the rich red texture revealed within. This conflict of colour and form becomes a metaphor for human nature, in which outward calm can coexist with powerful feelings, inner contradictions, and experiences hidden from the gaze of others.",
@@ -56,7 +62,8 @@ window.portfolioProjects.push({
       "intro": "«From the Inside» — керамічна композиція, що досліджує суперечність між зовнішнім виглядом і внутрішнім станом, видимою цілісністю та прихованою емоційною глибиною.",
       "views": [
         "Загальний вигляд — біла оболонка й червона фактура",
-        "Бічний ракурс — вигин і внутрішній простір"
+        "Бічний ракурс — вигин і внутрішній простір",
+        "В інтер’єрі — візуалізація"
       ],
       "paragraphs": [
         "Плавна, майже бездоганна біла поверхня різко контрастує з насиченою червоною фактурою, що відкривається зсередини. Цей колірний і пластичний конфлікт стає метафорою людської природи, у якій зовнішній спокій може співіснувати із сильними почуттями, внутрішніми суперечностями та переживаннями, недоступними чужому погляду.",
@@ -72,7 +79,8 @@ window.portfolioProjects.push({
       "intro": "„From the Inside“ ist eine Keramikkomposition, die den Widerspruch zwischen äußerer Erscheinung und innerem Zustand, sichtbarer Ganzheit und verborgener emotionaler Tiefe untersucht.",
       "views": [
         "Gesamtansicht — weiße Hülle und rote Textur",
-        "Seitenansicht — Wölbung und Innenraum"
+        "Seitenansicht — Wölbung und Innenraum",
+        "Im Innenraum — Visualisierung"
       ],
       "paragraphs": [
         "Die fließende, beinahe makellose weiße Oberfläche steht in scharfem Kontrast zur intensiven roten Textur, die sich im Inneren offenbart. Dieser Konflikt von Farbe und plastischer Form wird zur Metapher der menschlichen Natur, in der äußere Ruhe mit starken Gefühlen, inneren Widersprüchen und Erfahrungen einhergehen kann, die dem Blick anderer verborgen bleiben.",
@@ -88,7 +96,8 @@ window.portfolioProjects.push({
       "intro": "„From the Inside” to kompozycja ceramiczna badająca sprzeczność między zewnętrznym wyglądem a stanem wewnętrznym, widoczną spójnością a ukrytą głębią emocjonalną.",
       "views": [
         "Widok ogólny — biała powłoka i czerwona faktura",
-        "Widok z boku — krzywizna i przestrzeń wewnętrzna"
+        "Widok z boku — krzywizna i przestrzeń wewnętrzna",
+        "We wnętrzu — wizualizacja"
       ],
       "paragraphs": [
         "Płynna, niemal doskonała biała powierzchnia ostro kontrastuje z intensywną czerwoną fakturą odsłaniającą się od środka. Ten konflikt koloru i formy staje się metaforą ludzkiej natury, w której zewnętrzny spokój może współistnieć z silnymi uczuciami, wewnętrznymi sprzecznościami i przeżyciami niedostępnymi spojrzeniu innych.",
@@ -99,4 +108,3 @@ window.portfolioProjects.push({
     }
   }
 });
-
