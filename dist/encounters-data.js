@@ -69,8 +69,12 @@ window.portfolioProjects.push({
       "view": 0
     },
     {
-      "src": "assets/encounters/gallery-visualization.png",
+      "src": "assets/encounters/gallery-steel-stands.png",
       "view": 16
+    },
+    {
+      "src": "assets/encounters/gallery-separate-plinths.png",
+      "view": 17
     }
   ],
   "text": {
@@ -96,7 +100,8 @@ window.portfolioProjects.push({
         "Оранжевая глазурь и круглые детали",
         "Полосы и круги — деталь",
         "Отдельный элемент в композиции",
-        "В выставочном пространстве — визуализация"
+        "В выставочном пространстве — отдельные стойки",
+        "В выставочном пространстве — три постамента"
       ],
       "paragraphs": [
         "В основе художественной концепции лежит осмысление изоляции не только как внешнего ограничения свободы, но и как внутреннего переживания, способного изменять восприятие пространства, времени и отношений между людьми.",
@@ -141,7 +146,8 @@ window.portfolioProjects.push({
         "Orange glaze and circular details",
         "Stripes and circles — close-up",
         "Individual element in the composition",
-        "Exhibition placement — visualization"
+        "Exhibition visualization — individual stands",
+        "Exhibition visualization — three plinths"
       ],
       "paragraphs": [
         "The artistic concept considers isolation not only as an external restriction of freedom, but also as an inner experience capable of transforming our perception of space, time, and relationships between people.",
@@ -186,7 +192,8 @@ window.portfolioProjects.push({
         "Помаранчева полива та круглі деталі",
         "Смуги й кола — деталь",
         "Окремий елемент у композиції",
-        "У виставковому просторі — візуалізація"
+        "У виставковому просторі — окремі стійки",
+        "У виставковому просторі — три постаменти"
       ],
       "paragraphs": [
         "В основі художньої концепції лежить осмислення ізоляції не лише як зовнішнього обмеження свободи, а й як внутрішнього переживання, здатного змінювати сприйняття простору, часу та стосунків між людьми.",
@@ -231,7 +238,8 @@ window.portfolioProjects.push({
         "Orange Glasur und runde Details",
         "Streifen und Kreise — Detail",
         "Einzelelement in der Komposition",
-        "Im Ausstellungsraum — Visualisierung"
+        "Ausstellungsvisualisierung — einzelne Ständer",
+        "Ausstellungsvisualisierung — drei Sockel"
       ],
       "paragraphs": [
         "Das künstlerische Konzept versteht Isolation nicht nur als äußere Einschränkung der Freiheit, sondern auch als inneres Erleben, das die Wahrnehmung von Raum, Zeit und zwischenmenschlichen Beziehungen verändern kann.",
@@ -276,7 +284,8 @@ window.portfolioProjects.push({
         "Pomarańczowe szkliwo i okrągłe detale",
         "Pasy i koła — detal",
         "Pojedynczy element w kompozycji",
-        "W przestrzeni wystawowej — wizualizacja"
+        "Wizualizacja wystawy — osobne stojaki",
+        "Wizualizacja wystawy — trzy postumenty"
       ],
       "paragraphs": [
         "U podstaw koncepcji artystycznej leży refleksja nad izolacją nie tylko jako zewnętrznym ograniczeniem wolności, lecz także jako wewnętrznym doświadczeniem zdolnym zmieniać postrzeganie przestrzeni, czasu i relacji między ludźmi.",
