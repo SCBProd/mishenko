@@ -13,6 +13,21 @@
  const bakstNotes={ru:['Оригинал: Лев Бакст, 1911. Копия Кристины Мищенко, 2020.','Оригинал: Лев Бакст, 1910. Копия Кристины Мищенко, 2020.'],uk:['Оригінал: Лев Бакст, 1911. Копія Кристини Міщенко, 2020.','Оригінал: Лев Бакст, 1910. Копія Кристини Міщенко, 2020.'],en:['Original: Léon Bakst, 1911. Copy by Krystyna Mishchenko, 2020.','Original: Léon Bakst, 1910. Copy by Krystyna Mishchenko, 2020.'],de:['Original: Léon Bakst, 1911. Kopie von Krystyna Mishchenko, 2020.','Original: Léon Bakst, 1910. Kopie von Krystyna Mishchenko, 2020.'],pl:['Oryginał: Léon Bakst, 1911. Kopia Krystyny Mishchenko, 2020.','Oryginał: Léon Bakst, 1910. Kopia Krystyny Mishchenko, 2020.']};
  let topic=0;
  const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n};
+
+ function openGraphics(entries,index,trigger){
+ const dialog=el('dialog','graphic-dialog graphic-carousel-dialog');dialog.setAttribute('aria-label',t[0]);
+ const header=el('header'),counter=el('span','graphic-position'),close=el('button','graphic-close',t[6]+' ×');close.type='button';header.append(counter,close);
+ const stage=el('div','graphic-viewer-stage'),previous=el('button','graphic-viewer-arrow','←'),next=el('button','graphic-viewer-arrow','→'),mat=el('div','graphic-mat');
+ const labels={ru:['Предыдущая работа','Следующая работа'],uk:['Попередня робота','Наступна робота'],en:['Previous artwork','Next artwork'],de:['Vorheriges Werk','Nächstes Werk'],pl:['Poprzednia praca','Następna praca']}[lang]||['Previous artwork','Next artwork'];
+ [previous,next].forEach((b,i)=>{b.type='button';b.setAttribute('aria-label',labels[i])});stage.append(previous,mat,next);
+ const copy=el('div','graphic-viewer-copy');dialog.append(header,stage,copy);
+ function show(n){index=(n+entries.length)%entries.length;const e=entries[index],image=e.img.cloneNode();image.loading='eager';mat.replaceChildren(image);counter.textContent=String(index+1).padStart(2,'0')+' / '+String(entries.length).padStart(2,'0');copy.replaceChildren(el('p','graphic-viewer-title',e.title+(e.metadata?' · '+e.metadata:'')),e.makeDetails());if(e.description)copy.append(e.makeDescription());dialog.scrollTop=0;}
+ previous.onclick=()=>show(index-1);next.onclick=()=>show(index+1);close.onclick=()=>dialog.close();
+ dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();show(index+(e.key==='ArrowLeft'?-1:1))}});
+ dialog.addEventListener('close',()=>{document.body.classList.remove('modal-open');dialog.remove();trigger.focus({preventScroll:true})});
+ dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});
+ document.body.append(dialog);show(index);dialog.showModal();document.body.classList.add('modal-open');close.focus();
+ }
  function render(){
  const gallery=document.getElementById('gallery');gallery.replaceChildren();
  const wrap=el('section','graphics-collection');wrap.id='graphics';wrap.setAttribute('aria-label',t[0]);
@@ -22,6 +37,8 @@
  wrap.append(tabs,grid);gallery.append(wrap);
  document.getElementById('category-description').textContent=topic===3?people[0]:topic===0?t[11]:t[topic+1];
  document.getElementById('work-count').textContent=topic===3?'05':topic===0?'04':topic===1?String(architectureIndices.length):'01';
+ const activeTopic=topic, entries=[];
+ for(const topic of [0,1,2,3]){
  for(let i=0;i<(topic===3?5:topic===0?4:topic===1?architectureIndices.length:1);i++){
  const artworkIndex=topic===0?[1,2,3,0][i]:topic===1?architectureIndices[i]:i;
  const isBakst=topic===3&&[2,3].includes(artworkIndex);
@@ -37,8 +54,10 @@
  const makeDescription=()=>isBakst?el('p','bakst-attribution',description):window.makeArtworkConcept(description);
  const fig=el('figure','graphic-work');const button=el('button','graphic-image');button.type='button';button.setAttribute('aria-label',t[5]+': '+title);
  const img=el('img');img.src='assets/'+(topic===3?'people':topic===0?'graphics':topic===1?'architecture':'still-life')+'/art-'+artworkIndex+(topic===3&&artworkIndex===3?'.jpg':'.png');img.alt=title;img.loading='lazy';img.decoding='async';button.append(img,el('span','graphic-zoom','↗'));
- const caption=el('figcaption');caption.append(el('span','',title),el('span','',metadata));fig.append(button,caption,makeDetails());if(description)fig.append(makeDescription());grid.append(fig);
- button.onclick=()=>{const dialog=el('dialog','graphic-dialog');dialog.setAttribute('aria-label',title);const close=el('button','graphic-close',t[6]+' ×');close.type='button';const full=img.cloneNode();full.loading='eager';const mat=el('div','graphic-mat');mat.append(full);dialog.append(close,mat,el('p','',title+(metadata?' · '+metadata:'')));dialog.append(makeDetails());if(description)dialog.append(makeDescription());document.body.append(dialog);close.onclick=()=>dialog.close();dialog.addEventListener('close',()=>{document.body.classList.remove('modal-open');dialog.remove();button.focus()});dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});dialog.showModal();document.body.classList.add('modal-open');close.focus()};
+ const caption=el('figcaption');caption.append(el('span','',title),el('span','',metadata));fig.append(button,caption,makeDetails());if(description)fig.append(makeDescription());if(topic===activeTopic)grid.append(fig);
+ const entryIndex=entries.length;entries.push({title,metadata,img,makeDetails,makeDescription,description});
+ button.onclick=()=>openGraphics(entries,entryIndex,button);
+ }
  }
  }
  const previousFilter=filter;filter=function(category){previousFilter(category);const total=document.querySelector('[data-filter="graphics"] span');if(total)total.textContent='20';if(category==='graphics')render()};

@@ -67,3 +67,30 @@
   #viewer.artwork-viewer > footer { padding: 24px 8px 8px; }
   .graphic-dialog > p, .graphic-dialog > .graphic-details { margin-left: 8px; margin-right: 8px; }
 }
+
+/* A shared full-section carousel for graphic artworks. */
+.graphic-carousel-dialog > header { height: 44px; }
+.graphic-carousel-dialog .graphic-close { margin: 0; }
+.graphic-viewer-stage {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 40px;
+  gap: 20px;
+  align-items: center;
+  min-height: 180px;
+  margin-top: 16px;
+}
+.graphic-viewer-stage .graphic-mat { max-width: 100%; }
+.graphic-viewer-stage .graphic-mat img { max-width: 100%; max-height: 60dvh; }
+.graphic-viewer-arrow {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid var(--line); background: none; color: inherit;
+}
+.graphic-viewer-copy { padding: 28px 12px 12px; }
+.graphic-viewer-copy > .graphic-viewer-title { margin: 0; }
+.graphic-viewer-copy > .graphic-details { margin-top: 20px; }
+.graphic-viewer-copy > .artwork-concept { max-width: 76ch; margin: 28px auto 0; }
+@media (max-width: 650px) {
+  .graphic-viewer-stage { grid-template-columns: 28px minmax(0, 1fr) 28px; gap: 8px; }
+  .graphic-viewer-arrow { width: 28px; height: 28px; }
+  .graphic-viewer-copy { padding: 24px 8px 8px; }
+}
