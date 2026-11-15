@@ -107,3 +107,12 @@ body[data-concept="cinema"] .about-image img.artist-portrait{height:auto;width:1
 /* Match the menu disclosure to the language chevron. */
 body[data-concept="cinema"] .site-header #menu-toggle span{display:block;width:6px;height:6px;font-size:0;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg);margin-top:-4px;margin-left:12px;flex:none}
 body[data-concept="cinema"] .site-header #menu-toggle[aria-expanded="true"] span{transform:rotate(225deg);margin-top:4px}
+
+/* Compact mobile controls retain the unified borders and chevrons. */
+@media(max-width:650px){
+ .site-header .preferences{display:flex;justify-content:flex-end;align-items:center;gap:10px;width:auto;justify-self:end}
+ body[data-concept="cinema"] .site-header #menu-toggle{flex:0 0 auto;width:auto;min-width:0;padding:8px 12px}
+ .site-header .preferences #theme-toggle{flex:0 0 44px;width:44px}
+ .site-header .preferences .language-picker{flex:0 0 auto;width:auto}
+ .site-header .language-trigger{width:auto;min-width:0;max-width:140px;padding:8px 12px;gap:18px}
+}
