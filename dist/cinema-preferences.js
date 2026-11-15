@@ -20,7 +20,33 @@
   }
   render();
   button.onclick=()=>{theme=theme==='dark'?'light':'dark';try{localStorage.setItem('km-cinema-theme',theme)}catch{}render()};
-  document.getElementById('language-select').onchange=e=>{
+  const select=document.getElementById('language-select');
+  const menuToggle=document.getElementById('menu-toggle');
+  document.querySelector('.preferences').prepend(menuToggle);
+  const picker=document.createElement('div');
+  picker.className='language-picker';
+  const trigger=document.createElement('button');
+  trigger.type='button';trigger.className='language-trigger';
+  trigger.textContent=select.selectedOptions[0].textContent;
+  trigger.setAttribute('aria-expanded','false');
+  trigger.setAttribute('aria-controls','language-options');
+  trigger.setAttribute('aria-label',select.getAttribute('aria-label'));
+  const options=document.createElement('div');
+  options.id='language-options';options.className='language-options';options.hidden=true;
+  function closePicker(){options.hidden=true;trigger.setAttribute('aria-expanded','false')}
+  for(const option of select.options){
+   const item=document.createElement('button');item.type='button';item.lang=option.value;item.textContent=option.textContent;
+   if(option.selected)item.setAttribute('aria-current','true');
+   item.onclick=()=>{closePicker();if(select.value!==option.value){select.value=option.value;select.dispatchEvent(new Event('change'))}else trigger.focus()};
+   options.append(item);
+  }
+  picker.append(trigger,options);select.parentElement.after(picker);select.parentElement.hidden=true;
+  trigger.onclick=()=>{const open=options.hidden;options.hidden=!open;trigger.setAttribute('aria-expanded',String(open))};
+  picker.addEventListener('keydown',e=>{if(e.key==='Escape'){closePicker();trigger.focus()}if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();options.hidden=false;trigger.setAttribute('aria-expanded','true');const items=[...options.querySelectorAll('button')];const current=items.indexOf(document.activeElement);items[(current+(e.key==='ArrowDown'?1:-1)+items.length)%items.length].focus()}});
+  document.addEventListener('click',e=>{if(!picker.contains(e.target))closePicker()});
+  picker.addEventListener('focusout',e=>{if(!picker.contains(e.relatedTarget))closePicker()});
+  menuToggle.addEventListener('click',closePicker);
+  select.onchange=e=>{
    const language=e.target.value;
    if(!Object.hasOwn(labels,language))return;
    const sections=[...document.querySelectorAll('main section[id]')];
