@@ -36,3 +36,18 @@ function render(lang){
 let lang=new URLSearchParams(location.search).get('lang');if(!Object.hasOwn(translations,lang)){try{lang=localStorage.getItem('km-hub-language')}catch{}}render(lang);
 select.addEventListener('change',()=>{const lang=select.value;render(lang);try{localStorage.setItem('km-hub-language',lang)}catch{}const url=new URL(location.href);url.searchParams.set('lang',lang);history.replaceState(null,'',url)});
 })();
+
+(()=>{
+ const select=document.getElementById('hub-language');if(!select)return;
+ const picker=document.createElement('div');picker.className='hub-language-picker';
+ const trigger=document.createElement('button');trigger.type='button';trigger.className='hub-language-trigger';trigger.setAttribute('aria-label',select.getAttribute('aria-label'));trigger.setAttribute('aria-expanded','false');trigger.setAttribute('aria-controls','hub-language-options');
+ const options=document.createElement('div');options.id='hub-language-options';options.className='hub-language-options';options.hidden=true;
+ function close(){options.hidden=true;trigger.setAttribute('aria-expanded','false')}
+ function update(){trigger.textContent=select.value.toUpperCase();for(const item of options.children){if(item.lang===select.value)item.setAttribute('aria-current','true');else item.removeAttribute('aria-current')}}
+ for(const option of select.options){const item=document.createElement('button');item.type='button';item.lang=option.value;item.textContent=option.textContent;item.onclick=()=>{select.value=option.value;select.dispatchEvent(new Event('change'));close();trigger.focus()};options.append(item)}
+ picker.append(trigger,options);select.parentElement.after(picker);select.parentElement.hidden=true;update();select.addEventListener('change',update);
+ trigger.onclick=()=>{const open=options.hidden;options.hidden=!open;trigger.setAttribute('aria-expanded',String(open))};
+ document.addEventListener('click',e=>{if(!picker.contains(e.target))close()});
+ picker.addEventListener('focusout',e=>{if(!picker.contains(e.relatedTarget))close()});
+ picker.addEventListener('keydown',e=>{if(e.key==='Escape'){close();trigger.focus()}if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();options.hidden=false;trigger.setAttribute('aria-expanded','true');const items=[...options.children];const i=items.indexOf(document.activeElement);items[(i+(e.key==='ArrowDown'?1:-1)+items.length)%items.length].focus()}});
+})();

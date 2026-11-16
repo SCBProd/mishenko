@@ -9,3 +9,13 @@ main p:not(.eyebrow){text-align:justify;text-align-last:left;hyphens:auto;-webki
 .photo.has-photograph:before,.photo.has-photograph:after{display:none}
 
 .open b{display:flex;align-items:center;justify-content:center}.open .direction-arrow{display:block;width:20px;height:20px;flex:none}
+
+/* Compact language control shared with the ceramic mobile header. */
+.hub-language[hidden],.hub-language-options[hidden]{display:none!important}
+.hub-language-picker{position:relative;margin-left:auto;flex:none}
+.hub-language-trigger,.hub-language-options button{font:12px/1.4 Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:0;cursor:pointer}
+.hub-language-trigger{display:grid;place-items:center;width:44px;height:44px;padding:0;letter-spacing:.08em}
+.hub-language-options{position:absolute;right:0;top:calc(100% + 10px);min-width:180px;padding:5px;background:var(--bg);border:1px solid var(--line);box-shadow:0 12px 24px #0003;z-index:30}
+.hub-language-options button{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:44px;text-align:left;padding:10px 12px;border:0}
+.hub-language-options button:hover,.hub-language-options button:focus-visible,.hub-language-options button[aria-current=true]{background:#20271f}
+.hub-language-options button[aria-current=true]:after{content:'✓';margin-left:18px}
