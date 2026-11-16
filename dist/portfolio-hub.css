@@ -19,3 +19,10 @@ main p:not(.eyebrow){text-align:justify;text-align-last:left;hyphens:auto;-webki
 .hub-language-options button{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:44px;text-align:left;padding:10px 12px;border:0}
 .hub-language-options button:hover,.hub-language-options button:focus-visible,.hub-language-options button[aria-current=true]{background:#20271f}
 .hub-language-options button[aria-current=true]:after{content:'✓';margin-left:18px}
+
+html[data-theme=light]{color-scheme:light;--bg:#f2eee6;--ink:#252420;--muted:#696b60;--line:#c6bfb2}
+.hub-controls{display:flex;align-items:center;gap:8px;margin-left:auto;flex:none}
+.hub-controls .hub-language-picker{margin-left:0}
+.hub-theme-toggle{display:grid;place-items:center;width:44px;height:44px;padding:0;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:0;cursor:pointer}
+.hub-theme-toggle svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+html[data-theme=light] .card:hover,html[data-theme=light] .hub-language-options button:hover,html[data-theme=light] .hub-language-options button:focus-visible,html[data-theme=light] .hub-language-options button[aria-current=true]{background:#e7e3da}

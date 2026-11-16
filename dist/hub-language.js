@@ -51,3 +51,13 @@ select.addEventListener('change',()=>{const lang=select.value;render(lang);try{l
  picker.addEventListener('focusout',e=>{if(!picker.contains(e.relatedTarget))close()});
  picker.addEventListener('keydown',e=>{if(e.key==='Escape'){close();trigger.focus()}if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();options.hidden=false;trigger.setAttribute('aria-expanded','true');const items=[...options.children];const i=items.indexOf(document.activeElement);items[(i+(e.key==='ArrowDown'?1:-1)+items.length)%items.length].focus()}});
 })();
+
+(()=>{
+ const picker=document.querySelector('.hub-language-picker');if(!picker)return;
+ const controls=document.createElement('div');controls.className='hub-controls';picker.before(controls);controls.append(picker);
+ const button=document.createElement('button');button.type='button';button.className='hub-theme-toggle';controls.prepend(button);
+ let theme='dark';try{theme=localStorage.getItem('km-hub-theme')==='light'?'light':'dark'}catch{}
+ const labels={ru:['Включить светлую тему','Включить тёмную тему'],uk:['Увімкнути світлу тему','Увімкнути темну тему'],en:['Switch to light theme','Switch to dark theme'],de:['Zum hellen Design wechseln','Zum dunklen Design wechseln'],pl:['Włącz jasny motyw','Włącz ciemny motyw']};
+ function render(){const light=theme==='light';document.documentElement.dataset.theme=theme;document.querySelector('meta[name="theme-color"]').content=light?'#f2eee6':'#171c18';button.setAttribute('aria-label',(labels[document.documentElement.lang]||labels.en)[light?1:0]);button.setAttribute('aria-pressed',String(light));button.innerHTML=light?'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5M17.5 17.5 19 19M5 19l1.5-1.5M17.5 6.5 19 5"/></svg>'}
+ button.onclick=()=>{theme=theme==='dark'?'light':'dark';try{localStorage.setItem('km-hub-theme',theme)}catch{}render()};document.getElementById('hub-language').addEventListener('change',render);render();
+})();
