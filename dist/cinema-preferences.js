@@ -16,18 +16,22 @@
    button.setAttribute('title',text[light?1:0]);
    button.setAttribute('aria-pressed',String(light));
    button.querySelector('.theme-label').textContent=text[light?3:2];
-   button.firstElementChild.textContent=light?'☾':'☼';
+   button.firstElementChild.innerHTML=light?'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5M17.5 17.5 19 19M5 19l1.5-1.5M17.5 6.5 19 5"/></svg>';
   }
   render();
   button.onclick=()=>{theme=theme==='dark'?'light':'dark';try{localStorage.setItem('km-cinema-theme',theme)}catch{}render()};
   const select=document.getElementById('language-select');
   const menuToggle=document.getElementById('menu-toggle');
+  menuToggle.setAttribute('aria-label',menuToggle.textContent.replace('+','').trim());
+  menuToggle.insertAdjacentHTML('beforeend','<svg class="menu-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h14"/></svg>');
   document.querySelector('.preferences').prepend(menuToggle);
   const picker=document.createElement('div');
   picker.className='language-picker';
   const trigger=document.createElement('button');
   trigger.type='button';trigger.className='language-trigger';
-  trigger.textContent=select.selectedOptions[0].textContent;
+  const fullName=document.createElement('span');fullName.className='language-full';fullName.textContent=select.selectedOptions[0].textContent;
+  const shortName=document.createElement('span');shortName.className='language-short';shortName.textContent=select.value.toUpperCase();
+  trigger.append(fullName,shortName);
   trigger.setAttribute('aria-expanded','false');
   trigger.setAttribute('aria-controls','language-options');
   trigger.setAttribute('aria-label',select.getAttribute('aria-label'));
