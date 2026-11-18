@@ -212,8 +212,8 @@ h1,h2,h3,.collection-card strong,.direction-card strong{letter-spacing:normal;fo
  body .header .brand{font-size:11px;letter-spacing:1.2px;gap:11px}
  .header .settings{gap:2px}
  .header .settings #theme.icon,.header .photo-language-trigger,.header .photo-menu-toggle{position:relative;isolation:isolate;width:44px;min-width:44px;height:44px;min-height:44px;border:0;background:transparent;font-size:11px}
- .header .settings #theme.icon:before,.header .photo-language-trigger:before,.header .photo-menu-toggle:before{content:'';position:absolute;inset:6px;border:1px solid var(--line);background:var(--bg);z-index:-1;pointer-events:none}
- .header .settings svg{width:17px;height:17px}
+ .header .settings #theme.icon:before,.header .photo-language-trigger:before,.header .photo-menu-toggle:before{content:'';position:absolute;inset:4px;border:1px solid var(--line);background:var(--bg);z-index:-1;pointer-events:none}
+ .header .settings svg{width:18px;height:18px}
  .header .settings button:hover:before{background:var(--panel)}
 }
 @media(max-width:360px){body .header .brand{font-size:10px;letter-spacing:1px}}
