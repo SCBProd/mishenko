@@ -217,3 +217,31 @@ h1,h2,h3,.collection-card strong,.direction-card strong{letter-spacing:normal;fo
  .header .settings button:hover:before{background:var(--panel)}
 }
 @media(max-width:360px){body .header .brand{font-size:10px;letter-spacing:1px}}
+
+/* Distinct contact card, separate from the enquiry form. */
+.photo-contact-card{margin-top:32px;padding:24px;border:1px solid var(--line);background:var(--panel);max-width:540px}
+.photo-contact-card .photo-contact-title{border:0;padding:0;margin:0 0 22px;max-width:none;font-size:20px;line-height:1.4}
+.photo-contact-card .photo-contact-details{margin:0;max-width:none}
+.photo-contact-card .photo-contact-details>div{border:0;padding:0}
+.photo-contact-card .photo-contact-details dd{font-size:15px;margin-top:12px}
+.direction-card{padding-right:32px;padding-bottom:70px;grid-template-rows:auto 1fr;align-content:start}
+.direction-card .direction-arrow{top:auto;bottom:24px;right:28px}
+@media(max-width:700px){
+ body .header{grid-template-columns:minmax(0,1fr) 44px;column-gap:8px;row-gap:10px;align-items:center}
+ body .header .brand{grid-column:1;grid-row:1;font-size:12px;letter-spacing:1.15px;gap:10px;min-width:0;max-width:100%}
+ body .header .brand>span:last-child{white-space:normal;line-height:1.4}
+ body .header .monogram{width:40px;height:40px;flex-basis:40px}
+ body .header .settings{display:contents}
+ body .header .settings #theme.icon{grid-column:2;grid-row:1;justify-self:end}
+ body .header .photo-language-picker{grid-column:1;grid-row:2;justify-self:end}
+ body .header .photo-menu-toggle{grid-column:2;grid-row:2;justify-self:end}
+ body .header nav{grid-column:1/-1;grid-row:3}
+ .contact{gap:32px}
+ .photo-contact-card{margin-top:28px;padding:22px 20px}
+ #brief{border-top:1px solid var(--line);padding-top:30px}
+}
+@media(max-width:600px){
+ .direction-card{padding:20px 20px 58px;min-height:220px;gap:18px}
+ .direction-card .direction-arrow{top:auto;right:20px;bottom:18px}
+ .direction-card strong{font-size:clamp(27px,7vw,38px)}
+}
