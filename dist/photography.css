@@ -245,3 +245,6 @@ h1,h2,h3,.collection-card strong,.direction-card strong{letter-spacing:normal;fo
  .direction-card .direction-arrow{top:auto;right:20px;bottom:18px}
  .direction-card strong{font-size:clamp(27px,7vw,38px)}
 }
+
+/* Close the collaboration section with direct contact information. */
+#contact>.photo-contact-card{grid-column:1/-1;width:100%;max-width:none;margin-top:12px}
