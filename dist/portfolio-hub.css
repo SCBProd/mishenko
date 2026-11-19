@@ -28,3 +28,13 @@ html[data-theme=light]{color-scheme:light;--bg:#f2eee6;--ink:#252420;--muted:#69
 html[data-theme=light] .card:hover,html[data-theme=light] .hub-language-options button:hover,html[data-theme=light] .hub-language-options button:focus-visible,html[data-theme=light] .hub-language-options button[aria-current=true]{background:#e7e3da}
 
 .visual-label{color:#edf0e6}
+/* Clear author identity without ordinal numbering on the discipline cards. */
+.top .hub-brand{display:flex;align-items:center;gap:12px;font:500 13px/1.4 Arial,Helvetica,sans-serif;letter-spacing:1.2px;min-width:0}
+.hub-monogram{display:block;flex:0 0 32px;width:32px;height:32px;background:currentColor;-webkit-mask:url('assets/monogram.svg?v=20261112-crisp') center/contain no-repeat;mask:url('assets/monogram.svg?v=20261112-crisp') center/contain no-repeat}
+@media(max-width:800px){
+ .top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center}
+ .top .hub-brand{font-size:11px;letter-spacing:1px;gap:10px}
+ .top .hub-brand>span:last-child{white-space:normal}
+ .hub-monogram{width:30px;height:30px;flex-basis:30px}
+ .top .hub-controls{margin-left:0}
+}
