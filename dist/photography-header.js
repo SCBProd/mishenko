@@ -14,3 +14,17 @@
  picker.addEventListener('keydown',e=>{if(e.key==='Escape'){close();trigger.focus()}if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();options.hidden=false;trigger.setAttribute('aria-expanded','true');const items=[...options.children],i=items.indexOf(document.activeElement);items[(i+(e.key==='ArrowDown'?1:-1)+items.length)%items.length].focus()}});
  document.querySelector('.header').addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.getAttribute('aria-expanded')==='true'){nav.classList.remove('mobile-open');menu.setAttribute('aria-expanded','false');menu.focus()}});
 })();
+
+(()=>{
+ const select=document.getElementById('shoot-type');if(!select)return;
+ const field=document.createElement('div');field.className='shoot-type-picker';
+ const trigger=document.createElement('button');trigger.type='button';trigger.className='shoot-type-trigger';trigger.setAttribute('aria-expanded','false');trigger.setAttribute('aria-controls','shoot-type-options');trigger.setAttribute('aria-labelledby','shoot-type-label shoot-type-value');
+ const value=document.createElement('span');value.id='shoot-type-value';trigger.append(value);
+ const options=document.createElement('div');options.id='shoot-type-options';options.className='shoot-type-options';options.hidden=true;
+ function close(){options.hidden=true;trigger.setAttribute('aria-expanded','false')}
+ function sync(){value.textContent=select.selectedOptions[0]?.textContent||'';options.replaceChildren();for(const [i,option] of [...select.options].entries()){const b=document.createElement('button');b.type='button';b.textContent=option.textContent;if(option.selected)b.setAttribute('aria-current','true');b.onclick=()=>{select.selectedIndex=i;select.dispatchEvent(new Event('change'));close();trigger.focus()};options.append(b)}}
+ select.hidden=true;select.after(field);field.append(trigger,options);sync();select.addEventListener('change',sync);document.getElementById('language').addEventListener('change',()=>{close();sync()});
+ trigger.onclick=()=>{const open=options.hidden;options.hidden=!open;trigger.setAttribute('aria-expanded',String(open))};
+ document.addEventListener('click',e=>{if(!field.contains(e.target))close()});field.addEventListener('focusout',e=>{if(!field.contains(e.relatedTarget))close()});
+ field.addEventListener('keydown',e=>{if(e.key==='Escape'){close();trigger.focus()}if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();options.hidden=false;trigger.setAttribute('aria-expanded','true');const items=[...options.children],i=items.indexOf(document.activeElement);items[(i+(e.key==='ArrowDown'?1:-1)+items.length)%items.length].focus()}});
+})();
