@@ -255,3 +255,10 @@ h1,h2,h3,.collection-card strong,.direction-card strong{letter-spacing:normal;fo
 .about-photographer .about-copy p{max-width:none;text-align:justify;text-align-last:left;hyphens:auto;-webkit-hyphens:auto;margin-bottom:16px}
 .about-photographer .about-copy p:last-child{margin-bottom:0}
 @media(max-width:700px){.about-photographer{grid-template-columns:minmax(0,1fr);gap:20px}}
+
+/* Keep the large introductory paragraph naturally spaced. */
+.about-photographer .about-copy .about-lead{text-align:left;text-align-last:left;word-spacing:normal;hyphens:none;-webkit-hyphens:none}
+/* Fixed row spacing avoids percentage gaps expanding above the contact card. */
+#contact{row-gap:24px}
+#contact>.photo-contact-card{margin-top:0}
+#brief .form-note{margin-bottom:0}
