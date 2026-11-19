@@ -262,3 +262,5 @@ h1,h2,h3,.collection-card strong,.direction-card strong{letter-spacing:normal;fo
 #contact{row-gap:24px}
 #contact>.photo-contact-card{margin-top:0}
 #brief .form-note{margin-bottom:0}
+
+@media(max-width:700px){.about-photographer .about-copy .about-lead{font-size:17px;line-height:1.6}}
