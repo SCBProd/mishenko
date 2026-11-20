@@ -5,6 +5,8 @@
  document.documentElement.dataset.theme=theme;
  const labels={en:['Switch to light theme','Switch to dark theme','Light','Dark'],uk:['Увімкнути світлу тему','Увімкнути темну тему','Світла','Темна'],ru:['Включить светлую тему','Включить тёмную тему','Светлая','Тёмная'],de:['Zum hellen Design wechseln','Zum dunklen Design wechseln','Hell','Dunkel'],pl:['Włącz jasny motyw','Włącz ciemny motyw','Jasny','Ciemny']};
  document.addEventListener('DOMContentLoaded',()=>{
+  const statement=document.querySelector('.cinema-statement p');
+  if(statement&&!statement.querySelector('.statement-line')){const lines=statement.innerHTML.split(/<br\s*\/?\s*>/i);if(lines.length===3)statement.replaceChildren(...lines.map(line=>{const span=document.createElement('span');span.className='statement-line';span.textContent=line;return span}))}
   const button=document.getElementById('theme-toggle');
   const lang=document.documentElement.lang;
   const text=labels[lang]||labels.en;

@@ -145,3 +145,16 @@ body[data-concept="cinema"] .site-header #menu-toggle[aria-expanded="true"] span
  html{scroll-padding-top:130px}
  .project-work{scroll-margin-top:130px}
 }
+
+/* Make the alternating statement alignment explicit across cached layouts. */
+body[data-concept="cinema"] .cinema-statement p{width:100%;min-width:0}
+body[data-concept="cinema"] .cinema-statement p>.statement-line{display:block;width:100%;text-align:left}
+body[data-concept="cinema"] .cinema-statement p>.statement-line:nth-child(odd){text-align:right}
+@media(max-width:650px){
+ body[data-concept="cinema"] .cinema-statement p{max-width:none}
+ body[data-concept="cinema"] .site-header .preferences{gap:2px}
+ body[data-concept="cinema"] .site-header .preferences #theme-toggle,body[data-concept="cinema"] .site-header .preferences #menu-toggle,body[data-concept="cinema"] .site-header .preferences .language-trigger{position:relative;isolation:isolate;background:transparent;border:0;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;font-size:11px}
+ body[data-concept="cinema"] .site-header .preferences #theme-toggle:before,body[data-concept="cinema"] .site-header .preferences #menu-toggle:before,body[data-concept="cinema"] .site-header .preferences .language-trigger:before{content:'';position:absolute;inset:4px;border:1px solid var(--line);background:var(--bg);z-index:-1;pointer-events:none}
+ body[data-concept="cinema"] .site-header .preferences #theme-toggle svg,body[data-concept="cinema"] .site-header .preferences #menu-toggle .menu-symbol{width:18px;height:18px}
+ body[data-concept="cinema"] .site-header .preferences button:hover:before{background:var(--panel)}
+}
