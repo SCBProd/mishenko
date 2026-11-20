@@ -1,0 +1,5 @@
+.ui-arrow-vector{display:inline-block;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;flex:none;pointer-events:none}
+.has-vector-arrow.enlarge::after,.has-vector-arrow.graphic-zoom::after,#contact a .has-vector-arrow::after{display:none}
+.enlarge>.ui-arrow-vector,.graphic-zoom>.ui-arrow-vector{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+.discover-label b .ui-arrow-vector{width:20px;height:20px}
+.contact h2>span .ui-arrow-vector{width:clamp(32px,5vw,70px);height:clamp(32px,5vw,70px)}

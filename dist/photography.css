@@ -277,3 +277,12 @@ h1,h2,h3,.collection-card strong,.direction-card strong{letter-spacing:normal;fo
 .shoot-type-options button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:44px;padding:10px 12px;border:0;text-align:left;font-size:13px}
 .shoot-type-options button:hover,.shoot-type-options button:focus-visible,.shoot-type-options button[aria-current=true]{background:var(--panel)}
 .shoot-type-options button[aria-current=true]:after{content:'✓';flex:none}
+
+/* Shorter mobile header: all three controls share one compact row. */
+@media(max-width:700px){
+ body .header{grid-template-columns:minmax(0,1fr);row-gap:4px;padding-top:12px;padding-bottom:10px}
+ body .header .brand{grid-column:1;grid-row:1}
+ body .header .settings{display:flex;grid-column:1;grid-row:2;justify-self:end;gap:2px}
+ body .header .settings #theme.icon,body .header .photo-language-picker,body .header .photo-menu-toggle{grid-column:auto;grid-row:auto}
+ body .header nav{grid-column:1;grid-row:3}
+}

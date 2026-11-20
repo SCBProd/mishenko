@@ -38,3 +38,8 @@ html[data-theme=light] .card:hover,html[data-theme=light] .hub-language-options 
  .hub-monogram{width:30px;height:30px;flex-basis:30px}
  .top .hub-controls{margin-left:0}
 }
+
+/* Keep the author name visually attached to the monogram on narrow screens. */
+.top .hub-brand{justify-content:flex-start;text-align:left}
+.top .hub-brand>span:last-child{flex:0 1 auto;text-align:left;max-width:none;color:var(--ink)}
+@media(max-width:800px){.top .hub-brand{gap:8px;font-size:11px;letter-spacing:.8px}.top .hub-brand>span:last-child{max-width:135px;text-align:left}.top .hub-controls{gap:6px}.top{gap:10px}}
