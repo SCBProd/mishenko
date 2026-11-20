@@ -162,3 +162,6 @@ body[data-concept="cinema"] .cinema-statement p>.statement-line:nth-child(odd){t
 body[data-concept="cinema"] .cinema-statement p>.statement-line{text-align-last:left}
 body[data-concept="cinema"] .cinema-statement p>.statement-line:nth-child(odd){text-align-last:right}
 @media(max-width:650px){body[data-concept="cinema"] .site-header .preferences #menu-toggle{font-size:0}}
+
+body[data-concept="cinema"] .cinema-statement p>.statement-line:nth-child(odd){text-align:left;text-align-last:left}
+body[data-concept="cinema"] .cinema-statement p>.statement-line:nth-child(2){text-align:right;text-align-last:right}
