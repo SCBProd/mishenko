@@ -170,3 +170,5 @@ body[data-concept="cinema"] .cinema-statement p>.statement-line:nth-child(2){tex
 @media(min-width:651px){body[data-concept="cinema"] .cinema-statement p{width:auto}body[data-concept="cinema"] .cinema-statement p>.statement-line:nth-child(n){text-align:left;text-align-last:left}}
 
 body[data-concept="cinema"] .cinema-statement p>.statement-line:nth-child(n){text-align:left;text-align-last:left}
+
+@media(max-width:650px){body[data-concept="cinema"] .site-header .identity{transform:translateY(5px)}}
