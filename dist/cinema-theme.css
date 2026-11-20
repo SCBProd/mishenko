@@ -135,3 +135,13 @@ body[data-concept="cinema"] .site-header #menu-toggle[aria-expanded="true"] span
  .site-header .language-options{min-width:180px;top:calc(100% + 10px)}
  .site-header .preferences button:hover{background:var(--panel)}
 }
+
+/* Compact ceramic header and alternating alignment of the three disciplines. */
+.cinema-statement .statement-line{display:block}
+@media(max-width:650px){
+ body[data-concept="cinema"] .site-header{padding-top:12px;padding-bottom:10px;row-gap:4px}
+ .cinema-statement .statement-line:nth-child(odd){text-align:right}
+ .cinema-statement .statement-line:nth-child(2){text-align:left}
+ html{scroll-padding-top:130px}
+ .project-work{scroll-margin-top:130px}
+}

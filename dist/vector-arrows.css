@@ -3,3 +3,7 @@
 .enlarge>.ui-arrow-vector,.graphic-zoom>.ui-arrow-vector{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
 .discover-label b .ui-arrow-vector{width:20px;height:20px}
 .contact h2>span .ui-arrow-vector{width:clamp(32px,5vw,70px);height:clamp(32px,5vw,70px)}
+
+/* A single SVG replaces the legacy CSS chevron inside carousel controls. */
+.project-stage .project-arrow.has-vector-arrow::after{display:none}
+.project-stage .project-arrow>.ui-arrow-vector{position:absolute;left:50%;top:50%;width:18px;height:18px;transform:translate(-50%,-50%)}
