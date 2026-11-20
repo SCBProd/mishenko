@@ -168,3 +168,5 @@ body[data-concept="cinema"] .cinema-statement p>.statement-line:nth-child(2){tex
 
 /* Alternating statement alignment belongs only to the phone layout. */
 @media(min-width:651px){body[data-concept="cinema"] .cinema-statement p{width:auto}body[data-concept="cinema"] .cinema-statement p>.statement-line:nth-child(n){text-align:left;text-align-last:left}}
+
+body[data-concept="cinema"] .cinema-statement p>.statement-line:nth-child(n){text-align:left;text-align-last:left}
