@@ -7,3 +7,6 @@
 /* A single SVG replaces the legacy CSS chevron inside carousel controls. */
 .project-stage .project-arrow.has-vector-arrow::after{display:none}
 .project-stage .project-arrow>.ui-arrow-vector{position:absolute;left:50%;top:50%;width:18px;height:18px;transform:translate(-50%,-50%)}
+
+/* Prefer the inserted SVG over the older contact-link mask. */
+#contact a span[aria-hidden="true"].has-vector-arrow::after{content:none;display:none}
