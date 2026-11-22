@@ -23,6 +23,8 @@ sources['relief-export-47']='E:/FOTOS/Basteiweg, 01824 Lohmen/Unbenannter Export
 sources['night-9']='E:/FOTOS/552.jpg';
 sources['exposure-tram-v2']='E:/FOTOS/551.jpg';
 sources['lantern-fence']='E:/FOTOS/50.jpg';
-const audit=data.map(p=>{const source=sources[p.id];return {id:p.id,source:source||null,exists:!!source&&fs.existsSync(source),bytes:source&&fs.existsSync(source)?fs.statSync(source).size:0};});
+sources['author-portrait']='E:/Новая папка/Unbenannter Export/11.jpg';
+const authorOriginals=[{id:'author-portrait'}];
+const audit=[...data,...authorOriginals].map(p=>{const source=sources[p.id];return {id:p.id,source:source||null,exists:!!source&&fs.existsSync(source),bytes:source&&fs.existsSync(source)?fs.statSync(source).size:0};});
 if(require.main===module){fs.writeFileSync('photo-originals-audit.json',JSON.stringify(audit,null,2));console.log(JSON.stringify({count:audit.length,found:audit.filter(p=>p.exists).length,totalMiB:Math.round(audit.reduce((sum,p)=>sum+p.bytes,0)/1048576),missing:audit.filter(p=>!p.exists)},null,2));}
-module.exports={data,sources,audit};
+module.exports={data,authorOriginals,sources,audit};

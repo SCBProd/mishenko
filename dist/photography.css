@@ -286,3 +286,9 @@ h1,h2,h3,.collection-card strong,.direction-card strong{letter-spacing:normal;fo
  body .header .settings #theme.icon,body .header .photo-language-picker,body .header .photo-menu-toggle{grid-column:auto;grid-row:auto}
  body .header nav{grid-column:1;grid-row:3}
 }
+
+/* Author portrait keeps its original composition on every screen. */
+.about-photographer .about-portrait{width:100%;max-width:none;margin:28px 0 0}
+.about-photographer .about-portrait img{display:block;width:100%;height:auto}
+.about-photographer .about-copy{align-self:start}
+@media(max-width:700px){.about-photographer .about-portrait{margin-top:22px}}
