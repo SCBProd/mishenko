@@ -38,3 +38,10 @@ body[data-concept="cinema"] #about.about-editorial{grid-template-columns:minmax(
 #about.about-editorial .about-continuation{columns:2;column-gap:6%}
 #about.about-editorial .about-continuation p{break-inside:avoid}
 @media(max-width:900px){body[data-concept="cinema"] #about.about-editorial{grid-template-columns:1fr;gap:28px}#about.about-editorial .about-image{width:100%;max-width:560px}#about.about-editorial>.artist-biography{grid-template-columns:1fr;padding-top:28px}#about.about-editorial .artist-biography .lead{font-size:16px;margin-bottom:22px}#about.about-editorial .about-continuation{columns:auto}#about.about-editorial .artist-quote p{font-size:16px}}
+
+/* Introductory biography sits beside the portrait; remaining text reads in one column. */
+body[data-concept="cinema"] #about.about-editorial{align-items:start}
+#about.about-editorial .about-image{align-self:start}
+#about.about-editorial .artist-intro{font-size:15px;line-height:1.85;text-align:left;hyphens:none;color:var(--ink);margin:24px 0 0}
+#about.about-editorial>.artist-biography{display:block}
+#about.about-editorial .about-continuation{columns:auto}
