@@ -45,3 +45,10 @@ body[data-concept="cinema"] #about.about-editorial{align-items:start}
 #about.about-editorial .artist-intro{font-size:15px;line-height:1.85;text-align:left;hyphens:none;color:var(--ink);margin:24px 0 0}
 #about.about-editorial>.artist-biography{display:block}
 #about.about-editorial .about-continuation{columns:auto}
+
+/* Consistent text size and compact paragraph rhythm. */
+#about.about-editorial .artist-quote p{font-size:15px;line-height:1.85}
+#about.about-editorial .artist-quote em{font-style:italic}
+#about.about-editorial .artist-biography p{ text-align:justify;text-align-last:left;hyphens:auto;-webkit-hyphens:auto;margin-bottom:12px}
+#about.about-editorial .artist-biography p:last-child{margin-bottom:0}
+@media(max-width:900px){#about.about-editorial .artist-quote p{font-size:14px}#about.about-editorial .artist-biography p{font-size:14px}}
