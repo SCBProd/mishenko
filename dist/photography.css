@@ -318,3 +318,5 @@ h1,h2,h3,.collection-card strong,.direction-card strong{letter-spacing:normal;fo
  .about-photographer #about-title{order:3;max-width:none;margin:24px 0 22px;font-family:inherit;font-size:14px;font-weight:400;font-style:italic;line-height:1.85;letter-spacing:0;text-transform:none}
  .about-photographer .about-copy p,.about-photographer .about-copy .about-lead{font-size:14px;line-height:1.85;text-align:justify;text-align-last:left;hyphens:auto;-webkit-hyphens:auto;color:var(--ink);margin-bottom:12px}
 }
+
+@media(max-width:700px){.about-photographer .photo-author-name,.about-photographer .photo-author-discipline{color:var(--ink);opacity:1}.about-photographer #about-title::before{content:"«"}.about-photographer #about-title::after{content:"»"}}
