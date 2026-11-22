@@ -52,3 +52,16 @@ body[data-concept="cinema"] #about.about-editorial{align-items:start}
 #about.about-editorial .artist-biography p{ text-align:justify;text-align-last:left;hyphens:auto;-webkit-hyphens:auto;margin-bottom:12px}
 #about.about-editorial .artist-biography p:last-child{margin-bottom:0}
 @media(max-width:900px){#about.about-editorial .artist-quote p{font-size:14px}#about.about-editorial .artist-biography p{font-size:14px}}
+
+/* Phone-only editorial order, independent of the laptop layout. */
+@media(max-width:700px){
+ body[data-concept="cinema"] #about.about-editorial{display:flex;flex-direction:column;gap:0}
+ body[data-concept="cinema"] #about.about-editorial>.about-copy{display:contents}
+ #about.about-editorial .about-copy>.eyebrow{order:1;margin:0 0 14px}
+ #about.about-editorial .about-copy>h2{order:2;margin:0 0 16px}
+ #about.about-editorial .about-discipline{order:3;margin:0 0 24px}
+ #about.about-editorial .about-image{order:4;width:100%;max-width:none;margin:0 0 24px}
+ #about.about-editorial .artist-quote{order:5;margin:0;padding:0;border:0}
+ #about.about-editorial .artist-intro{order:6;font-size:14px;margin:22px 0 12px}
+ #about.about-editorial>.artist-biography{order:7;width:100%;border-top:0;padding-top:0}
+}
