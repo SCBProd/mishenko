@@ -76,6 +76,9 @@ window.portfolioProjects.push({
         "Две формы — титульный ракурс",
         "Глазурь и прямоугольный проём",
         "Бирюзовая фактура и проёмы"
+      ],
+      "summaryParagraphs": [
+        "Две скульптурные формы, объединённые общей пластикой и цветовой гаммой, на первый взгляд кажутся почти одинаковыми. Однако различия в пропорциях, фактуре и геометрии внутренних проёмов раскрывают их самостоятельность. Каждая форма обладает собственным характером, сохраняя при этом визуальную связь с другой."
       ]
     },
     "en": {
@@ -103,6 +106,9 @@ window.portfolioProjects.push({
         "Two forms — new cover",
         "Glaze and rectangular opening",
         "Turquoise texture and openings"
+      ],
+      "summaryParagraphs": [
+        "Two sculptural forms, united by a shared visual language and colour palette, appear almost identical at first glance. Yet differences in proportion, texture and the geometry of their inner openings reveal their independence. Each form has a character of its own while retaining a visual connection with the other."
       ]
     },
     "uk": {
@@ -130,6 +136,9 @@ window.portfolioProjects.push({
         "Дві форми — титульний ракурс",
         "Полива та прямокутний отвір",
         "Бірюзова фактура й отвори"
+      ],
+      "summaryParagraphs": [
+        "Дві скульптурні форми, об’єднані спільною пластикою та кольоровою гамою, на перший погляд здаються майже однаковими. Проте відмінності у пропорціях, фактурі та геометрії внутрішніх отворів розкривають їхню самостійність. Кожна форма має власний характер, зберігаючи водночас візуальний зв’язок з іншою."
       ]
     },
     "de": {
@@ -157,6 +166,9 @@ window.portfolioProjects.push({
         "Zwei Formen — Titelansicht",
         "Glasur und rechteckige Öffnung",
         "Türkise Textur und Öffnungen"
+      ],
+      "summaryParagraphs": [
+        "Zwei skulpturale Formen, verbunden durch eine gemeinsame Formensprache und Farbpalette, erscheinen auf den ersten Blick nahezu gleich. Doch Unterschiede in Proportion, Textur und Geometrie ihrer inneren Öffnungen offenbaren ihre Eigenständigkeit. Jede Form besitzt ihren eigenen Charakter und bleibt zugleich visuell mit der anderen verbunden."
       ]
     },
     "pl": {
@@ -184,6 +196,9 @@ window.portfolioProjects.push({
         "Dwie formy — widok główny",
         "Szkliwo i prostokątny otwór",
         "Turkusowa faktura i otwory"
+      ],
+      "summaryParagraphs": [
+        "Dwie formy rzeźbiarskie, połączone wspólnym językiem plastycznym i kolorystyką, na pierwszy rzut oka wydają się niemal identyczne. Jednak różnice w proporcjach, fakturze i geometrii wewnętrznych otworów ujawniają ich odrębność. Każda forma ma własny charakter, zachowując zarazem wizualną więź z drugą."
       ]
     }
   }

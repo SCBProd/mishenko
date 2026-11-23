@@ -84,3 +84,7 @@ body[data-concept="cinema"] #works>.section-heading h2{font-size:clamp(28px,4vw,
 body[data-concept="cinema"] .cinema-statement{padding-bottom:36px}
 body[data-concept="cinema"] .cinema-statement+#works{padding-top:36px}
 @media(max-width:700px){body[data-concept="cinema"] .cinema-statement{padding-bottom:24px}body[data-concept="cinema"] .cinema-statement+#works{padding-top:24px}}
+
+/* Compact artistic journey heading. */
+body[data-concept="cinema"] #cv .section-heading h2{font-size:clamp(28px,3.2vw,48px);line-height:1.15;letter-spacing:-.7px}
+@media(max-width:700px){body[data-concept="cinema"] #cv .section-heading h2{font-size:28px}}

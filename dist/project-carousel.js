@@ -48,6 +48,7 @@
    const img=el('img');img.src=photo.src;img.alt='';img.loading='lazy';img.width=80;img.height=60;b.append(img);thumbnails.append(b);return b;
   });carousel.append(thumbnails);layout.append(carousel);
   const copy=el('div','project-intro');copy.append(el('p','project-question',data.question),el('p','project-summary',data.intro));
+  for(const paragraph of data.summaryParagraphs||[])copy.append(el('p','project-summary',paragraph));
   if(data.facts){const facts=el('dl','project-facts');for(const [label,value] of data.facts){const row=el('div');row.append(el('dt','',label),el('dd','',value));facts.append(row)}copy.append(facts)}
   layout.append(copy);
   const details=el('details','project-concept');details.id=project.id+'-concept';

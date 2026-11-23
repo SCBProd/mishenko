@@ -84,6 +84,9 @@ window.portfolioProjects.push({
         "Лиственный орнамент и фактура",
         "Наложение силуэтов",
         "В интерьере — визуализация"
+      ],
+      "summaryParagraphs": [
+        "Композиция состоит из двух вертикальных форм, внутри которых возникают пустоты, напоминающие человеческие силуэты. Парадокс произведения заключается в том, что именно отсутствие материальной формы становится главным носителем смысла. Человеческие образы существуют лишь благодаря пространству, которое их окружает, превращая пустоту в своеобразный портрет невидимого."
       ]
     },
     "en": {
@@ -116,6 +119,9 @@ window.portfolioProjects.push({
         "Leaf ornament and surface texture",
         "Overlapping silhouettes",
         "Interior placement — visualization"
+      ],
+      "summaryParagraphs": [
+        "The composition consists of two vertical forms containing voids that resemble human silhouettes. The work’s paradox lies in the fact that the absence of material form becomes its principal carrier of meaning. The human images exist only through the space surrounding them, transforming emptiness into a kind of portrait of the invisible."
       ]
     },
     "uk": {
@@ -148,6 +154,9 @@ window.portfolioProjects.push({
         "Листяний орнамент та фактура",
         "Накладання силуетів",
         "В інтер’єрі — візуалізація"
+      ],
+      "summaryParagraphs": [
+        "Композиція складається з двох вертикальних форм, усередині яких виникають порожнини, що нагадують людські силуети. Парадокс твору полягає в тому, що саме відсутність матеріальної форми стає головним носієм сенсу. Людські образи існують лише завдяки простору, який їх оточує, перетворюючи порожнечу на своєрідний портрет невидимого."
       ]
     },
     "de": {
@@ -180,6 +189,9 @@ window.portfolioProjects.push({
         "Blattornament und Oberflächentextur",
         "Überlagerte Silhouetten",
         "Im Raum — Visualisierung"
+      ],
+      "summaryParagraphs": [
+        "Die Komposition besteht aus zwei vertikalen Formen mit Hohlräumen, die an menschliche Silhouetten erinnern. Das Paradox des Werks liegt darin, dass gerade das Fehlen einer materiellen Form zum wichtigsten Bedeutungsträger wird. Die menschlichen Bilder existieren nur durch den Raum, der sie umgibt; die Leere verwandelt sich so in eine Art Porträt des Unsichtbaren."
       ]
     },
     "pl": {
@@ -212,6 +224,9 @@ window.portfolioProjects.push({
         "Ornament liści i faktura",
         "Nakładające się sylwetki",
         "We wnętrzu — wizualizacja"
+      ],
+      "summaryParagraphs": [
+        "Kompozycja składa się z dwóch pionowych form, wewnątrz których pojawiają się puste przestrzenie przypominające ludzkie sylwetki. Paradoks dzieła polega na tym, że właśnie brak materialnej formy staje się głównym nośnikiem znaczenia. Ludzkie wizerunki istnieją jedynie dzięki otaczającej je przestrzeni, przemieniając pustkę w swoisty portret niewidzialnego."
       ]
     }
   }

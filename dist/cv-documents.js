@@ -12,6 +12,8 @@
   const path = (kind, format) => `assets/documents/Krystyna-Mishchenko-${kind}-${lang.toUpperCase()}.${format}?v=20261027-approved`;
   const section = document.querySelector('#cv');
   if (!section) return;
+  const sectionTitle=section.querySelector('.section-heading h2');
+  if(sectionTitle)sectionTitle.textContent=({ru:'ТВОРЧЕСКИЙ ПУТЬ И CV',uk:'ТВОРЧИЙ ШЛЯХ І CV',en:'ARTISTIC JOURNEY AND CV',de:'KÜNSTLERISCHER WERDEGANG UND CV',pl:'DROGA ARTYSTYCZNA I CV'})[lang];
   section.querySelector('.section-heading > a[download]')?.remove();
   const group = document.createElement('div');
   group.className = 'cv-documents';
