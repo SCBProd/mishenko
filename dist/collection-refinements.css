@@ -79,3 +79,8 @@ body[data-concept="cinema"] #works>.section-heading h2{font-size:clamp(28px,4vw,
 
 /* Raise the laptop hero copy while keeping its internal rhythm. */
 @media(min-width:701px){body[data-concept="cinema"] .cinema-copy{top:calc(23% - 30px)}}
+
+/* Bring the collection closer to the introductory statement. */
+body[data-concept="cinema"] .cinema-statement{padding-bottom:36px}
+body[data-concept="cinema"] .cinema-statement+#works{padding-top:36px}
+@media(max-width:700px){body[data-concept="cinema"] .cinema-statement{padding-bottom:24px}body[data-concept="cinema"] .cinema-statement+#works{padding-top:24px}}
