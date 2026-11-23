@@ -93,3 +93,7 @@
  body[data-concept="cinema"] .project-concept summary{padding-top:12px;padding-bottom:12px}
  body[data-concept="cinema"] .project-prose{margin-top:20px}
 }
+
+/* Compact editorial callouts: keep the rule and existing weight without stretched spacing. */
+body[data-concept="cinema"] #works .project-prose p.project-emphasis{font-size:16px;font-style:italic;line-height:1.7;text-align:left;text-align-last:left;word-spacing:normal;letter-spacing:normal;margin:20px 0;padding-left:18px}
+@media(max-width:700px){body[data-concept="cinema"] #works .project-prose p.project-emphasis{font-size:14px;line-height:1.75;margin:18px 0;padding-left:14px}}
