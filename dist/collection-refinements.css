@@ -28,3 +28,14 @@ body[data-concept="cinema"] #works p.sketch-project-note{font-size:12px;line-hei
  body[data-concept="cinema"] .sketch-series .graphic-details{margin-top:18px}
  body[data-concept="cinema"] .sketch-series-title{margin-bottom:14px}
 }
+
+/* Equal spacing after single images and thumbnail carousels on phones. */
+body[data-concept="cinema"] #about.about-editorial .artist-quote p,body[data-concept="cinema"] #about.about-editorial .artist-quote em{font-weight:700;font-style:italic}
+@media(max-width:700px){
+ body[data-concept="cinema"] #gallery[data-category="tableware"] .project-layout{row-gap:24px}
+ body[data-concept="cinema"] #gallery[data-category="tableware"] .project-carousel{display:flex;flex-direction:column}
+ body[data-concept="cinema"] #gallery[data-category="tableware"] .project-hint{margin-bottom:0}
+ body[data-concept="cinema"] #gallery[data-category="tableware"] .project-thumbnails{margin-top:16px;padding-bottom:0}
+ body[data-concept="cinema"] #gallery[data-category="tableware"] .single-photo .project-thumbnails{display:none}
+ body[data-concept="cinema"] #works .project-summary,body[data-concept="cinema"] #works .project-prose p,body[data-concept="cinema"] #works .artwork-description,body[data-concept="cinema"] #works p.sketch-project-note,body[data-concept="cinema"] #about.about-editorial .artist-intro,body[data-concept="cinema"] #about.about-editorial .artist-biography p{text-align:left;text-align-last:left;word-spacing:normal;letter-spacing:normal;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty}
+}
