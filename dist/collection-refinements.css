@@ -90,4 +90,4 @@ body[data-concept="cinema"] #cv .section-heading h2{font-size:clamp(28px,3.2vw,4
 @media(max-width:700px){body[data-concept="cinema"] #cv .section-heading h2{font-size:28px}}
 
 /* A little more air above the hero action. */
-body[data-concept="cinema"] .cinema-copy .outline-link{position:relative;top:16px}
+body[data-concept="cinema"] .cinema-copy .outline-link{position:relative;top:26px}
