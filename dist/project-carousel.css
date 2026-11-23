@@ -81,3 +81,6 @@
 .project-stage .project-prev::after{transform:translate(-35%,-50%) rotate(-135deg)}
 
 #solstice .project-stage{aspect-ratio:1.65;background:var(--bg)}
+
+/* Phone descriptions follow the image strip without stacked percentage spacing. */
+@media(max-width:700px){body[data-concept="cinema"] .project-layout{row-gap:16px}body[data-concept="cinema"] .project-layout>.project-intro{margin-top:0}}
