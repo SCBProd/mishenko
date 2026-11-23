@@ -60,3 +60,6 @@ body[data-concept="cinema"] #works .project-question{font-size:18px;font-style:i
  body[data-concept="cinema"] #works .project-title{font-size:26px}
  body[data-concept="cinema"] #works .project-question{font-size:16px;line-height:1.6;margin-bottom:16px}
 }
+
+/* Justified descriptions on phones and computers. */
+body[data-concept="cinema"] #works .project-summary,body[data-concept="cinema"] #works .project-prose p,body[data-concept="cinema"] #works .artwork-description,body[data-concept="cinema"] #works p.sketch-project-note,body[data-concept="cinema"] #about.about-editorial .artist-intro,body[data-concept="cinema"] #about.about-editorial .artist-biography p{text-align:justify;text-align-last:left;word-spacing:normal;letter-spacing:normal;hyphens:auto;-webkit-hyphens:auto;text-wrap:wrap}
