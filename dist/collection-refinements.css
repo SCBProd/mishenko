@@ -49,3 +49,14 @@ body[data-concept="cinema"] #about.about-editorial .artist-quote p,body[data-con
  body[data-concept="cinema"] .project-prose{margin-top:20px}
  body[data-concept="cinema"] #about.about-editorial .artist-quote p{font-size:15px}
 }
+
+/* Quieter headings and compact introductory questions across screen sizes. */
+body[data-concept="cinema"] #contact h2{font-size:clamp(30px,4vw,56px);line-height:1.15;letter-spacing:-.8px;padding-right:0}
+body[data-concept="cinema"] #contact h2>span{display:none}
+body[data-concept="cinema"] #works .project-title{font-size:clamp(28px,2.7vw,40px);line-height:1.15;letter-spacing:-.8px}
+body[data-concept="cinema"] #works .project-question{font-size:18px;font-style:italic;font-weight:700;line-height:1.55;letter-spacing:normal;margin-bottom:18px}
+@media(max-width:700px){
+ body[data-concept="cinema"] #contact h2{font-size:30px}
+ body[data-concept="cinema"] #works .project-title{font-size:26px}
+ body[data-concept="cinema"] #works .project-question{font-size:16px;line-height:1.6;margin-bottom:16px}
+}
