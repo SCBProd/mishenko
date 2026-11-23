@@ -345,3 +345,6 @@ h1,h2,h3,.collection-card strong,.direction-card strong{letter-spacing:normal;fo
  #about.about-photographer>.about-copy{order:6;border:0;padding:0}
  #about.about-photographer .about-copy p{font-size:14px}
 }
+
+#about.about-photographer .about-identity>.about-intro-extra{order:5;font-size:15px;line-height:1.85;margin:12px 0 0;color:var(--ink);text-align:justify;text-align-last:left;hyphens:auto;-webkit-hyphens:auto}
+@media(max-width:700px){#about.about-photographer .about-identity>.about-intro-extra{order:5;font-size:14px;margin:0 0 12px}}
