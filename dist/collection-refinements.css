@@ -88,3 +88,6 @@ body[data-concept="cinema"] .cinema-statement+#works{padding-top:36px}
 /* Compact artistic journey heading. */
 body[data-concept="cinema"] #cv .section-heading h2{font-size:clamp(28px,3.2vw,48px);line-height:1.15;letter-spacing:-.7px}
 @media(max-width:700px){body[data-concept="cinema"] #cv .section-heading h2{font-size:28px}}
+
+/* A little more air above the hero action. */
+body[data-concept="cinema"] .cinema-copy .outline-link{position:relative;top:16px}
