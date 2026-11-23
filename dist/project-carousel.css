@@ -84,3 +84,12 @@
 
 /* Phone descriptions follow the image strip without stacked percentage spacing. */
 @media(max-width:700px){body[data-concept="cinema"] .project-layout{row-gap:40px}body[data-concept="cinema"] .project-layout>.project-intro{margin-top:0}}
+
+/* Phone-only reading layout and compact disclosure spacing. */
+@media(max-width:700px){
+ body[data-concept="cinema"] .project-summary,body[data-concept="cinema"] .project-prose,body[data-concept="cinema"] .project-prose p{ text-align:justify;text-align-last:left;hyphens:auto;-webkit-hyphens:auto;word-spacing:normal;overflow-wrap:break-word}
+ body[data-concept="cinema"] .project-facts{margin-bottom:8px}
+ body[data-concept="cinema"] .project-concept{margin-top:8px}
+ body[data-concept="cinema"] .project-concept summary{padding-top:12px;padding-bottom:12px}
+ body[data-concept="cinema"] .project-prose{margin-top:20px}
+}
