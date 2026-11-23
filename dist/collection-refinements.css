@@ -14,3 +14,17 @@ body[data-concept="cinema"] #gallery[data-category="tableware"],body[data-concep
 
 /* Category totals already appear in the navigation tabs. */
 body[data-concept="cinema"] #work-count{display:none}
+
+/* Consistent mobile spacing across the remaining portfolio collections. */
+body[data-concept="cinema"] .graphics-collection .artwork-description strong,body[data-concept="cinema"] .graphic-dialog .artwork-description strong{font-style:italic}
+body[data-concept="cinema"] main p.sketch-project-note{font-size:12px;line-height:1.7;text-align:justify;text-align-last:left;hyphens:auto;-webkit-hyphens:auto;word-spacing:normal;margin-top:12px}
+@media(max-width:700px){
+ body[data-concept="cinema"] #gallery[data-category="tableware"] .project-layout,body[data-concept="cinema"] #gallery[data-category="panels"] .project-layout{row-gap:20px}
+ body[data-concept="cinema"] #gallery[data-category="tableware"] .project-intro,body[data-concept="cinema"] #gallery[data-category="panels"] .project-intro{margin-top:0;padding-top:0}
+ body[data-concept="cinema"] #gallery[data-category="sketches"]{row-gap:24px}
+ body[data-concept="cinema"] .sketch-series{padding-bottom:18px}
+ body[data-concept="cinema"] .sketch-series .project-caption{margin-top:10px;padding-top:0}
+ body[data-concept="cinema"] .sketch-series .project-thumbnails{margin-top:12px}
+ body[data-concept="cinema"] .sketch-series .graphic-details{margin-top:18px}
+ body[data-concept="cinema"] .sketch-series-title{margin-bottom:14px}
+}
