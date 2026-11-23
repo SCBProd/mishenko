@@ -39,3 +39,13 @@ body[data-concept="cinema"] #about.about-editorial .artist-quote p,body[data-con
  body[data-concept="cinema"] #gallery[data-category="tableware"] .single-photo .project-thumbnails{display:none}
  body[data-concept="cinema"] #works .project-summary,body[data-concept="cinema"] #works .project-prose p,body[data-concept="cinema"] #works .artwork-description,body[data-concept="cinema"] #works p.sketch-project-note,body[data-concept="cinema"] #about.about-editorial .artist-intro,body[data-concept="cinema"] #about.about-editorial .artist-biography p{text-align:left;text-align-last:left;word-spacing:normal;letter-spacing:normal;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty}
 }
+
+/* The approved text treatment also applies to the computer layout. */
+@media(min-width:701px){
+ body[data-concept="cinema"] #works .project-summary,body[data-concept="cinema"] #works .project-prose p,body[data-concept="cinema"] #works .artwork-description,body[data-concept="cinema"] #works p.sketch-project-note,body[data-concept="cinema"] #about.about-editorial .artist-intro,body[data-concept="cinema"] #about.about-editorial .artist-biography p{text-align:left;text-align-last:left;word-spacing:normal;letter-spacing:normal;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty}
+ body[data-concept="cinema"] .project-facts{margin-bottom:8px}
+ body[data-concept="cinema"] .project-concept{margin-top:8px}
+ body[data-concept="cinema"] .project-concept summary{padding-top:12px;padding-bottom:12px}
+ body[data-concept="cinema"] .project-prose{margin-top:20px}
+ body[data-concept="cinema"] #about.about-editorial .artist-quote p{font-size:15px}
+}
