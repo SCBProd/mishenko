@@ -66,3 +66,13 @@ body[data-concept="cinema"] #works .project-summary,body[data-concept="cinema"] 
 
 /* Expanded ceramic concepts use the full project width on computers. */
 @media(min-width:701px){body[data-concept="cinema"] #works .project-work>.project-concept>.project-prose{width:100%;max-width:none;columns:auto;box-sizing:border-box}}
+
+/* More restrained scale for the three main portfolio headings. */
+body[data-concept="cinema"] .cinema-copy h1{font-size:clamp(40px,5.5vw,90px);letter-spacing:-2px}
+body[data-concept="cinema"] .cinema-statement p{font-size:clamp(22px,2.85vw,45px)}
+body[data-concept="cinema"] #works>.section-heading h2{font-size:clamp(28px,4vw,60px);letter-spacing:-1px}
+@media(max-width:700px){
+ body[data-concept="cinema"] .cinema-copy h1{font-size:9vw;letter-spacing:-1px}
+ body[data-concept="cinema"] .cinema-statement p{font-size:clamp(20px,5vw,30px)}
+ body[data-concept="cinema"] #works>.section-heading h2{font-size:clamp(22px,5.1vw,30px);letter-spacing:-.6px}
+}
