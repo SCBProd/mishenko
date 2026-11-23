@@ -97,6 +97,6 @@ body[data-concept="cinema"] .cinema-copy .outline-link{position:relative;top:26p
  body[data-concept="cinema"] #works .project-summary,body[data-concept="cinema"] #works .project-prose p{margin-bottom:12px}
  body[data-concept="cinema"] #works .project-prose p.project-emphasis{margin-top:14px;margin-bottom:14px}
  body[data-concept="cinema"] .cinema-intro{height:560px;min-height:0;max-height:none}
- body[data-concept="cinema"] .cinema-copy{top:28px;bottom:auto}
+ body[data-concept="cinema"] .cinema-copy{top:44px;bottom:auto}
  body[data-concept="cinema"] .hero-arrows button{top:50%;bottom:auto;transform:translateY(-50%)}
 }
